@@ -6,7 +6,7 @@ import 'package:jeebly_mobile/core/theme/styles.dart';
 import 'package:jeebly_mobile/core/widgets/custom_divider.dart';
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/views/widgets/about.dart';
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/views/widgets/account_header.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/views/widgets/app_settings.dart';
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/views/widgets/delete_account_dialog.dart';
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/views/widgets/logout.dart';

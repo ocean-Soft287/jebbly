@@ -6,7 +6,7 @@ import 'package:jeebly_mobile/core/routing/routes_names.dart';
 import 'package:jeebly_mobile/core/theme/styles.dart';
 import 'package:jeebly_mobile/core/widgets/custom_text.dart';
 import 'package:jeebly_mobile/core/widgets/custom_text_field.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:jeebly_mobile/features/auth/cubit/auth_cubit.dart';
 import 'package:jeebly_mobile/features/auth/cubit/auth_state.dart';
 

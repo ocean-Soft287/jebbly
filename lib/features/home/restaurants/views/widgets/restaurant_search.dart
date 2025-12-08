@@ -5,7 +5,7 @@ import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/theme/styles.dart';
 import 'package:jeebly_mobile/core/widgets/custom_divider.dart';
 import 'package:jeebly_mobile/core/widgets/custom_search_bar.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:dynamic_tabbar/dynamic_tabbar.dart';
 
 class RestaurantSearch extends StatelessWidget {

@@ -6,7 +6,7 @@ import 'package:jeebly_mobile/core/helpers/app_assets.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/theme/styles.dart';
 import 'package:jeebly_mobile/core/widgets/custom_svg.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class MapWidget extends StatelessWidget {
   const MapWidget({super.key, required this.cubit});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jeebly_mobile/core/widgets/custom_text_field.dart';
 import 'package:jeebly_mobile/features/auth/views/widgets/country_picker.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class PhoneField extends StatelessWidget {
   const PhoneField({super.key});

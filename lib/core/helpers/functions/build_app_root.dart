@@ -6,7 +6,7 @@ import 'package:jeebly_mobile/core/di/setup_get.dart';
 import 'package:jeebly_mobile/core/helpers/localization/locale_cubit.dart';
 import 'package:jeebly_mobile/core/routing/app_router.dart';
 import 'package:jeebly_mobile/core/theme/app_theme.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:jeebly_mobile/l10n/l10n.dart';
 
 Widget buildAppRoot(BuildContext context) {

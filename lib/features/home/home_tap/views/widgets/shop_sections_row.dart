@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jeebly_mobile/features/home/home_tap/views/widgets/shop_section.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class ShopSectionsRow extends StatelessWidget {
   const ShopSectionsRow({super.key});

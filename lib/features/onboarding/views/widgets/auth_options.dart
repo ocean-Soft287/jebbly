@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:jeebly_mobile/core/routing/routes_names.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/widgets/custom_button.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:jeebly_mobile/features/onboarding/cubit/onboarding_cubit.dart';
 
 class AuthOptions extends StatelessWidget {

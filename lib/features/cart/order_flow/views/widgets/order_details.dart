@@ -12,7 +12,7 @@ import 'package:jeebly_mobile/core/widgets/custom_text.dart';
 import 'package:jeebly_mobile/core/widgets/product/delivery_toggle_button.dart';
 import 'package:jeebly_mobile/features/cart/order_flow/cubit/order_flow_cubit.dart';
 import 'package:jeebly_mobile/features/cart/order_flow/cubit/order_flow_state.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class OrderDetails extends StatelessWidget {
   const OrderDetails({super.key});

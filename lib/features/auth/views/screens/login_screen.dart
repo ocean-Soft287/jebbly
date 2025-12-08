@@ -7,7 +7,7 @@ import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/features/auth/views/widgets/auth_app_bar.dart';
 import 'package:jeebly_mobile/features/auth/views/widgets/auth_footer.dart';
 import 'package:jeebly_mobile/features/auth/views/widgets/auth_header_texts.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:jeebly_mobile/features/auth/views/widgets/login_button.dart';
 import 'package:jeebly_mobile/features/auth/views/widgets/login_form.dart';
 

@@ -5,7 +5,7 @@ import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/theme/styles.dart';
 import 'package:jeebly_mobile/core/widgets/custom_app_bar.dart';
 import 'package:jeebly_mobile/core/widgets/custom_text.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:jeebly_mobile/features/auth/views/widgets/new_password_form.dart';
 import 'package:jeebly_mobile/features/auth/views/widgets/password_reset_confirm_button.dart';
 

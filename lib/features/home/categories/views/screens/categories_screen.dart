@@ -7,7 +7,7 @@ import 'package:jeebly_mobile/core/widgets/custom_search_bar.dart';
 import 'package:jeebly_mobile/features/home/categories/views/widgets/categories_grid.dart';
 import 'package:jeebly_mobile/features/layout/views/widgets/layout/layout_app_bar.dart';
 import 'package:jeebly_mobile/features/layout/views/widgets/layout/layout_drawer.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});

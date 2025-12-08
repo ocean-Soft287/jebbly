@@ -5,7 +5,7 @@ import 'package:jeebly_mobile/core/widgets/custom_svg.dart';
 import 'package:jeebly_mobile/features/fav/views/screens/fav_tap.dart';
 import 'package:jeebly_mobile/features/home/home_tap/views/screens/home_screen.dart';
 import 'package:jeebly_mobile/features/layout/cubit/layout/layout_state.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:jeebly_mobile/features/my_orders/views/screens/my_orders_tap.dart';
 import 'package:jeebly_mobile/features/offers/views/screens/offers_tap.dart';
 

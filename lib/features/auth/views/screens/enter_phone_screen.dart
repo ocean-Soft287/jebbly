@@ -14,7 +14,7 @@ import 'package:jeebly_mobile/features/auth/cubit/auth_state.dart';
 import 'package:jeebly_mobile/features/auth/views/widgets/auth_footer.dart';
 import 'package:jeebly_mobile/features/auth/views/widgets/auth_header_texts.dart';
 import 'package:jeebly_mobile/features/auth/views/widgets/phone_field.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class EnterPhoneScreen extends StatelessWidget {
   const EnterPhoneScreen({super.key, this.fromAccount});

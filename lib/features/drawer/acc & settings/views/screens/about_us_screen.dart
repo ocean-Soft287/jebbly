@@ -11,7 +11,7 @@ import 'package:jeebly_mobile/core/widgets/custom_divider.dart';
 import 'package:jeebly_mobile/core/widgets/custom_image.dart';
 import 'package:jeebly_mobile/core/widgets/custom_svg.dart';
 import 'package:jeebly_mobile/core/widgets/custom_text.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/cubit/account_cubit.dart';
 
 class AboutUsScreen extends StatelessWidget {

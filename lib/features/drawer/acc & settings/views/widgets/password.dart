@@ -6,7 +6,7 @@ import 'package:jeebly_mobile/core/helpers/app_assets.dart';
 import 'package:jeebly_mobile/core/routing/routes_names.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/widgets/custom_svg.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class Password extends StatelessWidget {
   const Password({super.key});

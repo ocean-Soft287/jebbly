@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/widgets/custom_svg.dart';
 import 'package:jeebly_mobile/core/theme/styles.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class SectionItem extends StatelessWidget {
   const SectionItem(

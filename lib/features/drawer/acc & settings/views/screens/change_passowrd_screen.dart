@@ -9,7 +9,7 @@ import 'package:jeebly_mobile/core/widgets/custom_button.dart';
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/cubit/account_cubit.dart';
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/views/widgets/password_form.dart';
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/views/widgets/password_logo.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
   const ChangePasswordScreen({super.key});

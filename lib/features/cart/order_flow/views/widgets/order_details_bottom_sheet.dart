@@ -8,7 +8,7 @@ import 'package:jeebly_mobile/core/widgets/custom_divider.dart';
 import 'package:jeebly_mobile/core/widgets/custom_image.dart';
 import 'package:jeebly_mobile/core/widgets/custom_svg.dart';
 import 'package:jeebly_mobile/core/widgets/custom_text.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class OrderDetailsBottomSheet extends StatelessWidget {
   const OrderDetailsBottomSheet({super.key});

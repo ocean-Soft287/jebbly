@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:jeebly_mobile/core/helpers/app_assets.dart';
 import 'package:jeebly_mobile/core/routing/routes_names.dart';
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/views/widgets/account_section.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/views/widgets/section_item.dart';
 
 class About extends StatelessWidget {

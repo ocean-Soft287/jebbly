@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:jeebly_mobile/core/widgets/custom_button.dart';
 import 'package:jeebly_mobile/features/drawer/addresses/cubit/address_cubit.dart';
 import 'package:jeebly_mobile/features/drawer/addresses/cubit/address_state.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class ConfirmAddressButton extends StatelessWidget {
   const ConfirmAddressButton({super.key});

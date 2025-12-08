@@ -6,7 +6,7 @@ import 'package:jeebly_mobile/core/widgets/product/main_ingredients.dart';
 import 'package:jeebly_mobile/core/widgets/product/product_cover.dart';
 import 'package:jeebly_mobile/core/widgets/product/product_info.dart';
 import 'package:jeebly_mobile/features/home/restaurants/views/widgets/cart_bottom_sheet.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   const ProductDetailsScreen({super.key, this.withIngredients});

@@ -8,7 +8,7 @@ import 'package:jeebly_mobile/features/onboarding/views/widgets/onboarding_image
 import 'package:jeebly_mobile/features/onboarding/views/widgets/onboarding_text.dart';
 import 'package:jeebly_mobile/features/onboarding/views/widgets/page_indicator.dart';
 import 'package:gap/gap.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:jeebly_mobile/core/helpers/localization/locale_cubit.dart';
 import 'package:jeebly_mobile/features/onboarding/views/widgets/theme_button.dart';
 

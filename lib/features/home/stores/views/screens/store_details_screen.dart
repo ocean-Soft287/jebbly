@@ -7,7 +7,7 @@ import 'package:jeebly_mobile/core/widgets/custom_text.dart';
 import 'package:jeebly_mobile/features/home/categories/views/widgets/categories_grid.dart';
 import 'package:jeebly_mobile/features/home/stores/views/widgets/store_header.dart';
 import 'package:jeebly_mobile/features/home/stores/views/widgets/store_info.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class StoreDetailsScreen extends StatelessWidget {
   const StoreDetailsScreen({super.key});

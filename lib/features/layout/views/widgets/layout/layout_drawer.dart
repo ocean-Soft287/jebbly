@@ -8,7 +8,7 @@ import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/widgets/custom_divider.dart';
 import 'package:jeebly_mobile/features/layout/views/widgets/layout/drawer_app_bar.dart';
 import 'package:jeebly_mobile/features/layout/views/widgets/layout/drawer_item.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class LayoutDrawer extends StatelessWidget {
   const LayoutDrawer({super.key});
