@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:jeebly_mobile/core/theme/styles.dart';
@@ -21,6 +22,7 @@ class RestaurantData extends StatelessWidget {
           Column(children: [
             Text(AppLocalizations.of(context)!.delivery,
                 style: Styles.textStyle12_600.copyWith(color: AppColors.grey0)),
+                Gap(6.h),
             Text('7.25 د.ل', style: Styles.textStyle10_600)
           ]),
           HorizontalDivider(height: 30.h),
@@ -29,6 +31,7 @@ class RestaurantData extends StatelessWidget {
           Column(children: [
             Text(AppLocalizations.of(context)!.rating,
                 style: Styles.textStyle12_600.copyWith(color: AppColors.grey0)),
+                Gap(6.h),
             Row(children: [
               Icon(Icons.star, color: AppColors.yellow, size: 10.sp),
               Text('4.1',
@@ -41,6 +44,7 @@ class RestaurantData extends StatelessWidget {
           Column(children: [
             Text(AppLocalizations.of(context)!.preparation_time,
                 style: Styles.textStyle12_600.copyWith(color: AppColors.grey0)),
+                Gap(6.h),
             Text('30 د', style: Styles.textStyle10_600)
           ])
         ]));

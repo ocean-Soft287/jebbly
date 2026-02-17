@@ -52,8 +52,8 @@ class RestaurantSearch extends StatelessWidget {
                   indicatorWeight: 2.h,
                   indicatorPadding: EdgeInsets.symmetric(horizontal: 17.w),
                   labelStyle:
-                      Styles.textStyle16_500.copyWith(color: AppColors.primary),
-                  unselectedLabelStyle: Styles.textStyle16_500)),
+                      Styles.textStyle16_500.copyWith(color: AppColors.primary, fontFamily: 'Rubik'),
+                  unselectedLabelStyle: Styles.textStyle16_500.copyWith(fontFamily: 'Rubik'))),
           const CustomDivider()
         ]));
   }

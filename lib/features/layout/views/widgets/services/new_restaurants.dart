@@ -11,12 +11,13 @@ class NewRestaurants extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Text(AppLocalizations.of(context)!.new_restaurant,
           style: Styles.textStyle15_600.copyWith(color: AppColors.black0)),
       Gap(12.h),
       SizedBox(
-          height: 180.h,
+          height: screenHeight * 0.27,
           child: ListView.separated(
               scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
