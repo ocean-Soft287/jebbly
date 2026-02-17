@@ -61,8 +61,16 @@ flutter:
     - assets/icons/
 
   fonts:
-    - family: inter
+    - family: Rubik
       fonts:
-        - asset: assets/fonts/inter/inter.ttc
-        - asset: assets/fonts/inter/InterVariable.ttf
-        - asset: assets/fonts/inter/InterVariable-Italic.ttf
+        - asset: assets/fonts/Rubik-Regular.ttf
+        - asset: assets/fonts/Rubik-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Rubik-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Rubik-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Rubik-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Rubik-Italic.ttf
+          style: italic
