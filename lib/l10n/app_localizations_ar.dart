@@ -511,4 +511,139 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get go_back => 'رجوع';
+
+  @override
+  String get noWhatsAppAvailable => 'رقم واتساب غير متوفر';
+
+  @override
+  String get failedToOpenWhatsApp => 'فشل في فتح واتساب';
+
+  @override
+  String get noFacebookAvailable => 'رابط فيسبوك غير متوفر';
+
+  @override
+  String get failedToOpenFacebook => 'فشل في فتح فيسبوك';
+
+  @override
+  String get noInstagramAvailable => 'اسم مستخدم إنستغرام غير متوفر';
+
+  @override
+  String get failedToOpenInstagram => 'فشل في فتح إنستغرام';
+
+  @override
+  String get noTwitterAvailable => 'اسم مستخدم تويتر غير متوفر';
+
+  @override
+  String get failedToOpenTwitter => 'فشل في فتح تويتر';
+
+  @override
+  String get noSnapchatAvailable => 'اسم مستخدم سناب شات غير متوفر';
+
+  @override
+  String get failedToOpenSnapchat => 'فشل في فتح سناب شات';
+
+  @override
+  String get noTelegramAvailable => 'معرف تيليغرام غير متوفر';
+
+  @override
+  String get failedToOpenTelegram => 'فشل في فتح تيليغرام';
+
+  @override
+  String get noLinkedInAvailable => 'رابط لينكدإن غير متوفر';
+
+  @override
+  String get failedToOpenLinkedIn => 'فشل في فتح لينكدإن';
+
+  @override
+  String get noEmailAvailable => 'البريد الإلكتروني غير متوفر';
+
+  @override
+  String get failedToOpenEmail => 'فشل في فتح البريد الإلكتروني';
+
+  @override
+  String get noPhoneNumberAvailable => 'رقم الهاتف غير متوفر';
+
+  @override
+  String get failedToOpenPhoneDialer => 'فشل في فتح الهاتف';
+
+  @override
+  String get noWebsiteAvailable => 'رابط الموقع غير متوفر';
+
+  @override
+  String get failedToOpenWebsite => 'فشل في فتح الموقع';
+
+  @override
+  String get chooseFileType => 'اختر نوع الملف';
+
+  @override
+  String get choosePdf => 'اختر ملف PDF';
+
+  @override
+  String get onlyPdfAllowed => 'يُسمح فقط بملفات PDF';
+
+  @override
+  String get nameMustBeNotEmpty => 'الاسم يجب ألا يكون فارغًا';
+
+  @override
+  String get invalidName => 'اسم غير صالح';
+
+  @override
+  String get usernameCannotBeOnlySpaces => 'اسم المستخدم لا يمكن أن يحتوي على مسافات فقط';
+
+  @override
+  String get usernameCannotStartWithSpace => 'اسم المستخدم لا يمكن أن يبدأ بمسافة';
+
+  @override
+  String get emailMustBeNotEmpty => 'البريد الإلكتروني يجب ألا يكون فارغًا';
+
+  @override
+  String get enter_vaild_email => 'يرجى إدخال بريد إلكتروني صالح';
+
+  @override
+  String get please_enter_password => 'يرجى إدخال كلمة السر';
+
+  @override
+  String get password_length => 'كلمة السر يجب أن تكون 8 أحرف على الأقل';
+
+  @override
+  String get password_not_match => 'كلمتا السر غير متطابقتين';
+
+  @override
+  String get phoneNumberEmpty => 'رقم الهاتف فارغ';
+
+  @override
+  String get phoneNumberLength => 'رقم الهاتف يجب أن يكون 11 رقمًا';
+
+  @override
+  String get invalidPhoneNumberFormat => 'تنسيق رقم الهاتف غير صالح';
+
+  @override
+  String get locationEmpty => 'الموقع فارغ';
+
+  @override
+  String get fieldEmpty => 'الحقل فارغ';
+
+  @override
+  String get timeEmpty => 'الوقت فارغ';
+
+  @override
+  String get invalidTime => 'وقت غير صالح';
+
+  @override
+  String get invalidAge => 'عمر غير صالح';
+
+  @override
+  String get countryEmpty => 'البلد فارغ';
+
+  @override
+  String get cityEmpty => 'المدينة فارغة';
+
+  @override
+  String get nationalIdEmpty => 'الرقم القومي فارغ';
+
+  @override
+  String get invalidNationalId => 'رقم قومي غير صالح';
+
+  @override
+  String get onlyEnglishDigits => 'مسموح فقط بالأرقام الإنجليزية';
 }

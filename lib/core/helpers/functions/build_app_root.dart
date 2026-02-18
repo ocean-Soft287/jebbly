@@ -2,7 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:jeebly_mobile/core/di/setup_get.dart';
+import 'package:jeebly_mobile/core/service_locator/setup_get.dart';
 import 'package:jeebly_mobile/core/helpers/localization/locale_cubit.dart';
 import 'package:jeebly_mobile/core/routing/app_router.dart';
 import 'package:jeebly_mobile/core/theme/app_theme.dart';

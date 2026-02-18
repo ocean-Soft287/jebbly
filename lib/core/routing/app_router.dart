@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:jeebly_mobile/core/di/setup_get.dart';
+import 'package:jeebly_mobile/core/service_locator/setup_get.dart';
 import 'package:jeebly_mobile/core/routing/routes_names.dart';
 import 'package:jeebly_mobile/core/widgets/product/product_details_screen.dart';
 import 'package:jeebly_mobile/features/auth/views/screens/login_screen.dart';

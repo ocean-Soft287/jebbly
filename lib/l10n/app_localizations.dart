@@ -1102,6 +1102,276 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Go back'**
   String get go_back;
+
+  /// No description provided for @noWhatsAppAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'WhatsApp number not available'**
+  String get noWhatsAppAvailable;
+
+  /// No description provided for @failedToOpenWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to open WhatsApp'**
+  String get failedToOpenWhatsApp;
+
+  /// No description provided for @noFacebookAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Facebook link not available'**
+  String get noFacebookAvailable;
+
+  /// No description provided for @failedToOpenFacebook.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to open Facebook'**
+  String get failedToOpenFacebook;
+
+  /// No description provided for @noInstagramAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Instagram username not available'**
+  String get noInstagramAvailable;
+
+  /// No description provided for @failedToOpenInstagram.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to open Instagram'**
+  String get failedToOpenInstagram;
+
+  /// No description provided for @noTwitterAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Twitter username not available'**
+  String get noTwitterAvailable;
+
+  /// No description provided for @failedToOpenTwitter.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to open Twitter'**
+  String get failedToOpenTwitter;
+
+  /// No description provided for @noSnapchatAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Snapchat username not available'**
+  String get noSnapchatAvailable;
+
+  /// No description provided for @failedToOpenSnapchat.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to open Snapchat'**
+  String get failedToOpenSnapchat;
+
+  /// No description provided for @noTelegramAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Telegram identifier not available'**
+  String get noTelegramAvailable;
+
+  /// No description provided for @failedToOpenTelegram.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to open Telegram'**
+  String get failedToOpenTelegram;
+
+  /// No description provided for @noLinkedInAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'LinkedIn link not available'**
+  String get noLinkedInAvailable;
+
+  /// No description provided for @failedToOpenLinkedIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to open LinkedIn'**
+  String get failedToOpenLinkedIn;
+
+  /// No description provided for @noEmailAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Email not available'**
+  String get noEmailAvailable;
+
+  /// No description provided for @failedToOpenEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to open email'**
+  String get failedToOpenEmail;
+
+  /// No description provided for @noPhoneNumberAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone number not available'**
+  String get noPhoneNumberAvailable;
+
+  /// No description provided for @failedToOpenPhoneDialer.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to open phone dialer'**
+  String get failedToOpenPhoneDialer;
+
+  /// No description provided for @noWebsiteAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Website link not available'**
+  String get noWebsiteAvailable;
+
+  /// No description provided for @failedToOpenWebsite.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to open website'**
+  String get failedToOpenWebsite;
+
+  /// No description provided for @chooseFileType.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose file type'**
+  String get chooseFileType;
+
+  /// No description provided for @choosePdf.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose PDF file'**
+  String get choosePdf;
+
+  /// No description provided for @onlyPdfAllowed.
+  ///
+  /// In en, this message translates to:
+  /// **'Only PDF files are allowed'**
+  String get onlyPdfAllowed;
+
+  /// No description provided for @nameMustBeNotEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Name must not be empty'**
+  String get nameMustBeNotEmpty;
+
+  /// No description provided for @invalidName.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid name'**
+  String get invalidName;
+
+  /// No description provided for @usernameCannotBeOnlySpaces.
+  ///
+  /// In en, this message translates to:
+  /// **'Username cannot contain only spaces'**
+  String get usernameCannotBeOnlySpaces;
+
+  /// No description provided for @usernameCannotStartWithSpace.
+  ///
+  /// In en, this message translates to:
+  /// **'Username cannot start with a space'**
+  String get usernameCannotStartWithSpace;
+
+  /// No description provided for @emailMustBeNotEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Email must not be empty'**
+  String get emailMustBeNotEmpty;
+
+  /// No description provided for @enter_vaild_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email'**
+  String get enter_vaild_email;
+
+  /// No description provided for @please_enter_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter password'**
+  String get please_enter_password;
+
+  /// No description provided for @password_length.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 8 characters'**
+  String get password_length;
+
+  /// No description provided for @password_not_match.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get password_not_match;
+
+  /// No description provided for @phoneNumberEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone number is empty'**
+  String get phoneNumberEmpty;
+
+  /// No description provided for @phoneNumberLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone number must be 11 digits'**
+  String get phoneNumberLength;
+
+  /// No description provided for @invalidPhoneNumberFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid phone number format'**
+  String get invalidPhoneNumberFormat;
+
+  /// No description provided for @locationEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Location is empty'**
+  String get locationEmpty;
+
+  /// No description provided for @fieldEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Field is empty'**
+  String get fieldEmpty;
+
+  /// No description provided for @timeEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Time is empty'**
+  String get timeEmpty;
+
+  /// No description provided for @invalidTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid time'**
+  String get invalidTime;
+
+  /// No description provided for @invalidAge.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid age'**
+  String get invalidAge;
+
+  /// No description provided for @countryEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Country is empty'**
+  String get countryEmpty;
+
+  /// No description provided for @cityEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'City is empty'**
+  String get cityEmpty;
+
+  /// No description provided for @nationalIdEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'National ID is empty'**
+  String get nationalIdEmpty;
+
+  /// No description provided for @invalidNationalId.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid national ID'**
+  String get invalidNationalId;
+
+  /// No description provided for @onlyEnglishDigits.
+  ///
+  /// In en, this message translates to:
+  /// **'Only English digits are allowed'**
+  String get onlyEnglishDigits;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

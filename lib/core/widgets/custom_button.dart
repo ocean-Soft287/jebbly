@@ -92,7 +92,7 @@ class CustomButton extends StatelessWidget {
                                           ? AppColors.grey1
                                           : AppColors.white),
                                   fontWeight: fontWeight ?? FontWeight.w600,
-                              fontFamily: 'inter'),
+                              fontFamily: 'Rubik'),
                           overflow: textOverflow ?? TextOverflow.ellipsis,
                           textAlign: TextAlign.start, // Align text to the start
                         )

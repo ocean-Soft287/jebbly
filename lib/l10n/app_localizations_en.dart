@@ -511,4 +511,139 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get go_back => 'Go back';
+
+  @override
+  String get noWhatsAppAvailable => 'WhatsApp number not available';
+
+  @override
+  String get failedToOpenWhatsApp => 'Failed to open WhatsApp';
+
+  @override
+  String get noFacebookAvailable => 'Facebook link not available';
+
+  @override
+  String get failedToOpenFacebook => 'Failed to open Facebook';
+
+  @override
+  String get noInstagramAvailable => 'Instagram username not available';
+
+  @override
+  String get failedToOpenInstagram => 'Failed to open Instagram';
+
+  @override
+  String get noTwitterAvailable => 'Twitter username not available';
+
+  @override
+  String get failedToOpenTwitter => 'Failed to open Twitter';
+
+  @override
+  String get noSnapchatAvailable => 'Snapchat username not available';
+
+  @override
+  String get failedToOpenSnapchat => 'Failed to open Snapchat';
+
+  @override
+  String get noTelegramAvailable => 'Telegram identifier not available';
+
+  @override
+  String get failedToOpenTelegram => 'Failed to open Telegram';
+
+  @override
+  String get noLinkedInAvailable => 'LinkedIn link not available';
+
+  @override
+  String get failedToOpenLinkedIn => 'Failed to open LinkedIn';
+
+  @override
+  String get noEmailAvailable => 'Email not available';
+
+  @override
+  String get failedToOpenEmail => 'Failed to open email';
+
+  @override
+  String get noPhoneNumberAvailable => 'Phone number not available';
+
+  @override
+  String get failedToOpenPhoneDialer => 'Failed to open phone dialer';
+
+  @override
+  String get noWebsiteAvailable => 'Website link not available';
+
+  @override
+  String get failedToOpenWebsite => 'Failed to open website';
+
+  @override
+  String get chooseFileType => 'Choose file type';
+
+  @override
+  String get choosePdf => 'Choose PDF file';
+
+  @override
+  String get onlyPdfAllowed => 'Only PDF files are allowed';
+
+  @override
+  String get nameMustBeNotEmpty => 'Name must not be empty';
+
+  @override
+  String get invalidName => 'Invalid name';
+
+  @override
+  String get usernameCannotBeOnlySpaces => 'Username cannot contain only spaces';
+
+  @override
+  String get usernameCannotStartWithSpace => 'Username cannot start with a space';
+
+  @override
+  String get emailMustBeNotEmpty => 'Email must not be empty';
+
+  @override
+  String get enter_vaild_email => 'Please enter a valid email';
+
+  @override
+  String get please_enter_password => 'Please enter password';
+
+  @override
+  String get password_length => 'Password must be at least 8 characters';
+
+  @override
+  String get password_not_match => 'Passwords do not match';
+
+  @override
+  String get phoneNumberEmpty => 'Phone number is empty';
+
+  @override
+  String get phoneNumberLength => 'Phone number must be 11 digits';
+
+  @override
+  String get invalidPhoneNumberFormat => 'Invalid phone number format';
+
+  @override
+  String get locationEmpty => 'Location is empty';
+
+  @override
+  String get fieldEmpty => 'Field is empty';
+
+  @override
+  String get timeEmpty => 'Time is empty';
+
+  @override
+  String get invalidTime => 'Invalid time';
+
+  @override
+  String get invalidAge => 'Invalid age';
+
+  @override
+  String get countryEmpty => 'Country is empty';
+
+  @override
+  String get cityEmpty => 'City is empty';
+
+  @override
+  String get nationalIdEmpty => 'National ID is empty';
+
+  @override
+  String get invalidNationalId => 'Invalid national ID';
+
+  @override
+  String get onlyEnglishDigits => 'Only English digits are allowed';
 }
