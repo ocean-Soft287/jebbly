@@ -18,8 +18,8 @@ class HiveServiceImpl implements IUserCache,ITokenCache,IThemeCache{
   static const String themeModeKey = 'theme_mode';
   static Box<String>? _themeBox;
 
-  // static Box<UserModel>? _userBox;
-  // static Box<UserToken>? _tokenBox;
+  static Box<UserModel>? _userBox;
+  static Box<UserToken>? _tokenBox;
 
   const HiveServiceImpl._();
 
@@ -27,11 +27,11 @@ class HiveServiceImpl implements IUserCache,ITokenCache,IThemeCache{
 
   static Future<void> init() async {
     await Hive.initFlutter();
-    // Hive.registerAdapter(UserModelAdapter());
-    // Hive.registerAdapter(UserTokenAdapter());
+    Hive.registerAdapter(UserModelAdapter());
+    Hive.registerAdapter(UserTokenAdapter());
     // //open boxes
-    // _userBox = await Hive.openBox<UserModel>(userBoxName);
-    // _tokenBox = await Hive.openBox<UserToken>(tokenBoxName);
+    _userBox = await Hive.openBox<UserModel>(userBoxName);
+    _tokenBox = await Hive.openBox<UserToken>(tokenBoxName);
     _themeBox = await Hive.openBox<String>(themeBoxName);
   }
   // ---------------------- User ----------------------
@@ -110,50 +110,46 @@ class HiveServiceImpl implements IUserCache,ITokenCache,IThemeCache{
   }
 
   Future<void> clearAll() async {
-    // await _userBox?.clear();
-    // await _tokenBox?.clear();
+    await _userBox?.clear();
+    await _tokenBox?.clear();
     await _themeBox?.clear();
   }
   
   @override
-  Future<void> cacheUserModel(user) {
-    // TODO: implement cacheUserModel
-    throw UnimplementedError();
+  Future<void> clearAccessToken() async {
+    await _tokenBox?.delete(accessTokenKey);
   }
   
   @override
-  void clearAccessToken() {
-    // TODO: implement clearAccessToken
+  Future<void> clearUserModel() async {
+await _userBox?.delete(currentUserKey);  
   }
   
   @override
-  Future<void> clearUserModel() {
-    // TODO: implement clearUserModel
-    throw UnimplementedError();
+  UserToken? getAccessToken() {
+    return _tokenBox?.get(accessTokenKey);
   }
   
   @override
-  getAccessToken() {
-    // TODO: implement getAccessToken
-    throw UnimplementedError();
+  Future<void> saveAccessToken(UserToken token) async {
+   await _tokenBox?.put(accessTokenKey, token);
   }
   
-  @override
-  getCachedUserModel() {
-    // TODO: implement getCachedUserModel
-    throw UnimplementedError();
-  }
   
+
   @override
-  Future<void> saveAccessToken(token) {
-    // TODO: implement saveAccessToken
-    throw UnimplementedError();
-  }
-  
-  @override
-  Future<void> updateCachedUserModel(user) {
-    // TODO: implement updateCachedUserModel
-    throw UnimplementedError();
+  Future<void> cacheUserModel(UserModel user) async {
+    await _userBox?.put(currentUserKey, user);
   }
 
+  @override
+  UserModel? getCachedUserModel() {
+    final user = _userBox?.get(currentUserKey);
+    if (user != null) {
+      // loggerVerbose('User fields: ${user.toJson()}'); // Make sure toJson() exists
+    }
+    return user;
+  }
+  
 }
+

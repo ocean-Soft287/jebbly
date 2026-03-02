@@ -1,11 +1,11 @@
 abstract interface class Endpoints {
-  static const String baseUrl = 'https://app.professional-lawyer.com/api/';
+  static const String baseUrl = 'http://78.89.159.126:9393/TheOneAPIJeebly/api/';
   static const String updateLocation = '';
 
   // ****************************** Auth ********************************
-  static const String register = 'register';
+  static const String register = 'AuthClient/register';
   static const String verifyOtp = 'verify-otp';
-  static const String login = 'login';
+  static const String login = 'AuthClient/login';
   static const String forgetPassword = 'forgot/password';
   static const String resetPasssword = 'forgot/reset-password';
   static const String confirmPassword = '';

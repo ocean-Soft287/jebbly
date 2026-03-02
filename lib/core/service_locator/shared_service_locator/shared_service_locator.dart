@@ -66,9 +66,6 @@ class SharedServiceLocator {
     getIt.registerLazySingleton<ConnectivityService>(
         () => ConnectivityService.instance);
 
-    // getIt.registerLazySingleton<PusherConsumer>(() => PusherConsumerImpl(appKey: "69d83bf354bcf8c0a712",cluster:"mt1" ));
-    // getIt.registerLazySingleton<LocalNotificationConsumer>(() => LocalNotificationServiceImpl()..initialize());
-    // getIt.registerLazySingleton<FirebaseService>(() => FirebaseService(getIt()));
-    // getIt<FirebaseService>().initializeFirebaseMessaging();
+    // await AuthServiceLocator.execute(getIt: getIt);
   }
 }
