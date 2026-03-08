@@ -44,6 +44,8 @@ import 'package:jeebly_mobile/features/onboarding/views/screens/onboarding_scree
 import 'package:jeebly_mobile/features/splash/views/screens/splash_screen.dart';
 import 'package:jeebly_mobile/features/home/restaurants/cubit/restaurant_cubit.dart';
 
+import '../../features/auth/cubit/login_cubit/login_cubit.dart';
+
 class AppRouter {
   // static const splashView = Routes.splashView;
   // static const layoutView = Routes.layoutView;
@@ -94,9 +96,10 @@ class AppRouter {
         path: RoutesNames.login,
         pageBuilder: (_, state) {
           return _slidePageBuilder(
-              BlocProvider(
-                  create: (_) => getIt.get<AuthCubit>(),
-                  child: const LoginScreen()),
+              MultiBlocProvider(providers: [
+                BlocProvider(create: (_) => getIt.get<AuthCubit>()),
+                BlocProvider(create: (_) => getIt.get<LoginCubit>()),
+              ], child: const LoginScreen()),
               state);
         }),
     GoRoute(

@@ -17,7 +17,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+        backgroundColor: AppColors.white,
         appBar: AuthAppBar(),
         body: Padding(
             padding: EdgeInsets.symmetric(horizontal: 26.w),
@@ -37,9 +37,11 @@ class LoginScreen extends StatelessWidget {
                             const LoginForm(),
                             const LoginButton()
                           ]))),
-              AuthFooter(text: AppLocalizations.of(context)!.do_not_have_an_account,
-              buttonText: AppLocalizations.of(context)!.create_a_new_acc,
-              onPressed: () => GoRouter.of(context).pushReplacement(RoutesNames.signup))
+              AuthFooter(
+                  text: AppLocalizations.of(context)!.do_not_have_an_account,
+                  buttonText: AppLocalizations.of(context)!.create_a_new_acc,
+                  onPressed: () =>
+                      GoRouter.of(context).pushReplacement(RoutesNames.signup))
             ])));
   }
 }

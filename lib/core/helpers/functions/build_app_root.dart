@@ -15,6 +15,7 @@ Widget buildAppRoot(BuildContext context) {
       child: BlocBuilder<LocaleCubit, Locale>(builder: (_, locale) {
         return MaterialApp.router(
             supportedLocales: L10n.all,
+            debugShowCheckedModeBanner: false,
             locale: locale,
             localizationsDelegates: const [
               AppLocalizations.delegate,

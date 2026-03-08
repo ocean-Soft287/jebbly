@@ -23,11 +23,11 @@ class AuthOptions extends StatelessWidget {
             borderRadius: BorderRadius.vertical(top: Radius.circular(66.r))),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           CustomButton(
-              onPressed: () => GoRouter.of(context).push(RoutesNames.signup),
+              onPressed: () => GoRouter.of(context).pushReplacement(RoutesNames.signup),
               text: AppLocalizations.of(context)!.register_a_new_account),
           Gap(9.h),
           CustomButton(
-              onPressed: () => GoRouter.of(context).push(RoutesNames.login),
+              onPressed: () => GoRouter.of(context).pushReplacement(RoutesNames.login),
               text: AppLocalizations.of(context)!.already_have_an_account,
               backgroundColor: AppColors.ketchup0,
               textColor: AppColors.primary),
