@@ -10,5 +10,6 @@ class HiveServiceLocator {
     getIt.registerLazySingleton<HiveServiceImpl>(
           () => HiveServiceImpl.instance,
     );
+    getIt.registerLazySingleton<IUserCache>(()=> HiveServiceImpl.instance);
     getIt.registerLazySingleton<ITokenCache>(() => HiveServiceImpl.instance);
   }}

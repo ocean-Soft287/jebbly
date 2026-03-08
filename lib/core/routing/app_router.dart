@@ -43,7 +43,6 @@ import 'package:jeebly_mobile/features/onboarding/cubit/onboarding_cubit.dart';
 import 'package:jeebly_mobile/features/onboarding/views/screens/onboarding_screen.dart';
 import 'package:jeebly_mobile/features/splash/views/screens/splash_screen.dart';
 import 'package:jeebly_mobile/features/home/restaurants/cubit/restaurant_cubit.dart';
-
 import '../../features/auth/cubit/login_cubit/login_cubit.dart';
 
 class AppRouter {
@@ -99,7 +98,7 @@ class AppRouter {
               MultiBlocProvider(providers: [
                 BlocProvider(create: (_) => getIt.get<AuthCubit>()),
                 BlocProvider(create: (_) => getIt.get<LoginCubit>()),
-              ], child: const LoginScreen()),
+              ], child:  LoginScreen()),
               state);
         }),
     GoRoute(

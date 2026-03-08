@@ -13,7 +13,6 @@ import 'package:jeebly_mobile/features/auth/cubit/auth_cubit.dart';
 import 'package:jeebly_mobile/features/auth/cubit/auth_state.dart';
 import 'package:jeebly_mobile/features/auth/views/widgets/auth_footer.dart';
 import 'package:jeebly_mobile/features/auth/views/widgets/auth_header_texts.dart';
-import 'package:jeebly_mobile/features/auth/views/widgets/phone_field.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class EnterPhoneScreen extends StatelessWidget {
@@ -49,9 +48,9 @@ class EnterPhoneScreen extends StatelessWidget {
                                       .please_enter_phone_number,
                                   body: AppLocalizations.of(context)!
                                       .do_not_worry_we_will_help_u_to_create_a_new_password),
-                              Form(
-                                  key: cubit.enterPhoneFormKey,
-                                  child: PhoneField()),
+                              // Form(
+                              //     key: cubit.enterPhoneFormKey,
+                              //     child: PhoneField()),
                               Gap(22.h),
                               CustomButton(
                                   onPressed: () =>

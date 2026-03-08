@@ -83,9 +83,9 @@ class GenericDataSource {
           
           if (T == String) {
             logger('right: ${right["data"]}');
-            return Right(right["result"] as T);
+            return Right((right["result"] ?? right["data"]) as T);
           }
-          return Right(fromJson!(right["data"]));
+          return Right(fromJson!(right["data"] ?? right));
         } catch (e, stackTrace) {
           loggerError(stackTrace);
           loggerWarn(e.toString());
@@ -119,15 +119,12 @@ class GenericDataSource {
           return Right(null as T);
         } else if (T == String) {
           logger('right: $right');
-          return Right(right['data'] ?? "" as T);
+          return Right((right['data'] ?? right['token'] ?? "") as T);
         } else if (T == int) {
-          return Right(right['data'] ?? 0 as T);
+          return Right((right['data'] ?? right['id'] ?? 0) as T);
         } else {
           if (fromJson != null) {
-            // if( T == UserToken){
-            //   return Right(fromJson(right));
-            // }
-            return Right(fromJson(right['data']));
+            return Right(fromJson(right['data'] ?? right));
           }
           return Right(null as T);
         }

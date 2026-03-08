@@ -5,7 +5,7 @@ part 'user_model.g.dart';
 @HiveType(typeId: 0)
 class UserModel extends Equatable {
   @HiveField(0)
-  final int id;
+  final String id;
   @HiveField(1)
   final String name;
   @HiveField(2)
@@ -18,7 +18,7 @@ class UserModel extends Equatable {
   });
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
-      id: json['userId'] as int,
+      id: json['userId'] as String,
       name: json['fullName'] as String,
       phone: json['phone'] as String,
     );
@@ -33,9 +33,8 @@ class UserModel extends Equatable {
   }
 
   UserModel copyWith({
-    int? id,
+    String? id,
     String? name,
-    String? email,
     String? phone,
   }) {
     return UserModel(
