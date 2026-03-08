@@ -44,6 +44,8 @@ import 'package:jeebly_mobile/features/onboarding/views/screens/onboarding_scree
 import 'package:jeebly_mobile/features/splash/views/screens/splash_screen.dart';
 import 'package:jeebly_mobile/features/home/restaurants/cubit/restaurant_cubit.dart';
 import '../../features/auth/cubit/login_cubit/login_cubit.dart';
+import '../../features/auth/cubit/register_cubit/register_cubit.dart';
+import '../../features/auth/data/repo/register_data_source.dart';
 
 class AppRouter {
   // static const splashView = Routes.splashView;
@@ -87,9 +89,13 @@ class AppRouter {
     GoRoute(
         path: RoutesNames.signup,
         pageBuilder: (_, state) => _fadePageBuilder(
-            BlocProvider(
-                create: (_) => getIt.get<AuthCubit>(),
-                child: const SignupScreen()),
+            RepositoryProvider<RegisterDataSource>(
+              create: (_) => getIt.get<RegisterDataSource>(),
+              child: MultiBlocProvider(providers: [
+                BlocProvider(create: (_) => getIt.get<AuthCubit>()),
+                BlocProvider(create: (_) => getIt.get<RegisterCubit>()),
+              ], child: const SignupScreen()),
+            ),
             state)),
     GoRoute(
         path: RoutesNames.login,
@@ -316,8 +322,8 @@ class AppRouter {
         transitionDuration: duration ?? const Duration(milliseconds: 400),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           final slideAnimation =
-              Tween<Offset>(begin: const Offset(1.0, 0.0), end: Offset.zero)
-                  .animate(animation);
+          Tween<Offset>(begin: const Offset(1.0, 0.0), end: Offset.zero)
+              .animate(animation);
 
           return SlideTransition(position: slideAnimation, child: child);
         });

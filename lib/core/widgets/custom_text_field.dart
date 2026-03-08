@@ -53,7 +53,7 @@ class CustomTextField extends StatelessWidget {
             initialValue: initialValue,
             onChanged: onChanged,
             expands: expands ?? false,
-            maxLines: maxLines,
+            maxLines: (obscureText ?? false) ? 1 : maxLines,
             minLines: minLines,
             cursorColor: AppColors.primary,
             maxLength: maxLength,
