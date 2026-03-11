@@ -606,6 +606,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get password_length => 'كلمة السر يجب أن تكون 8 أحرف على الأقل';
 
   @override
+  String get passwordMissingUppercase => 'كلمة السر يجب أن تحتوي على حرف كبير واحد على الأقل';
+
+  @override
+  String get passwordMissingLowercase => 'كلمة السر يجب أن تحتوي على حرف صغير واحد على الأقل';
+
+  @override
+  String get passwordMissingDigit => 'كلمة السر يجب أن تحتوي على رقم واحد على الأقل';
+
+  @override
+  String get passwordMissingSpecialChar => 'كلمة السر يجب أن تحتوي على رمز خاص واحد على الأقل (!@#\$%^&*)';
+
+  @override
   String get password_not_match => 'كلمتا السر غير متطابقتين';
 
   @override
