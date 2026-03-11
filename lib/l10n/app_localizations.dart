@@ -1289,6 +1289,30 @@ abstract class AppLocalizations {
   /// **'Password must be at least 8 characters'**
   String get password_length;
 
+  /// No description provided for @passwordMissingUppercase.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain at least one uppercase letter'**
+  String get passwordMissingUppercase;
+
+  /// No description provided for @passwordMissingLowercase.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain at least one lowercase letter'**
+  String get passwordMissingLowercase;
+
+  /// No description provided for @passwordMissingDigit.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain at least one digit'**
+  String get passwordMissingDigit;
+
+  /// No description provided for @passwordMissingSpecialChar.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain at least one special character (!@#\$%^&*)'**
+  String get passwordMissingSpecialChar;
+
   /// No description provided for @password_not_match.
   ///
   /// In en, this message translates to:

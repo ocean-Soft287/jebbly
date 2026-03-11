@@ -606,6 +606,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get password_length => 'Password must be at least 8 characters';
 
   @override
+  String get passwordMissingUppercase => 'Password must contain at least one uppercase letter';
+
+  @override
+  String get passwordMissingLowercase => 'Password must contain at least one lowercase letter';
+
+  @override
+  String get passwordMissingDigit => 'Password must contain at least one digit';
+
+  @override
+  String get passwordMissingSpecialChar => 'Password must contain at least one special character (!@#\$%^&*)';
+
+  @override
   String get password_not_match => 'Passwords do not match';
 
   @override

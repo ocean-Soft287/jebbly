@@ -54,6 +54,22 @@ class Validators {
     if (value.length < 8) {
       return AppLocalizations.of(context)!.password_length;
     }
+    // تحقق من وجود أحرف كبيرة
+    if (!RegExp(r'[A-Z]').hasMatch(value)) {
+      return AppLocalizations.of(context)!.passwordMissingUppercase;
+    }
+    // تحقق من وجود أحرف صغيرة
+    if (!RegExp(r'[a-z]').hasMatch(value)) {
+      return AppLocalizations.of(context)!.passwordMissingLowercase;
+    }
+    // تحقق من وجود أرقام
+    if (!RegExp(r'[0-9]').hasMatch(value)) {
+      return AppLocalizations.of(context)!.passwordMissingDigit;
+    }
+    // تحقق من وجود أحرف خاصة
+    if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(value)) {
+      return AppLocalizations.of(context)!.passwordMissingSpecialChar;
+    }
     return null;
   }
 
