@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jeebly_mobile/core/theme/styles.dart';
 
-
+import '../theme/app_text_theme.dart';
 
 extension ContextExtensions on BuildContext {
   double get screenHeight => MediaQuery.of(this).size.height;
@@ -15,17 +15,20 @@ extension ContextExtensions on BuildContext {
   bool get isKeyboardVisible => MediaQuery.of(this).viewInsets.bottom != 0;
 
   double get keyboardHeight => MediaQuery.of(this).viewInsets.bottom;
+
   ColorScheme get colorScheme => Theme.of(this).colorScheme;
+
   Orientation get orientation => MediaQuery.of(this).orientation;
+
   bool get isArabic => Localizations.localeOf(this).languageCode == 'ar';
 
   TextDirection get textDirection =>
       isArabic ? TextDirection.rtl : TextDirection.ltr;
-  TextDirection get oppositeTextDirection  =>
+
+  TextDirection get oppositeTextDirection =>
       !isArabic ? TextDirection.rtl : TextDirection.ltr;
 
   FocusScopeNode get foucsScopeNode => FocusScope.of(this);
-
 
   void showErrorMessage(String message) {
     ScaffoldMessenger.of(this).clearSnackBars();
@@ -61,10 +64,10 @@ extension ContextExtensions on BuildContext {
   }
 
   void showSuccessMessage(
-      String message, {
-        Color color = Colors.green,
-        IconData icon = Icons.check_circle,
-      }) {
+    String message, {
+    Color color = Colors.green,
+    IconData icon = Icons.check_circle,
+  }) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ScaffoldMessenger.of(this).showSnackBar(
         SnackBar(
@@ -79,8 +82,7 @@ extension ContextExtensions on BuildContext {
               Expanded(
                 child: Text(
                   message,
-                  style:
-                  Styles.textStyle14_500.copyWith(color: Colors.black),
+                  style: Styles.textStyle14_500.copyWith(color: Colors.black),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -113,11 +115,13 @@ extension ContextExtensions on BuildContext {
       ),
     );
   }
+
   void showTopSnackBar({
-    required Widget child,
-    required Color backgroundColor,
+    required String message,
+    Color backgroundColor = Colors.green,
     IconData icon = Icons.error,
     Duration duration = const Duration(seconds: 2),
+    Color textColor = Colors.white,
   }) {
     final overlayEntry = OverlayEntry(
       builder: (context) => Positioned(
@@ -134,9 +138,12 @@ extension ContextExtensions on BuildContext {
             ),
             child: Row(
               children: [
-                Icon(icon, color: Colors.white),
+                Icon(icon, color: textColor),
                 const SizedBox(width: 8),
-                Expanded(child: child),
+                Expanded(
+                    child: Text(message,
+                        style:
+                            AppTextTheme.caption.copyWith(color: textColor))),
               ],
             ),
           ),
@@ -150,6 +157,7 @@ extension ContextExtensions on BuildContext {
       overlayEntry.remove();
     });
   }
+
   void showLoadingDialog({
     String? message,
     bool canPop = false,
@@ -168,9 +176,11 @@ extension ContextExtensions on BuildContext {
             mainAxisSize: MainAxisSize.min,
             children: [
               const CircularProgressIndicator.adaptive(),
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               Text(
-                message ?? "LocaleKeys.loadingData" ,
+                message ?? "LocaleKeys.loadingData",
                 style: theme.textTheme.titleLarge!,
                 textAlign: TextAlign.center,
               ),

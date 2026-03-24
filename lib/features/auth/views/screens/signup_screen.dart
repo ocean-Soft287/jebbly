@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jeebly_mobile/core/extensions/context_extension.dart';
 import 'package:jeebly_mobile/core/routing/routes_names.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/features/auth/views/widgets/auth_app_bar.dart';
@@ -102,12 +103,14 @@ class _SignupScreenState extends State<SignupScreen> {
                                   if (state.status == Status.success) {
                                     GoRouter.of(context)
                                         .push(RoutesNames.login);
+                                    context.showTopSnackBar(
+                                      message: AppLocalizations.of(context)!
+                                          .theAccountHasBeenCreated,
+                                    );
                                   } else if (state.status == Status.failure) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(state.errorMessage ?? ''),
-                                        backgroundColor: AppColors.ketchup0,
-                                      ),
+                                    context.showTopSnackBar(
+                                      message: state.errorMessage ?? '',
+                                      backgroundColor: AppColors.red,
                                     );
                                   }
                                 },

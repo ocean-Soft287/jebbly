@@ -658,4 +658,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get onlyEnglishDigits => 'Only English digits are allowed';
+
+  @override
+  String get theAccountHasBeenCreated => 'The account has been created successfully';
+
+  @override
+  String get loginSuccess => 'Login successful';
 }

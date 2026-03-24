@@ -215,5 +215,7 @@
   "cityEmpty": "المدينة فارغة",
   "nationalIdEmpty": "الرقم القومي فارغ",
   "invalidNationalId": "رقم قومي غير صالح",
-  "onlyEnglishDigits": "مسموح فقط بالأرقام الإنجليزية"
+  "onlyEnglishDigits": "مسموح فقط بالأرقام الإنجليزية",
+  "theAccountHasBeenCreated":"تم انشاء الحساب بنجاح",
+  "loginSuccess":"تم تسجيل الدخول بنجاح"
 }

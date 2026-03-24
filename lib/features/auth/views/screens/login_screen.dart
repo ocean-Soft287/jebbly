@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jeebly_mobile/core/bloc/base_bloc.dart';
+import 'package:jeebly_mobile/core/extensions/context_extension.dart';
 import 'package:jeebly_mobile/core/routing/routes_names.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/widgets/custom_text_field.dart';
@@ -76,6 +77,12 @@ class LoginScreen extends StatelessWidget {
                                 listener: (context, state) {
                                   if (state.status == Status.success) {
                                     GoRouter.of(context).go(RoutesNames.map);
+                                    _phoneController.clear();
+                                    _passwordController.clear();
+                                    context.showTopSnackBar(
+                                      message: AppLocalizations.of(context)!
+                                          .loginSuccess,
+                                    );
                                   } else if (state.status == Status.failure) {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(

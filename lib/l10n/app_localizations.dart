@@ -1396,6 +1396,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Only English digits are allowed'**
   String get onlyEnglishDigits;
+
+  /// No description provided for @theAccountHasBeenCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'The account has been created successfully'**
+  String get theAccountHasBeenCreated;
+
+  /// No description provided for @loginSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Login successful'**
+  String get loginSuccess;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -215,5 +215,7 @@
   "cityEmpty": "City is empty",
   "nationalIdEmpty": "National ID is empty",
   "invalidNationalId": "Invalid national ID",
-  "onlyEnglishDigits": "Only English digits are allowed"
+  "onlyEnglishDigits": "Only English digits are allowed",
+  "theAccountHasBeenCreated":"The account has been created successfully",
+  "loginSuccess":"Login successful"
 }
