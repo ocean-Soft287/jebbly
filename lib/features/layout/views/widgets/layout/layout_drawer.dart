@@ -42,7 +42,7 @@ class LayoutDrawer extends StatelessWidget {
           selectIcon: AppAssets.inbox,
           unSelectIcon: AppAssets.inbox,
           title: AppLocalizations.of(context)!.my_wallet,
-      location: RoutesNames.myWallet),
+          location: RoutesNames.myWallet),
       DrawerItem(
           selectIcon: AppAssets.location,
           unSelectIcon: AppAssets.location,
@@ -57,11 +57,18 @@ class LayoutDrawer extends StatelessWidget {
           selectIcon: AppAssets.award,
           unSelectIcon: AppAssets.award,
           title: AppLocalizations.of(context)!.terms_and_conditions,
-      location: RoutesNames.termsAndConditions),
+          location: RoutesNames.termsAndConditions),
       DrawerItem(
           selectIcon: AppAssets.phoneGrey,
           unSelectIcon: AppAssets.phoneGrey,
-          title: AppLocalizations.of(context)!.call_cs)
+          title: AppLocalizations.of(context)!.call_cs),
+      DrawerItem(
+        selectIcon: AppAssets.chrome,
+        unSelectIcon: AppAssets.chrome,
+        title: AppLocalizations.of(context)!.logout,
+        location: RoutesNames.login,
+
+      )
     ];
 
     return SizedBox(

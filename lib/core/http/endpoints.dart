@@ -14,6 +14,7 @@ abstract interface class Endpoints {
   static const String forgetVerifyOtp = 'forgot/verify-otp';
   static const String logOut = 'logout';
   static const String refreshToken = 'refreshToken';
+  static const String changePassword = 'AuthClient/change-password';
 
   // ****************************** Profile ********************************
   static const String getProfile = 'profile';
