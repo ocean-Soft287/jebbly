@@ -16,6 +16,10 @@ abstract interface class Endpoints {
   static const String refreshToken = 'refreshToken';
   static const String changePassword = 'AuthClient/change-password';
 
+  // ****************************** Addresses ********************************
+  static const String getAddresses = 'addresses';
+  static const String addAddress = 'addresses';
+
   // ****************************** Profile ********************************
   static const String getProfile = 'profile';
   static const String updateProfile = 'update_profile';

@@ -31,11 +31,11 @@ class ContinueWidget extends StatelessWidget {
           CustomButton(
               isActive: cubit.deliveryLocation.isNotEmpty,
               onPressed: () => location != null
-                  ? {
-                      GoRouter.of(context).pop(),
-                      GoRouter.of(context)
-                          .pushReplacement(location!, extra: true)
-                    }
+                  ? Navigator.of(context).pop({
+                      'address': cubit.deliveryLocation,
+                      'lat': cubit.currentP?.latitude.toString(),
+                      'lng': cubit.currentP?.longitude.toString(),
+                    })
                   : GoRouter.of(context).go(RoutesNames.selectService),
               text: AppLocalizations.of(context)!.continue_text)
         ]));

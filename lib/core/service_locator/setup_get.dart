@@ -5,7 +5,9 @@ import 'package:jeebly_mobile/core/service_locator/hive_services_locator/hive_se
 import 'package:jeebly_mobile/features/auth/cubit/auth_cubit.dart';
 import 'package:jeebly_mobile/features/cart/order_flow/cubit/order_flow_cubit.dart';
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/cubit/account_cubit.dart';
+import 'package:jeebly_mobile/features/drawer/addresses/bloc/addresses_bloc.dart';
 import 'package:jeebly_mobile/features/drawer/addresses/cubit/address_cubit.dart';
+import 'package:jeebly_mobile/features/drawer/addresses/data/datasource/addresses_datasource.dart';
 import 'package:jeebly_mobile/features/drawer/map/cubit/profile_map_cubit.dart';
 import 'package:jeebly_mobile/features/drawer/wallet/cubit/wallet_cubit.dart';
 import 'package:jeebly_mobile/features/home/categories/cubit/categories_cubit.dart';
@@ -74,6 +76,12 @@ void setupLocator() async {
   getIt.registerFactory<OrderFlowCubit>(() => OrderFlowCubit());
   getIt.registerFactory<WalletCubit>(() => WalletCubit());
   getIt.registerFactory<AddressCubit>(() => AddressCubit());
+  getIt.registerLazySingleton<AddressesDatasource>(
+    () => AddressesDatasourceImpl(getIt<GenericDataSource>()),
+  );
+  getIt.registerFactory<AddressesBloc>(
+    () => AddressesBloc(getIt<AddressesDatasource>()),
+  );
   getIt.registerFactory<ProfileMapCubit>(() => ProfileMapCubit());
   // getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt.get<AuthRepo>()));
 

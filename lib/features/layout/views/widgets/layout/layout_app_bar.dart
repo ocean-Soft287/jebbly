@@ -23,12 +23,13 @@ class LayoutAppBar extends StatelessWidget implements PreferredSizeWidget {
                 style: Styles.textStyle12_600),
             CustomSVG(assetName: AppAssets.arrowDown)
           ])
-        ]), actions: [
-      InkWell(
-          onTap: () => Scaffold.of(context).openDrawer(),
-          child: Icon(Icons.menu, color: AppColors.black0)),
-      Gap(17.w)
-    ]);
+        ]),
+        actions: [
+          InkWell(
+              onTap: () => Scaffold.of(context).openDrawer(),
+              child: Icon(Icons.menu, color: AppColors.black0)),
+          Gap(17.w)
+        ]);
   }
 
   @override

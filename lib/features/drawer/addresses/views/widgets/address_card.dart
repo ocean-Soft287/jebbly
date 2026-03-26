@@ -6,11 +6,14 @@ import 'package:jeebly_mobile/core/routing/routes_names.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/theme/styles.dart';
 import 'package:jeebly_mobile/core/widgets/custom_divider.dart';
-import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:jeebly_mobile/core/widgets/custom_svg.dart';
+import 'package:jeebly_mobile/features/drawer/addresses/data/model/address_model.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class AddressCard extends StatefulWidget {
-  const AddressCard({super.key});
+  const AddressCard({super.key, required this.address});
+
+  final AddressModel address;
 
   @override
   State<AddressCard> createState() => _AddressCardState();
@@ -34,17 +37,15 @@ class _AddressCardState extends State<AddressCard> {
           child: ListTile(
               leading:
                   Icon(Icons.check_circle_rounded, color: AppColors.primary),
-              title: Text('البيت',
-                  style:
-                      Styles.textStyle15_600.copyWith(color: AppColors.black0)),
-              subtitle: Text('صالة أفراح', style: Styles.textStyle11_300),
+              title: Text(widget.address.title ?? '',
+                  style: Styles.textStyle15_600
+                      .copyWith(color: AppColors.black0)),
+              subtitle: Text(widget.address.details ?? '',
+                  style: Styles.textStyle11_300),
               trailing: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      _isExpanded = !_isExpanded;
-                    });
-                  },
-                  icon: Icon(Icons.keyboard_arrow_down)))),
+                  onPressed: () =>
+                      setState(() => _isExpanded = !_isExpanded),
+                  icon: const Icon(Icons.keyboard_arrow_down)))),
       if (_isExpanded) ...[
         CustomDivider(),
         Container(

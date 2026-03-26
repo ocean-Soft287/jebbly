@@ -138,6 +138,15 @@ class ProfileMapCubit extends Cubit<ProfileMapState> {
     emit(MapControllerUpdatedState());
   }
 
+  /// Updates location based on map tap
+  Future<void> onMapTap(LatLng location) async {
+    currentP = location;
+    isTrackingLocation = false; // Stop tracking when manual selection is made
+    deliveryLocation = await getAddressFromLatLng(location);
+    mapController?.animateCamera(CameraUpdate.newLatLng(location));
+    emit(LocationUpdatedState());
+  }
+
   @override
   Future<void> close() {
     // Stop listening for location updates

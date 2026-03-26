@@ -22,6 +22,7 @@ class MapWidget extends StatelessWidget {
           onMapCreated: (GoogleMapController controller) {
             cubit.mapController = controller;
           },
+          onTap: (LatLng location) => cubit.onMapTap(location),
           markers: {
             if (cubit.currentP != null)
               Marker(

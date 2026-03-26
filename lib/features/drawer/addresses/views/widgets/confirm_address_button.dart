@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jeebly_mobile/core/bloc/base_bloc.dart';
 import 'package:jeebly_mobile/core/widgets/custom_button.dart';
+import 'package:jeebly_mobile/features/drawer/addresses/bloc/addresses_bloc.dart';
+import 'package:jeebly_mobile/features/drawer/addresses/bloc/addresses_event.dart';
 import 'package:jeebly_mobile/features/drawer/addresses/cubit/address_cubit.dart';
-import 'package:jeebly_mobile/features/drawer/addresses/cubit/address_state.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class ConfirmAddressButton extends StatelessWidget {
@@ -11,13 +13,32 @@ class ConfirmAddressButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AddressCubit, AddressState>(listener: (_, state) {
-      if (state is AddressUpdated) GoRouter.of(context).pop();
-    }, builder: (context, state) {
-      var cubit = AddressCubit.get(context);
-      return CustomButton(
-          onPressed: () => cubit.validateToUpdateAddress(),
-          text: AppLocalizations.of(context)!.confirm_data);
-    });
+    return BlocConsumer<AddressesBloc, BaseState>(
+      listener: (_, state) {
+        if (state.isSuccess) GoRouter.of(context).pop();
+        if (state.isFailure) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(state.errorMessage ?? '')),
+          );
+        }
+      },
+      builder: (context, state) {
+        return CustomButton(
+          isActive: !state.isLoading,
+          onPressed: () {
+            final formCubit = AddressCubit.get(context);
+            if (!formCubit.validateForm()) return;
+
+            context.read<AddressesBloc>().add(AddAddressEvent(
+                  title: formCubit.titleController.text.trim(),
+                  details: formCubit.detailsController.text.trim(),
+                  lng: formCubit.lng ?? '',
+                  lat: formCubit.lat ?? '',
+                ));
+          },
+          text: AppLocalizations.of(context)!.confirm_data,
+        );
+      },
+    );
   }
 }
