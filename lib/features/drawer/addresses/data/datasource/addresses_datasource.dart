@@ -13,6 +13,16 @@ abstract interface class AddressesDatasource {
     required String lng,
     required String lat,
   });
+
+  Future<Either<Failure, void>> updateAddress({
+    required int id,
+    required String title,
+    required String details,
+    required String lng,
+    required String lat,
+  });
+
+  Future<Either<Failure, void>> deleteAddress(int id);
 }
 
 class AddressesDatasourceImpl implements AddressesDatasource {
@@ -43,6 +53,32 @@ class AddressesDatasourceImpl implements AddressesDatasource {
         'governorate': lng,
         'district': lat,
       },
+    );
+  }
+
+  @override
+  Future<Either<Failure, void>> updateAddress({
+    required int id,
+    required String title,
+    required String details,
+    required String lng,
+    required String lat,
+  }) async {
+    return _dataSource.updateData<void>(
+      endpoint: Endpoints.updateAddress(id: id),
+      data: {
+        'title': title,
+        'details': details,
+        'governorate': lng,
+        'district': lat,
+      },
+    );
+  }
+
+  @override
+  Future<Either<Failure, void>> deleteAddress(int id) async {
+    return _dataSource.deleteData<void>(
+      endpoint: Endpoints.deleteAddress(id: id),
     );
   }
 }

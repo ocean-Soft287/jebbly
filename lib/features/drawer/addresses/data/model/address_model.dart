@@ -1,31 +1,38 @@
 class AddressModel {
+  final int? id;
   final String? title;
   final String? details;
-  final String? lng;
-  final String? lat;
+  final String? governorate;
+  final String? district;
 
   const AddressModel({
+    this.id,
     this.title,
     this.details,
-    this.lng,
-    this.lat,
+    this.governorate,
+    this.district,
   });
+
+  String? get lng => governorate;
+  String? get lat => district;
 
   factory AddressModel.fromJson(Map<String, dynamic> json) {
     return AddressModel(
+      id: json['id'] as int?,
       title: json['title'] as String?,
       details: json['details'] as String?,
-      lng: json['lng'] as String?,
-      lat: json['lat'] as String?,
+      governorate: json['governorate'] as String?,
+      district: json['district'] as String?,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
+      'id': id,
       'title': title,
       'details': details,
-      'lng': lng,
-      'lat': lat,
+      'governorate': governorate,
+      'district': district,
     };
   }
 }

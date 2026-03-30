@@ -29,3 +29,31 @@ class AddAddressEvent extends AddressesEvent {
   @override
   List<Object?> get props => [title, details, lng, lat];
 }
+
+class UpdateAddressEvent extends AddressesEvent {
+  final int id;
+  final String title;
+  final String details;
+  final String lng;
+  final String lat;
+
+  const UpdateAddressEvent({
+    required this.id,
+    required this.title,
+    required this.details,
+    required this.lng,
+    required this.lat,
+  });
+
+  @override
+  List<Object?> get props => [id, title, details, lng, lat];
+}
+
+class DeleteAddressEvent extends AddressesEvent {
+  final int id;
+
+  const DeleteAddressEvent(this.id);
+
+  @override
+  List<Object?> get props => [id];
+}

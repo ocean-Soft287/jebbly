@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jeebly_mobile/features/drawer/addresses/cubit/address_state.dart';
 
+import '../data/model/address_model.dart';
+
 class AddressCubit extends Cubit<AddressState> {
   final formKey = GlobalKey<FormState>();
 
@@ -10,13 +12,17 @@ class AddressCubit extends Cubit<AddressState> {
   late final TextEditingController titleController;
   late final TextEditingController detailsController;
 
+  int? addressId;
   String? lat;
   String? lng;
 
-  AddressCubit({String? initialLocation, String? initialTitle, String? initialDetails}) : super(AddressInitial()) {
-    locationController = TextEditingController(text: initialLocation);
-    titleController = TextEditingController(text: initialTitle);
-    detailsController = TextEditingController(text: initialDetails);
+  AddressCubit({AddressModel? address}) : super(AddressInitial()) {
+    addressId = address?.id;
+    lat = address?.lat;
+    lng = address?.lng;
+    locationController = TextEditingController(text: lat != null && lng != null ? '$lat, $lng' : ''); // Or whatever format is preferred
+    titleController = TextEditingController(text: address?.title);
+    detailsController = TextEditingController(text: address?.details);
   }
 
   static AddressCubit get(context) => BlocProvider.of(context);

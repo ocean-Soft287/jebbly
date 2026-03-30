@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jeebly_mobile/core/helpers/app_assets.dart';
@@ -9,6 +10,9 @@ import 'package:jeebly_mobile/core/widgets/custom_divider.dart';
 import 'package:jeebly_mobile/core/widgets/custom_svg.dart';
 import 'package:jeebly_mobile/features/drawer/addresses/data/model/address_model.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
+
+import '../../bloc/addresses_bloc.dart';
+import '../../bloc/addresses_event.dart';
 
 class AddressCard extends StatefulWidget {
   const AddressCard({super.key, required this.address});
@@ -57,14 +61,23 @@ class _AddressCardState extends State<AddressCard> {
                     bottomRight: Radius.circular(10.r))),
             child: Row(children: [
               TextButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (widget.address.id != null) {
+                      context
+                          .read<AddressesBloc>()
+                          .add(DeleteAddressEvent(widget.address.id!));
+                    }
+                  },
                   label: Text(AppLocalizations.of(context)!.delete,
                       style: Styles.textStyle13_600
                           .copyWith(color: AppColors.primary)),
                   icon: CustomSVG(assetName: AppAssets.delete)),
               TextButton.icon(
                   onPressed: () => GoRouter.of(context)
-                      .push(RoutesNames.addEditAddress, extra: true),
+                      .push(RoutesNames.addEditAddress, extra: widget.address)
+                      .then((_) => context
+                          .read<AddressesBloc>()
+                          .add(const GetAddressesEvent())),
                   label: Text(AppLocalizations.of(context)!.edit,
                       style: Styles.textStyle13_600
                           .copyWith(color: AppColors.black0)),

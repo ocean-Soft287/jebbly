@@ -4,10 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:jeebly_mobile/core/service_locator/setup_get.dart';
 import 'package:jeebly_mobile/core/helpers/localization/locale_cubit.dart';
-import 'package:jeebly_mobile/core/routing/app_router.dart';
 import 'package:jeebly_mobile/core/theme/app_theme.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:jeebly_mobile/l10n/l10n.dart';
+
+import '../../routing/router.dart';
 
 Widget buildAppRoot(BuildContext context) {
   return BlocProvider(

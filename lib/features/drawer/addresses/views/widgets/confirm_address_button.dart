@@ -29,12 +29,22 @@ class ConfirmAddressButton extends StatelessWidget {
             final formCubit = AddressCubit.get(context);
             if (!formCubit.validateForm()) return;
 
-            context.read<AddressesBloc>().add(AddAddressEvent(
-                  title: formCubit.titleController.text.trim(),
-                  details: formCubit.detailsController.text.trim(),
-                  lng: formCubit.lng ?? '',
-                  lat: formCubit.lat ?? '',
-                ));
+            if (formCubit.addressId != null) {
+              context.read<AddressesBloc>().add(UpdateAddressEvent(
+                    id: formCubit.addressId!,
+                    title: formCubit.titleController.text.trim(),
+                    details: formCubit.detailsController.text.trim(),
+                    lng: formCubit.lng ?? '',
+                    lat: formCubit.lat ?? '',
+                  ));
+            } else {
+              context.read<AddressesBloc>().add(AddAddressEvent(
+                    title: formCubit.titleController.text.trim(),
+                    details: formCubit.detailsController.text.trim(),
+                    lng: formCubit.lng ?? '',
+                    lat: formCubit.lat ?? '',
+                  ));
+            }
           },
           text: AppLocalizations.of(context)!.confirm_data,
         );

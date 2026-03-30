@@ -9,9 +9,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jeebly_mobile/core/widgets/custom_svg.dart';
 
+import 'package:jeebly_mobile/features/drawer/addresses/data/model/address_model.dart';
+
 class AddressInfoForm extends StatelessWidget {
-  const AddressInfoForm({super.key, this.edit});
-  final bool? edit;
+  const AddressInfoForm({super.key, this.address});
+  final AddressModel? address;
 
   @override
   Widget build(BuildContext context) {

@@ -10,6 +10,8 @@ class AddressesBloc extends Bloc<AddressesEvent, BaseState<AddressModel>> {
   AddressesBloc(this.datasource) : super(const BaseState()) {
     on<GetAddressesEvent>(_onGetAddresses);
     on<AddAddressEvent>(_onAddAddress);
+    on<UpdateAddressEvent>(_onUpdateAddress);
+    on<DeleteAddressEvent>(_onDeleteAddress);
   }
 
   Future<void> _onGetAddresses(
@@ -42,13 +44,51 @@ class AddressesBloc extends Bloc<AddressesEvent, BaseState<AddressModel>> {
       lng: event.lng,
       lat: event.lat,
     );
-    response.fold(
-      (failure) => emit(state.copyWith(
+    await response.fold(
+      (failure) async => emit(state.copyWith(
         status: Status.failure,
         failure: failure,
         errorMessage: failure.message,
       )),
-      (_) => emit(state.copyWith(status: Status.success)),
+      (_) async => await _onGetAddresses(const GetAddressesEvent(), emit),
+    );
+  }
+
+  Future<void> _onUpdateAddress(
+    UpdateAddressEvent event,
+    Emitter<BaseState<AddressModel>> emit,
+  ) async {
+    emit(state.copyWith(status: Status.loading));
+    final response = await datasource.updateAddress(
+      id: event.id,
+      title: event.title,
+      details: event.details,
+      lng: event.lng,
+      lat: event.lat,
+    );
+    await response.fold(
+      (failure) async => emit(state.copyWith(
+        status: Status.failure,
+        failure: failure,
+        errorMessage: failure.message,
+      )),
+      (_) async => await _onGetAddresses(const GetAddressesEvent(), emit),
+    );
+  }
+
+  Future<void> _onDeleteAddress(
+    DeleteAddressEvent event,
+    Emitter<BaseState<AddressModel>> emit,
+  ) async {
+    emit(state.copyWith(status: Status.loading));
+    final response = await datasource.deleteAddress(event.id);
+    await response.fold(
+      (failure) async => emit(state.copyWith(
+        status: Status.failure,
+        failure: failure,
+        errorMessage: failure.message,
+      )),
+      (_) async => await _onGetAddresses(const GetAddressesEvent(), emit),
     );
   }
 }
