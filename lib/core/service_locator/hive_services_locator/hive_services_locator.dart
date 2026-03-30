@@ -6,6 +6,7 @@ import '../../local_storage/local_storage.dart';
 
 class HiveServiceLocator {
   static Future<void> init({required GetIt getIt}) async {
+    await HiveServiceImpl.init();
 
     getIt.registerLazySingleton<HiveServiceImpl>(
           () => HiveServiceImpl.instance,

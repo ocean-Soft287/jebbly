@@ -25,7 +25,7 @@ import 'auth_service_locator/auth_service_locator.dart';
 
 final GetIt getIt = GetIt.instance;
 
-void setupLocator() async {
+Future<void> setupLocator() async {
   // Dio dio = DioFactory.getDio();
 
   getIt.registerLazySingleton<Dio>(
@@ -41,7 +41,7 @@ void setupLocator() async {
         headers: {
           'Accept': 'application/json',
           'Accept-Language': 'ar',
-          'Authorization': "Bearer ${getIt<ITokenCache>().getAccessToken()}",
+          'Authorization': "Bearer ${getIt<ITokenCache>().getAccessToken()?.accessToken}",
         },
       ),
     )..interceptors.add(

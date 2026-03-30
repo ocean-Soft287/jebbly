@@ -3,12 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jeebly_mobile/core/helpers/app_assets.dart';
+import 'package:jeebly_mobile/core/local_storage/local_storage.dart';
 import 'package:jeebly_mobile/core/routing/routes_names.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/widgets/custom_divider.dart';
 import 'package:jeebly_mobile/features/layout/views/widgets/layout/drawer_app_bar.dart';
 import 'package:jeebly_mobile/features/layout/views/widgets/layout/drawer_item.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
+
+import '../../../../../core/service_locator/service_locator.dart';
+import '../../../../../core/theme/styles.dart';
 
 class LayoutDrawer extends StatelessWidget {
   const LayoutDrawer({super.key});
@@ -68,6 +72,14 @@ class LayoutDrawer extends StatelessWidget {
         title: AppLocalizations.of(context)!.logout,
         location: RoutesNames.login,
 
+      ),
+      SizedBox(height: 10.h),
+      InkWell(
+        onTap: () => getIt.get<IUserCache>().clearUserModel(),
+        child: Text(
+          AppLocalizations.of(context)!.logout,
+          style: Styles.textStyle12_500,
+        ),
       )
     ];
 

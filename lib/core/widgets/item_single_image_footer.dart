@@ -29,7 +29,8 @@ class ItemSingleImageFooter extends StatelessWidget {
     return SizedBox(
         width: width,
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Gap(6.h),
+          Gap(2.h),
+
           Row(children: [
             if (title != null) ...[
               CustomText(title!, style: Styles.textStyle12_600),
@@ -41,9 +42,9 @@ class ItemSingleImageFooter extends StatelessWidget {
               Gap(6.w)
             ]
           ]),
-          Gap(6.h),
+          Gap(4.h),
           if (subtitle != null) Text(subtitle!, style: Styles.textStyle12_500),
-          Gap(6.h),
+          Gap(4.h),
           Row(children: [
             if (deliveryPrice != null) ...[
               CustomText(

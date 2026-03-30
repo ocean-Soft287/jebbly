@@ -27,8 +27,12 @@ class HiveServiceImpl implements IUserCache,ITokenCache,IThemeCache{
 
   static Future<void> init() async {
     await Hive.initFlutter();
-    Hive.registerAdapter(UserModelAdapter());
-    Hive.registerAdapter(UserTokenAdapter());
+    if (!Hive.isAdapterRegistered(0)) {
+      Hive.registerAdapter(UserModelAdapter());
+    }
+    if (!Hive.isAdapterRegistered(1)) {
+      Hive.registerAdapter(UserTokenAdapter());
+    }
     // //open boxes
     _userBox = await Hive.openBox<UserModel>(userBoxName);
     _tokenBox = await Hive.openBox<UserToken>(tokenBoxName);
@@ -37,23 +41,23 @@ class HiveServiceImpl implements IUserCache,ITokenCache,IThemeCache{
   // ---------------------- User ----------------------
 
 
-// ------------------- Paginated Cache ---------------------
-  Future<void> _cachePage<T>(List<T> items, {required String cacheKey}) async {
-    final box = await Hive.openBox<T>(cacheKey);
-    await box.putAll(items.asMap());
-  }
-
-// Generic retrieval method
-  Future<List<T>> _getCachedPage<T>({required String cacheKey}) async {
-    final box = await Hive.openBox<T>(cacheKey);
-    return box.values.toList();
-  }
-
-// Generic clear method
-  Future<void> _clearCachedPage<T>({required String cacheKey}) async {
-    final box = await Hive.openBox<T>(cacheKey);
-    await box.clear();
-  }
+// // ------------------- Paginated Cache ---------------------
+//   Future<void> _cachePage<T>(List<T> items, {required String cacheKey}) async {
+//     final box = await Hive.openBox<T>(cacheKey);
+//     await box.putAll(items.asMap());
+//   }
+//
+// // Generic retrieval method
+//   Future<List<T>> _getCachedPage<T>({required String cacheKey}) async {
+//     final box = await Hive.openBox<T>(cacheKey);
+//     return box.values.toList();
+//   }
+//
+// // Generic clear method
+//   Future<void> _clearCachedPage<T>({required String cacheKey}) async {
+//     final box = await Hive.openBox<T>(cacheKey);
+//     await box.clear();
+//   }
 
   // ---------------------- Theme ----------------------
   @override

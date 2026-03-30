@@ -2,7 +2,6 @@ import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
-import 'package:jeebly_mobile/core/cache_manager/cache_manager.dart';
 import 'package:jeebly_mobile/core/http/api_consumer.dart';
 import 'package:jeebly_mobile/core/http/base_api_consumer.dart';
 import 'package:jeebly_mobile/core/http/connectivity_service.dart';
@@ -11,9 +10,11 @@ import 'package:jeebly_mobile/core/http/generic_data_source.dart';
 import 'package:jeebly_mobile/core/http/sync_manager.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import '../../local_storage/local_storage.dart';
+
 class SharedServiceLocator {
   static Future<void> execute({required GetIt getIt}) async {
-    final token = await CacheManager.getAccessToken();
+    final token = getIt<ITokenCache>().getAccessToken()?.accessToken;
     getIt.registerLazySingleton<Dio>(
       () {
         return Dio(

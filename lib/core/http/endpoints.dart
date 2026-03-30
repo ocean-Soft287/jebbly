@@ -19,8 +19,8 @@ abstract interface class Endpoints {
   // ****************************** Addresses ********************************
   static const String getAddresses = 'addresses';
   static const String addAddress = 'addresses';
-  static  String updateAddress( {required int id})=> '/api/Addresses/$id/UpdateAddress';
-  static  String deleteAddress( {required int id})=> '/api/Addresses/$id/DeleteAddress';
+  static  String updateAddress( {required int id})=> 'Addresses/$id/UpdateAddress';
+  static  String deleteAddress( {required int id})=> 'Addresses/$id/DeleteAddress';
 
   // ****************************** Profile ********************************
   static const String getProfile = 'profile';

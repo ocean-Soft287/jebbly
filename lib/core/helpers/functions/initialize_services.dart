@@ -5,10 +5,10 @@ import 'package:jeebly_mobile/core/service_locator/setup_get.dart';
 import 'package:jeebly_mobile/core/helpers/bloc_observer.dart';
 import 'package:jeebly_mobile/core/cache_manager/cache_manager.dart';
 
-initializeServices() async {
+Future<void> initializeServices() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
-  setupLocator();
+  await setupLocator();
   await CacheManager.init();
   Bloc.observer = MyBlocObserver();
 }
