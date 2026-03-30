@@ -15,6 +15,8 @@ import 'package:jeebly_mobile/features/home/restaurants/cubit/restaurant_cubit.d
 import 'package:jeebly_mobile/features/layout/cubit/layout/layout_cubit.dart';
 import 'package:jeebly_mobile/features/layout/cubit/map/map_cubit.dart';
 import 'package:jeebly_mobile/features/onboarding/cubit/onboarding_cubit.dart';
+import 'package:jeebly_mobile/features/home/bloc/ads_bloc.dart';
+import 'package:jeebly_mobile/features/home/data/datasource/ads_datasource.dart';
 
 import '../http/api_consumer.dart';
 import '../http/base_api_consumer.dart';
@@ -83,6 +85,13 @@ Future<void> setupLocator() async {
     () => AddressesBloc(getIt<AddressesDatasource>()),
   );
   getIt.registerFactory<ProfileMapCubit>(() => ProfileMapCubit());
+  
+  getIt.registerLazySingleton<AdsDataSource>(
+    () => AdsDataSourceImpl(getIt<GenericDataSource>()),
+  );
+  getIt.registerFactory<AdsBloc>(
+    () => AdsBloc(getIt<AdsDataSource>()),
+  );
   // getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt.get<AuthRepo>()));
 
   //======= Repos =======//

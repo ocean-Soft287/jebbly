@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:jeebly_mobile/core/service_locator/service_locator.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/widgets/custom_divider.dart';
+import 'package:jeebly_mobile/features/home/bloc/ads_bloc.dart';
+import 'package:jeebly_mobile/features/home/bloc/ads_event.dart';
 import 'package:jeebly_mobile/features/layout/views/widgets/layout/layout_drawer.dart';
 import 'package:jeebly_mobile/features/layout/views/widgets/services/ads_slider.dart';
 import 'package:jeebly_mobile/features/layout/views/widgets/services/new_restaurants.dart';
@@ -16,28 +20,33 @@ class SelectServiceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: AppColors.white,
-        appBar: const SelectServiceAppBar(),
-        drawer: LayoutDrawer(),
-        body: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const CustomDivider(),
-              const ServicesSearch(),
-              const CustomDivider(),
-              const AdsSlider(),
-              const WelcomeText(),
-              Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12.w),
-                  child: Column(children: [const ProvidedServices(),
-                    Gap(44.h),
-                    const NewRestaurants(),
-                    Gap(12.h),
-                    const NewRestaurants()
-                  ])),
-              Gap(26.h)
-            ])));
+    return BlocProvider(
+      create: (context) => getIt<AdsBloc>()..add(const GetAdsEvent()),
+      child: Scaffold(
+          backgroundColor: AppColors.white,
+          appBar: const SelectServiceAppBar(),
+          drawer: LayoutDrawer(),
+          body: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const CustomDivider(),
+                    const ServicesSearch(),
+                    const CustomDivider(),
+                    const AdsSlider(),
+                    const WelcomeText(),
+                    Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 12.w),
+                        child: Column(children: [
+                          const ProvidedServices(),
+                          Gap(44.h),
+                          const NewRestaurants(),
+                          Gap(12.h),
+                          const NewRestaurants()
+                        ])),
+                    Gap(26.h)
+                  ]))),
+    );
   }
 }

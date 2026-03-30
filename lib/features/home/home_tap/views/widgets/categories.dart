@@ -11,7 +11,7 @@ class Categories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Item(
         title: AppLocalizations.of(context)!.categories,
-        imageHeight: 62.h,
+        imageHeight: 72.h,
         itemImages: [
           ItemSingleImage(
               imageHeight: 62.h,

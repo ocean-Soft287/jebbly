@@ -24,8 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
         if ( getIt.get<ITokenCache>().getAccessToken() == null) {
         GoRouter.of(context).go(RoutesNames.onBoarding);
       }else {
-         print('no token: ${getIt.get<ITokenCache>().getAccessToken()}');
-        GoRouter.of(context).go(RoutesNames.layout,extra: 0);
+        GoRouter.of(context).go(RoutesNames.selectService,);
       }
       }
 
