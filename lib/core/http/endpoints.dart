@@ -1,5 +1,5 @@
 abstract interface class Endpoints {
-  static const String baseUrl = 'http://78.89.159.126:9393/TheOneAPIJeebly/';
+  static const String baseUrl = 'https://jeebly.runasp.net/';
   static const String updateLocation = '';
 
   // ****************************** Auth ********************************
@@ -23,7 +23,7 @@ abstract interface class Endpoints {
   static  String deleteAddress( {required int id})=> 'api/Addresses/$id/DeleteAddress';
 
   // ****************************** Profile ********************************
-  static const String getProfile = 'api/profile';
+  static const String getProfile = '/api/Account/profile';
   static const String updateProfile = 'api/update_profile';
   static const String getGovernment = 'api/governments';
   static const String getArea = 'api/areas';

@@ -3,11 +3,37 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jeebly_mobile/core/widgets/custom_network_image.dart';
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/cubit/account_state.dart';
+import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/data/datasource/account_datasource.dart';
+import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/data/models/account_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AccountCubit extends Cubit<AccountState> {
-  AccountCubit() : super(AccountInitial());
+  final AccountDataSource accountDataSource;
+  AccountCubit(this.accountDataSource) : super(AccountInitial());
   static AccountCubit get(context) => BlocProvider.of(context);
+
+  AccountModel? accountModel;
+
+  TextEditingController oldPasswordController = TextEditingController();
+  TextEditingController newPasswordController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+
+  Future<void> getProfile() async {
+    emit(AccountLoading());
+    final result = await accountDataSource.getProfile();
+    result.fold(
+      (failure) => emit(AccountFailure(failure.message)),
+      (model) {
+        accountModel = model;
+        nameController.text = model.fullName;
+        emailController.text = model.email ?? '';
+        phoneController.text = model.phoneNumber;
+        emit(AccountSuccess(model));
+      },
+    );
+  }
 
   Widget userImage = CustomNetworkImage(
       radius: 999999999999999,
@@ -22,9 +48,6 @@ class AccountCubit extends Cubit<AccountState> {
   bool oldPasswordHidden = true;
   bool newPasswordHidden = true;
   bool newPasswordConfirmationHidden = true;
-
-  TextEditingController oldPasswordController = TextEditingController();
-  TextEditingController newPasswordController = TextEditingController();
 
   toggleOldPassword() {
     oldPasswordHidden = !oldPasswordHidden;

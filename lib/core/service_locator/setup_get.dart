@@ -17,7 +17,9 @@ import 'package:jeebly_mobile/features/layout/cubit/map/map_cubit.dart';
 import 'package:jeebly_mobile/features/onboarding/cubit/onboarding_cubit.dart';
 import 'package:jeebly_mobile/features/home/bloc/ads_bloc.dart';
 import 'package:jeebly_mobile/features/home/data/datasource/ads_datasource.dart';
-
+import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/data/datasource/account_datasource.dart';
+import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/cubit/change_password_bloc/change_password_bloc.dart';
+import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/datasource/change_password_datasource.dart';
 import '../http/api_consumer.dart';
 import '../http/base_api_consumer.dart';
 import '../http/endpoints.dart';
@@ -73,7 +75,13 @@ Future<void> setupLocator() async {
   getIt.registerLazySingleton<MapCubit>(() => MapCubit());
   getIt.registerFactory<LayoutCubit>(() => LayoutCubit());
   getIt.registerFactory<CategoriesCubit>(() => CategoriesCubit());
-  getIt.registerFactory<AccountCubit>(() => AccountCubit());
+
+  getIt.registerLazySingleton<AccountDataSource>(
+    () => AccountDataSourceImpl(getIt<GenericDataSource>()),
+  );
+  getIt.registerLazySingleton<AccountCubit>(
+    () => AccountCubit(getIt<AccountDataSource>()),
+  );
   getIt.registerFactory<RestaurantCubit>(() => RestaurantCubit());
   getIt.registerFactory<OrderFlowCubit>(() => OrderFlowCubit());
   getIt.registerFactory<WalletCubit>(() => WalletCubit());
@@ -91,6 +99,13 @@ Future<void> setupLocator() async {
   );
   getIt.registerFactory<AdsBloc>(
     () => AdsBloc(getIt<AdsDataSource>()),
+  );
+
+  getIt.registerLazySingleton<ChangePasswordDatasource>(
+    () => ChangePasswordDatasourceImpl(getIt<GenericDataSource>()),
+  );
+  getIt.registerFactory<ChangePasswordBloc>(
+    () => ChangePasswordBloc(getIt<ChangePasswordDatasource>()),
   );
   // getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt.get<AuthRepo>()));
 
