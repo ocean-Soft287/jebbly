@@ -4,17 +4,17 @@ abstract interface class Endpoints {
 
   // ****************************** Auth ********************************
   static const String register = 'api/AuthClient/register';
-  static const String verifyOtp = 'api/verify-otp';
   static const String login = 'api/AuthClient/login';
+  static const String changePassword = 'api/AuthClient/change-password';
+  static const String logOut = 'api/logout';
+
   static const String forgetPassword = 'api/forgot/password';
-  static const String resetPasssword = 'api/forgot/reset-password';
-  static const String confirmPassword = '';
+
+  static const String verifyOtp = 'api/verify-otp';
   static const String resentOtp = 'api/resend-otp';
   static const String forgetResendOtp = 'api/forgot/resend-otp';
   static const String forgetVerifyOtp = 'api/forgot/verify-otp';
-  static const String logOut = 'api/logout';
   static const String refreshToken = 'api/refreshToken';
-  static const String changePassword = 'api/AuthClient/change-password';
 
   // ****************************** Addresses ********************************
   static const String getAddresses = 'api/addresses';
@@ -112,4 +112,5 @@ abstract interface class Endpoints {
 
   // ***************************** Ads *******************************
   static const String ads = 'api/UploadImages/service';
+  static const String getAllRestaurants = 'api/AddRestaurant/getAllResturant';
 }

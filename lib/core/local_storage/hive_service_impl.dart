@@ -33,6 +33,9 @@ class HiveServiceImpl implements IUserCache,ITokenCache,IThemeCache{
     if (!Hive.isAdapterRegistered(1)) {
       Hive.registerAdapter(UserTokenAdapter());
     }
+    if (!Hive.isAdapterRegistered(15)) {
+      Hive.registerAdapter(RestaurantModelAdapter());
+    }
     // //open boxes
     _userBox = await Hive.openBox<UserModel>(userBoxName);
     _tokenBox = await Hive.openBox<UserToken>(tokenBoxName);

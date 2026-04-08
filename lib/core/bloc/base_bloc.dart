@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jeebly_mobile/core/http/either.dart';
 import 'package:jeebly_mobile/core/http/failure.dart';
-import 'package:jeebly_mobile/core/http/params.dart';
+import 'package:jeebly_mobile/core/params/pagination_params.dart';
 part 'base_state.dart';
 
 

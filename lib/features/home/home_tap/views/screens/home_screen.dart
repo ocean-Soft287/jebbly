@@ -5,6 +5,8 @@ import 'package:jeebly_mobile/features/home/home_tap/views/widgets/home_search_b
 import 'package:jeebly_mobile/features/home/home_tap/views/widgets/jeebly_eat.dart';
 import 'package:jeebly_mobile/features/home/home_tap/views/widgets/jeebly_get.dart';
 
+import '../../../../../core/theme/app_colors.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key, required this.index});
   final int index;
@@ -12,6 +14,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
         body: Column(
           children: [
             const CustomDivider(),

@@ -5,7 +5,7 @@ import 'package:jeebly_mobile/core/helpers/logger.dart';
 import 'package:jeebly_mobile/core/http/api_consumer.dart';
 import 'package:jeebly_mobile/core/http/either.dart';
 import 'package:jeebly_mobile/core/http/failure.dart';
-import 'package:jeebly_mobile/core/http/params.dart';
+import 'package:jeebly_mobile/core/params/pagination_params.dart';
 
 class GenericDataSource {
   final ApiConsumer _apiConsumer;
@@ -34,8 +34,6 @@ class GenericDataSource {
           (left) => Left(left),
           (right) {
         try {
-
-
           if (paginationParams != null) {
             final items =
             (right['data'] as List).map((e) => fromJson(e)).toList();

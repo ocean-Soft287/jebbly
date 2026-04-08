@@ -6,7 +6,7 @@ class PaginationParams extends Equatable {
 
   const PaginationParams({
     required this.page,
-     this.limit,
+    this.limit,
   });
 
   @override
@@ -14,6 +14,6 @@ class PaginationParams extends Equatable {
 
   Map<String, dynamic> toJson() => {
         'page': page,
-        if(limit!=null) 'per_page': limit,
+        if (limit != null) 'per_page': limit,
       };
 }
