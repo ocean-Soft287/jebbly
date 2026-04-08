@@ -19,6 +19,8 @@ class RoutesNames {
   static const String categoryDetails = '/categoryDetailsScreen';
   static const String categories = '/categoriesScreen';
   static const String restaurantDetails = '/restaurantDetailsScreen';
+  static const String newRestaurants = '/newRestaurantsScreen';
+  static const String allRestaurants = '/allRestaurantsScreen';
   static const String productDetails = '/productDetailsScreen';
   static const String storeDetails = '/storeDetailsScreen';
   static const String storeCategoryDetails = '/storeCategoryDetailsScreen';

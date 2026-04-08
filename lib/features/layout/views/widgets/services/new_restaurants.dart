@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
+import 'package:jeebly_mobile/core/routing/routes_names.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/theme/styles.dart';
 import 'package:jeebly_mobile/core/widgets/item_single_image.dart';
+import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class NewRestaurants extends StatelessWidget {
   const NewRestaurants({super.key});
@@ -13,8 +15,20 @@ class NewRestaurants extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text(AppLocalizations.of(context)!.new_restaurant,
-          style: Styles.textStyle15_600.copyWith(color: AppColors.black0)),
+      Row(
+        children: [
+          Text(AppLocalizations.of(context)!.new_restaurant,
+              style: Styles.textStyle15_600.copyWith(color: AppColors.black0)),
+          const Spacer(),
+          GestureDetector(
+            onTap: () => GoRouter.of(context).push(RoutesNames.newRestaurants),
+            child: Text(
+              Localizations.localeOf(context).languageCode == 'ar' ? 'عرض الكل' : 'See all',
+              style: Styles.textHeading14.copyWith(color: AppColors.primary),
+            ),
+          ),
+        ],
+      ),
       Gap(12.h),
       SizedBox(
           height: screenHeight * 0.27,

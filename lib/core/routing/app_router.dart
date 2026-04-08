@@ -150,6 +150,26 @@ class AppRouter {
               state);
         }),
     GoRoute(
+        path: RoutesNames.newRestaurants,
+        pageBuilder: (_, state) {
+          return _slidePageBuilder(
+              BlocProvider(
+                  create: (_) => getIt.get<RestaurantBloc>()
+                    ..add(const LoadFirstPage<RestaurantModel>()),
+                  child: const NewRestaurantsScreen()),
+              state);
+        }),
+    GoRoute(
+        path: RoutesNames.allRestaurants,
+        pageBuilder: (_, state) {
+          return _slidePageBuilder(
+              BlocProvider(
+                  create: (_) => getIt.get<RestaurantBloc>()
+                    ..add(const LoadFirstPage<RestaurantModel>()),
+                  child: const AllRestaurants()),
+              state);
+        }),
+    GoRoute(
         path: RoutesNames.productDetails,
         pageBuilder: (_, state) {
           final withIngredients = state.extra as bool?;

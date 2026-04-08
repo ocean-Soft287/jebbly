@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:jeebly_mobile/features/home/home_tap/views/widgets/all_restaurants.dart';
 import 'package:jeebly_mobile/features/home/home_tap/views/widgets/categories.dart';
 import 'package:jeebly_mobile/features/home/home_tap/views/widgets/unique_restaurants.dart';
+
+import 'all_restaurants.dart';
 
 class JeeblyEat extends StatelessWidget {
   const JeeblyEat({super.key});
