@@ -16,8 +16,13 @@ class CustomSearchBar extends StatelessWidget {
             height: 43.h,
             width: double.infinity,
             child: SearchBar(
+              side: WidgetStatePropertyAll<BorderSide>(
+                BorderSide(strokeAlign: 1,
+                color: AppColors.black1
+                )
+              ),
                 elevation: WidgetStatePropertyAll(0),
-                backgroundColor: WidgetStatePropertyAll(AppColors.grey0),
+                backgroundColor: WidgetStatePropertyAll(AppColors.white),
                 leading: Icon(Icons.search),
                 hintText: hint,
                 hintStyle: WidgetStatePropertyAll(Styles.textStyle16_500))));

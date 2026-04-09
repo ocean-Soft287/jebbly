@@ -13,8 +13,8 @@ class AppNavBar extends StatelessWidget {
     return BlocBuilder<LayoutCubit, LayoutState>(builder: (_, state) {
       var cubit = LayoutCubit.get(context);
       return BottomNavigationBar(
-          selectedLabelStyle: Styles.textStyle14_300,
-          unselectedLabelStyle: Styles.textStyle14_300,
+          selectedLabelStyle: Styles.textStyle15_600,
+          unselectedLabelStyle: Styles.textStyle12_500,
           selectedItemColor: AppColors.primary,
           unselectedItemColor: AppColors.black0,
           type: BottomNavigationBarType.fixed,

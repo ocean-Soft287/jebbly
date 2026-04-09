@@ -49,9 +49,9 @@ class AddressesDatasourceImpl implements AddressesDatasource {
       endpoint: Endpoints.addAddress,
       data: {
         'title': title,
-        'details': details,
-        'governorate': lng,
-        'district': lat,
+        'description': details,
+        'lat': lat,
+        'lng': lng,
       },
     );
   }

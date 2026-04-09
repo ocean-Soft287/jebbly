@@ -12,6 +12,11 @@ class AddressesBloc extends Bloc<AddressesEvent, BaseState<AddressModel>> {
     on<AddAddressEvent>(_onAddAddress);
     on<UpdateAddressEvent>(_onUpdateAddress);
     on<DeleteAddressEvent>(_onDeleteAddress);
+    on<SelectAddressEvent>(_onSelectAddress);
+  }
+
+  void _onSelectAddress(SelectAddressEvent event, Emitter<BaseState<AddressModel>> emit) {
+    emit(state.copyWith(data: event.address));
   }
 
   Future<void> _onGetAddresses(
@@ -26,10 +31,18 @@ class AddressesBloc extends Bloc<AddressesEvent, BaseState<AddressModel>> {
         failure: failure,
         errorMessage: failure.message,
       )),
-      (addresses) => emit(state.copyWith(
-        status: Status.success,
-        items: addresses,
-      )),
+      (addresses) {
+        AddressModel? selectedAddress = state.data;
+        // If no address is selected, pick the first one from the list
+        if (selectedAddress == null && addresses.isNotEmpty) {
+          selectedAddress = addresses.first;
+        }
+        emit(state.copyWith(
+          status: Status.success,
+          items: addresses,
+          data: selectedAddress,
+        ));
+      },
     );
   }
 

@@ -10,9 +10,15 @@ import 'package:jeebly_mobile/l10n/l10n.dart';
 
 import '../../routing/router.dart';
 
+import 'package:jeebly_mobile/features/drawer/addresses/bloc/addresses_bloc.dart';
+import 'package:jeebly_mobile/features/drawer/addresses/bloc/addresses_event.dart';
+
 Widget buildAppRoot(BuildContext context) {
-  return BlocProvider(
-      create: (_) => getIt.get<LocaleCubit>(),
+  return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => getIt.get<LocaleCubit>()),
+        BlocProvider(create: (_) => getIt.get<AddressesBloc>()..add(const GetAddressesEvent())),
+      ],
       child: BlocBuilder<LocaleCubit, Locale>(builder: (_, locale) {
         return MaterialApp.router(
             supportedLocales: L10n.all,

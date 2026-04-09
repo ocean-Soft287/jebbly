@@ -8,8 +8,8 @@ abstract interface class Endpoints {
   static const String refreshToken = 'api/refreshToken';
 
   // ****************************** Addresses ********************************
-  static const String getAddresses = 'api/addresses';
-  static const String addAddress = 'api/addresses';
+  static const String getAddresses = 'api/addresses/GetAddresses';
+  static const String addAddress = 'api/addresses/CreateAddress';
   static  String updateAddress( {required int id})=> 'api/Addresses/$id/UpdateAddress';
   static  String deleteAddress( {required int id})=> 'api/Addresses/$id/DeleteAddress';
 

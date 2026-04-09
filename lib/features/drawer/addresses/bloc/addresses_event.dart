@@ -1,7 +1,18 @@
 import 'package:equatable/equatable.dart';
 
+import '../data/model/address_model.dart';
+
 sealed class AddressesEvent extends Equatable {
   const AddressesEvent();
+}
+
+class SelectAddressEvent extends AddressesEvent {
+  final AddressModel address;
+
+  const SelectAddressEvent(this.address);
+
+  @override
+  List<Object?> get props => [address];
 }
 
 // GET: fetch all addresses

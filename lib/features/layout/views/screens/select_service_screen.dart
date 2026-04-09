@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:jeebly_mobile/core/service_locator/service_locator.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
-import 'package:jeebly_mobile/core/widgets/custom_divider.dart';
 import 'package:jeebly_mobile/features/home/bloc/ads_bloc.dart';
 import 'package:jeebly_mobile/features/home/bloc/ads_event.dart';
 import 'package:jeebly_mobile/features/layout/views/widgets/layout/layout_drawer.dart';
@@ -12,7 +11,6 @@ import 'package:jeebly_mobile/features/layout/views/widgets/services/ads_slider.
 import 'package:jeebly_mobile/features/layout/views/widgets/services/new_restaurants.dart';
 import 'package:jeebly_mobile/features/layout/views/widgets/services/provided_services.dart';
 import 'package:jeebly_mobile/features/layout/views/widgets/services/select_service_app_bar.dart';
-import 'package:jeebly_mobile/features/layout/views/widgets/services/services_search.dart';
 import 'package:jeebly_mobile/features/layout/views/widgets/services/welcome_text.dart';
 
 class SelectServiceScreen extends StatelessWidget {
@@ -31,9 +29,8 @@ class SelectServiceScreen extends StatelessWidget {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const CustomDivider(),
-                    const ServicesSearch(),
-                    const CustomDivider(),
+                    // const ServicesSearch(),
+                    // const CustomDivider(),
                     const AdsSlider(),
                     const WelcomeText(),
                     Padding(

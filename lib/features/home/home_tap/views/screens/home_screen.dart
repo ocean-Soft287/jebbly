@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:jeebly_mobile/core/widgets/custom_divider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jeebly_mobile/features/home/home_tap/views/widgets/Jeebly_shop.dart';
 import 'package:jeebly_mobile/features/home/home_tap/views/widgets/home_search_bar.dart';
-import 'package:jeebly_mobile/features/home/home_tap/views/widgets/jeebly_eat.dart';
 import 'package:jeebly_mobile/features/home/home_tap/views/widgets/jeebly_get.dart';
 
+import '../../../../../core/service_locator/service_locator.dart';
 import '../../../../../core/theme/app_colors.dart';
+import '../../../jeebly_eat/jeebly_eat_imports.dart';
+import '../../../restaurants/cubit/restaurant_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key, required this.index});
@@ -17,11 +19,17 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: AppColors.white,
         body: Column(
           children: [
-            const CustomDivider(),
+            // const CustomDivider(),
             HomeSearchBar(index: index),
-            const CustomDivider(),
+            // const CustomDivider(),
             index == 0
-                ? const JeeblyEat()
+                ? MultiBlocProvider(
+              providers: [
+                BlocProvider(create: (context) => getIt<CategoryBloc>(), ),
+                BlocProvider.value(value: getIt<RestaurantBloc>(), ),
+              ],
+
+                child: Expanded(child: const JeeblyEat()))
                 : index == 1
                 ? const JeeblyGet()
                 : const JeeblyShop()

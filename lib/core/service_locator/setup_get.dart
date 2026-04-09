@@ -30,6 +30,7 @@ import '../http/generic_data_source.dart';
 import '../http/sync_manager.dart';
 import '../local_storage/local_storage.dart';
 import 'auth_service_locator/auth_service_locator.dart';
+import 'jeeply_eat_service_locator/jeebly_eat_service_locator.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -127,4 +128,5 @@ Future<void> setupLocator() async {
 
   await AuthServiceLocator.execute(getIt: getIt);
   await HiveServiceLocator.init(getIt: getIt);
+  await JeeblyEatServiceLocator.init(getIt: getIt);
 }

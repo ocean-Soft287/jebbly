@@ -21,8 +21,8 @@ class AddressModel {
       id: json['id'] as int?,
       title: json['title'] as String?,
       details: json['details'] as String?,
-      governorate: json['governorate'] as String?,
-      district: json['district'] as String?,
+      governorate: json['lng'] as String?,
+      district: json['lat'] as String?,
     );
   }
 
