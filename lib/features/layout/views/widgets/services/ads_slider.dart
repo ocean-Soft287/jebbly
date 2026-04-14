@@ -10,6 +10,8 @@ import 'package:jeebly_mobile/features/home/data/models/ad_model.dart';
 import 'package:jeebly_mobile/features/layout/views/widgets/services/ad_card.dart';
 import 'package:shimmer/shimmer.dart';
 
+import '../../../../home/bloc/ads_event.dart';
+
 class AdsSlider extends StatefulWidget {
   const AdsSlider({super.key});
 
@@ -18,7 +20,15 @@ class AdsSlider extends StatefulWidget {
 }
 
 class _AdsSliderState extends State<AdsSlider> {
+
   int _current = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<AdsBloc>().add(const GetAdsEvent());
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +53,13 @@ class _AdsSliderState extends State<AdsSlider> {
                 }).toList()),
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: state.items.asMap().entries.map((entry) {
+                children: state.items
+                    .asMap()
+                    .entries
+                    .map((entry) {
                   return GestureDetector(
-                      onTap: () => setState(() {
+                      onTap: () =>
+                          setState(() {
                             _current = entry.key;
                           }),
                       child: Container(

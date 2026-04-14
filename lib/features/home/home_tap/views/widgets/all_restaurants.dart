@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jeebly_mobile/core/bloc/base_bloc.dart';
 import 'package:jeebly_mobile/core/bloc/paginated_bloc/paginated_bloc.dart';
-import 'package:jeebly_mobile/features/home/restaurants/cubit/restaurant_bloc.dart';
-import 'package:jeebly_mobile/features/home/restaurants/data/models/restaurant_model.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -11,7 +9,9 @@ import 'package:jeebly_mobile/core/helpers/app_assets.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/theme/styles.dart';
 import 'package:jeebly_mobile/core/widgets/custom_svg.dart';
-import 'package:jeebly_mobile/core/widgets/item_single_image.dart';
+import '../../../../../core/widgets/restaurant_card.dart';
+import '../../../restaurants/manager/restaurannt_bloc/restaurant_bloc.dart';
+import '../../../restaurants/models/restaurant_model.dart';
 
 class AllRestaurants extends StatefulWidget {
   const AllRestaurants({super.key});
@@ -73,25 +73,7 @@ class _AllRestaurantsState extends State<AllRestaurants> {
                 final item = state.items[index];
                 return Padding(
                   padding: EdgeInsets.only(bottom: 12.h),
-                  child: ItemSingleImage(
-                      type: 'restaurant',
-                      imageUrl: item.logo != "" ? 'https://jeebly.runasp.net${item.logo}' : '',
-                      imageWidth: width - 20.w,
-                      imageHeight: 120.h,
-                      withFavIcon: true,
-                      available: item.status == 'Active',
-                      centered: true,
-                      title: Localizations.localeOf(context).languageCode == 'ar'
-                          ? (item.nameOfResturantAr != "" ? item.nameOfResturantAr : item.nameOfResturantOwner)
-                          : (item.nameOfResturantEn != "" ? item.nameOfResturantEn : item.nameOfResturantOwner),
-                      distance: '1.3', // Static for now as not in response
-                      subtitle: Localizations.localeOf(context).languageCode == 'ar'
-                          ? (item.descriptionAr != "" ? item.descriptionAr : item.areaOfResturantAr)
-                          : (item.descriptionEn != "" ? item.descriptionEn : item.areaOfResturantEn),
-                      deliveryPrice: '7.5', // Static for now as not in response
-                      totalRating: item.rate.toString(),
-                      rateCount: '614' // Static for now as not in response
-                  ),
+                  child: RestaurantCard(model: item, imageWidth: width - 20.w, imageHeight: 120.h),
                 );
               },
             );
@@ -101,3 +83,24 @@ class _AllRestaurantsState extends State<AllRestaurants> {
     );
   }
 }
+
+//
+// ItemSingleImage(
+// type: 'restaurant',
+// imageUrl: item.logo != "" ? 'https://jeebly.runasp.net${item.logo}' : '',
+// imageWidth: width - 20.w,
+// imageHeight: 120.h,
+// withFavIcon: true,
+// available: item.status == 'Active',
+// centered: true,
+// title: Localizations.localeOf(context).languageCode == 'ar'
+// ? (item.nameOfResturantAr != "" ? item.nameOfResturantAr : item.nameOfResturantOwner)
+//     : (item.nameOfResturantEn != "" ? item.nameOfResturantEn : item.nameOfResturantOwner),
+// distance: '1.3', // Static for now as not in response
+// subtitle: Localizations.localeOf(context).languageCode == 'ar'
+// ? (item.descriptionAr != "" ? item.descriptionAr : item.areaOfResturantAr)
+//     : (item.descriptionEn != "" ? item.descriptionEn : item.areaOfResturantEn),
+// deliveryPrice: '7.5', // Static for now as not in response
+// totalRating: item.rate.toString(),
+// rateCount: '614' // Static for now as not in response
+// )

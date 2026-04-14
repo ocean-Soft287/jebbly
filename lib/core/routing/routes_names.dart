@@ -17,7 +17,7 @@ class RoutesNames {
 
 //======= Home =======//
   static const String categoryDetails = '/categoryDetailsScreen';
-  static const String categories = '/categoriesScreen';
+  static const String eatRestaurants = '/eatRestaurantsScreen';
   static const String restaurantDetails = '/restaurantDetailsScreen';
   static const String newRestaurants = '/newRestaurantsScreen';
   static const String allRestaurants = '/allRestaurantsScreen';

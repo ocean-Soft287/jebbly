@@ -1,4 +1,3 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -11,28 +10,31 @@ import 'package:jeebly_mobile/l10n/l10n.dart';
 import '../../routing/router.dart';
 
 import 'package:jeebly_mobile/features/drawer/addresses/bloc/addresses_bloc.dart';
-import 'package:jeebly_mobile/features/drawer/addresses/bloc/addresses_event.dart';
 
-Widget buildAppRoot(BuildContext context) {
-  return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (_) => getIt.get<LocaleCubit>()),
-        BlocProvider(create: (_) => getIt.get<AddressesBloc>()..add(const GetAddressesEvent())),
-      ],
-      child: BlocBuilder<LocaleCubit, Locale>(builder: (_, locale) {
-        return MaterialApp.router(
-            supportedLocales: L10n.all,
-            debugShowCheckedModeBanner: false,
-            locale: locale,
-            localizationsDelegates: const [
-              AppLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate
-            ],
-            title: 'Jeebly app',
-            routerConfig: AppRouter.routes,
-            builder: DevicePreview.appBuilder,
-            theme: AppTheme.lightTheme);
-      }));
+class JeeblyAppRoot extends StatelessWidget {
+  const JeeblyAppRoot({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider.value(value: getIt.get<LocaleCubit>()),
+          BlocProvider.value(value: getIt.get<AddressesBloc>()),
+        ],
+        child: BlocBuilder<LocaleCubit, Locale>(builder: (_, locale) {
+          return MaterialApp.router(
+              supportedLocales: L10n.all,
+              debugShowCheckedModeBanner: false,
+              locale: locale,
+              localizationsDelegates: const [
+                AppLocalizations.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate
+              ],
+              title: 'Jeebly app',
+              routerConfig: AppRouter.routes,
+              theme: AppTheme.lightTheme);
+        }));
+  }
 }

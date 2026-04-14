@@ -1,19 +1,21 @@
 
+import 'dart:ui';
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
+import 'package:jeebly_mobile/core/extensions/context_extension.dart';
 import 'package:jeebly_mobile/core/http/endpoints.dart';
 
 import '../../../core/bloc/base_bloc.dart';
 import '../../../core/http/either.dart';
 import '../../../core/http/failure.dart';
 import '../../../core/http/generic_data_source.dart';
-import '../../../core/widgets/item_single_image.dart';
-import '../../../l10n/app_localizations.dart';
+import '../../../core/routing/routes_names.dart';
 import '../home_tap/views/widgets/all_restaurants.dart';
-import '../home_tap/views/widgets/item.dart';
 import '../home_tap/views/widgets/unique_restaurants.dart';
 
 part 'presentation/widgets/eat_categories.dart';

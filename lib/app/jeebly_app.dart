@@ -11,6 +11,6 @@ class JeeblyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         designSize: const Size(393, 852),
-        child: buildAppRoot(context));
+        child: JeeblyAppRoot());
   }
 }

@@ -6,6 +6,7 @@ import 'package:jeebly_mobile/core/widgets/custom_button.dart';
 import 'package:jeebly_mobile/features/drawer/addresses/bloc/addresses_bloc.dart';
 import 'package:jeebly_mobile/features/drawer/addresses/bloc/addresses_event.dart';
 import 'package:jeebly_mobile/features/drawer/addresses/cubit/address_cubit.dart';
+import 'package:jeebly_mobile/features/drawer/addresses/data/model/address_model.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
 class ConfirmAddressButton extends StatelessWidget {
@@ -13,7 +14,7 @@ class ConfirmAddressButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AddressesBloc, BaseState>(
+    return BlocConsumer<AddressesBloc, BaseState<AddressModel>>(
       listener: (_, state) {
         if (state.isSuccess) GoRouter.of(context).pop();
         if (state.isFailure) {

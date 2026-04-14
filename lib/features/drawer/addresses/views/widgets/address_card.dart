@@ -11,8 +11,8 @@ import 'package:jeebly_mobile/core/widgets/custom_svg.dart';
 import 'package:jeebly_mobile/features/drawer/addresses/data/model/address_model.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
-import '../../bloc/addresses_bloc.dart';
-import '../../bloc/addresses_event.dart';
+import 'package:jeebly_mobile/features/drawer/addresses/bloc/addresses_bloc.dart';
+import 'package:jeebly_mobile/features/drawer/addresses/bloc/addresses_event.dart';
 
 class AddressCard extends StatefulWidget {
   const AddressCard({super.key, required this.address});

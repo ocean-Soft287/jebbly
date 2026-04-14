@@ -7,7 +7,7 @@ import 'package:jeebly_mobile/features/home/home_tap/views/widgets/jeebly_get.da
 import '../../../../../core/service_locator/service_locator.dart';
 import '../../../../../core/theme/app_colors.dart';
 import '../../../jeebly_eat/jeebly_eat_imports.dart';
-import '../../../restaurants/cubit/restaurant_bloc.dart';
+import '../../../restaurants/manager/restaurannt_bloc/restaurant_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key, required this.index});
@@ -25,8 +25,8 @@ class HomeScreen extends StatelessWidget {
             index == 0
                 ? MultiBlocProvider(
               providers: [
-                BlocProvider(create: (context) => getIt<CategoryBloc>(), ),
-                BlocProvider.value(value: getIt<RestaurantBloc>(), ),
+                BlocProvider(create: (_) => getIt<CategoryBloc>()),
+                BlocProvider(create: (_) => getIt<RestaurantBloc>()),
               ],
 
                 child: Expanded(child: const JeeblyEat()))

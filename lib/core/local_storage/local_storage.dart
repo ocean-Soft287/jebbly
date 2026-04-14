@@ -4,7 +4,7 @@ import 'package:jeebly_mobile/core/helpers/logger.dart';
 import 'package:jeebly_mobile/features/auth/data/models/user_model.dart';
 import 'package:jeebly_mobile/features/auth/data/models/user_token.dart';
 
-import '../../features/home/restaurants/data/models/restaurant_model.dart';
+import '../../features/home/restaurants/models/restaurant_model.dart';
 
 part 'token_cache_interface.dart';
 part 'hive_service_impl.dart';

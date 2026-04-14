@@ -43,10 +43,10 @@ class ItemSingleImage extends StatelessWidget {
     bool isArabic = Localizations.localeOf(context).languageCode == 'ar';
     return InkWell(
         onTap: () => type == 'category'
-            ? GoRouter.of(context).push(RoutesNames.categories)
-            : type == 'restaurant'? GoRouter.of(context)
+            ? context.push(RoutesNames.eatRestaurants)
+            : type == 'restaurant'? context
             .push(RoutesNames.restaurantDetails):
-        type == 'store'? GoRouter.of(context).push(RoutesNames.storeDetails):
+        type == 'store'? context.push(RoutesNames.storeDetails):
         null,
         child: Column(
             crossAxisAlignment: centered == true

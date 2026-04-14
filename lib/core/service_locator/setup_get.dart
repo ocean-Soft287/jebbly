@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:jeebly_mobile/core/helpers/localization/locale_cubit.dart';
 import 'package:jeebly_mobile/core/service_locator/hive_services_locator/hive_services_locator.dart';
+import 'package:jeebly_mobile/core/service_locator/restaurant_service_locator/restaurants_service_locator.dart';
 import 'package:jeebly_mobile/features/auth/cubit/auth_cubit.dart';
 import 'package:jeebly_mobile/features/cart/order_flow/cubit/order_flow_cubit.dart';
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/cubit/account_cubit.dart';
@@ -11,7 +12,7 @@ import 'package:jeebly_mobile/features/drawer/addresses/data/datasource/addresse
 import 'package:jeebly_mobile/features/drawer/map/cubit/profile_map_cubit.dart';
 import 'package:jeebly_mobile/features/drawer/wallet/cubit/wallet_cubit.dart';
 import 'package:jeebly_mobile/features/home/categories/cubit/categories_cubit.dart';
-import 'package:jeebly_mobile/features/home/restaurants/cubit/restaurant_cubit.dart';
+import 'package:jeebly_mobile/features/home/restaurants/manager/cubit/restaurant_cubit.dart';
 import 'package:jeebly_mobile/features/layout/cubit/layout/layout_cubit.dart';
 import 'package:jeebly_mobile/features/layout/cubit/map/map_cubit.dart';
 import 'package:jeebly_mobile/features/onboarding/cubit/onboarding_cubit.dart';
@@ -20,7 +21,7 @@ import 'package:jeebly_mobile/features/home/data/datasource/ads_datasource.dart'
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/data/datasource/account_datasource.dart';
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/cubit/change_password_bloc/change_password_bloc.dart';
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/datasource/change_password_datasource.dart';
-import 'package:jeebly_mobile/features/home/restaurants/cubit/restaurant_bloc.dart';
+import 'package:jeebly_mobile/features/home/restaurants/manager/restaurannt_bloc/restaurant_bloc.dart';
 import 'package:jeebly_mobile/features/home/restaurants/data/data_sources/restaurant_data_source.dart';
 import '../http/api_consumer.dart';
 import '../http/base_api_consumer.dart';
@@ -78,7 +79,7 @@ Future<void> setupLocator() async {
 
   getIt.registerSingleton<SyncManager>(SyncManager());
   //======= Cubits =======//
-  getIt.registerFactory<LocaleCubit>(() => LocaleCubit());
+  getIt.registerLazySingleton<LocaleCubit>(() => LocaleCubit());
   getIt.registerFactory<OnboardingCubit>(() => OnboardingCubit());
   getIt.registerFactory<AuthCubit>(() => AuthCubit());
   getIt.registerLazySingleton<MapCubit>(() => MapCubit());
@@ -98,7 +99,7 @@ Future<void> setupLocator() async {
   getIt.registerLazySingleton<AddressesDatasource>(
     () => AddressesDatasourceImpl(getIt<GenericDataSource>()),
   );
-  getIt.registerFactory<AddressesBloc>(
+  getIt.registerLazySingleton<AddressesBloc>(
     () => AddressesBloc(getIt<AddressesDatasource>()),
   );
   getIt.registerFactory<ProfileMapCubit>(() => ProfileMapCubit());
@@ -129,4 +130,5 @@ Future<void> setupLocator() async {
   await AuthServiceLocator.execute(getIt: getIt);
   await HiveServiceLocator.init(getIt: getIt);
   await JeeblyEatServiceLocator.init(getIt: getIt);
+  await RestaurantServiceLocator.init(getIt: getIt);
 }

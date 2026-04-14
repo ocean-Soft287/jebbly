@@ -9,16 +9,16 @@ import 'package:jeebly_mobile/features/layout/views/widgets/layout/layout_app_ba
 import 'package:jeebly_mobile/features/layout/views/widgets/layout/layout_drawer.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
-class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({super.key});
+class EatRestaurantsScreen extends StatelessWidget {
+  const EatRestaurantsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
         appBar: LayoutAppBar(),
         drawer: LayoutDrawer(),
         body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          CustomDivider(),
           CustomSearchBar(
               hint:
                   AppLocalizations.of(context)!.search_for_restaurant_or_item),

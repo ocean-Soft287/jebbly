@@ -12,9 +12,19 @@ import 'package:jeebly_mobile/features/drawer/addresses/bloc/addresses_event.dar
 import 'package:jeebly_mobile/features/drawer/addresses/data/model/address_model.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
 
-class AddressSelectionSheet extends StatelessWidget {
+class AddressSelectionSheet extends StatefulWidget {
   const AddressSelectionSheet({super.key});
 
+  @override
+  State<AddressSelectionSheet> createState() => _AddressSelectionSheetState();
+}
+
+class _AddressSelectionSheetState extends State<AddressSelectionSheet> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<AddressesBloc>().add(GetAddressesEvent());
+  }
   @override
   Widget build(BuildContext context) {
     return Container(

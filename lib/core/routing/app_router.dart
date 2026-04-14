@@ -104,9 +104,9 @@ class AppRouter {
               state);
         }),
     GoRoute(
-        path: RoutesNames.categories,
+        path: RoutesNames.eatRestaurants,
         pageBuilder: (_, state) {
-          return _slidePageBuilder(const CategoriesScreen(), state);
+          return _slidePageBuilder(const EatRestaurantsScreen(), state);
         }),
     GoRoute(
         path: RoutesNames.account,
@@ -143,10 +143,11 @@ class AppRouter {
     GoRoute(
         path: RoutesNames.restaurantDetails,
         pageBuilder: (_, state) {
+          final id = state.extra as String;
           return _slidePageBuilder(
               BlocProvider(
                   create: (_) => getIt.get<RestaurantCubit>(),
-                  child: const RestaurantDetailsScreen()),
+                  child:  RestaurantDetailsScreen( restaurantId: id,)),
               state);
         }),
     GoRoute(

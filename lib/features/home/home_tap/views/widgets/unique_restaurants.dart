@@ -14,6 +14,8 @@ class UniqueRestaurants extends StatelessWidget {
         title: AppLocalizations.of(context)!.unique_restaurants_like_you,
         imageHeight: 105.h,
         itemImages: [
+
+
           ItemSingleImage(type: 'restaurant',
               imageHeight: 105.h,
               imageUrl:

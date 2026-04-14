@@ -2,7 +2,7 @@
 
 import 'package:get_it/get_it.dart';
 
-import '../../../features/home/restaurants/data/models/restaurant_model.dart';
+import '../../../features/home/restaurants/models/restaurant_model.dart';
 import '../../local_storage/local_storage.dart';
 
 class HiveServiceLocator {

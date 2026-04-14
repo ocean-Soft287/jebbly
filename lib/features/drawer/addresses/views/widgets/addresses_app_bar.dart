@@ -9,8 +9,8 @@ import 'package:jeebly_mobile/core/widgets/custom_app_bar.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:jeebly_mobile/core/widgets/custom_button.dart';
 
-import '../../bloc/addresses_bloc.dart';
-import '../../bloc/addresses_event.dart';
+import 'package:jeebly_mobile/features/drawer/addresses/bloc/addresses_bloc.dart';
+import 'package:jeebly_mobile/features/drawer/addresses/bloc/addresses_event.dart';
 
 class AddressesAppBar extends StatelessWidget implements PreferredSizeWidget {
   const AddressesAppBar({super.key});

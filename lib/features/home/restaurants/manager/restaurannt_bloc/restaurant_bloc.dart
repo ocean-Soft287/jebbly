@@ -1,7 +1,8 @@
 import 'package:jeebly_mobile/core/bloc/paginated_bloc/paginated_bloc.dart';
 import 'package:jeebly_mobile/core/params/pagination_params.dart';
 import 'package:jeebly_mobile/features/home/restaurants/data/data_sources/restaurant_data_source.dart';
-import 'package:jeebly_mobile/features/home/restaurants/data/models/restaurant_model.dart';
+
+import '../../models/restaurant_model.dart';
 
 class RestaurantBloc extends PaginatedBloc<RestaurantModel> {
   final RestaurantDataSource _dataSource;

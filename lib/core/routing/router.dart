@@ -29,7 +29,7 @@ import 'package:jeebly_mobile/features/drawer/map/views/screens/profile_map_scre
 import 'package:jeebly_mobile/features/drawer/wallet/cubit/wallet_cubit.dart';
 import 'package:jeebly_mobile/features/drawer/wallet/views/screens/my_wallet_screen.dart';
 import 'package:jeebly_mobile/features/home/categories/cubit/categories_cubit.dart';
-import 'package:jeebly_mobile/features/home/categories/views/screens/categories_screen.dart';
+import 'package:jeebly_mobile/features/home/categories/views/screens/get_restaurants_screen.dart';
 import 'package:jeebly_mobile/features/home/categories/views/screens/category_details_screen.dart';
 import 'package:jeebly_mobile/features/home/restaurants/views/screens/restaurant_details_screen.dart';
 import 'package:jeebly_mobile/features/home/stores/views/screens/store_category_details_screen.dart';
@@ -42,15 +42,15 @@ import 'package:jeebly_mobile/features/layout/views/screens/select_service_scree
 import 'package:jeebly_mobile/features/onboarding/cubit/onboarding_cubit.dart';
 import 'package:jeebly_mobile/features/onboarding/views/screens/onboarding_screen.dart';
 import 'package:jeebly_mobile/features/splash/views/screens/splash_screen.dart';
-import 'package:jeebly_mobile/features/home/restaurants/cubit/restaurant_cubit.dart';
-import 'package:jeebly_mobile/features/home/restaurants/cubit/restaurant_bloc.dart';
-import 'package:jeebly_mobile/features/home/restaurants/data/models/restaurant_model.dart';
+import 'package:jeebly_mobile/features/home/restaurants/manager/cubit/restaurant_cubit.dart';
+import 'package:jeebly_mobile/features/home/restaurants/manager/restaurannt_bloc/restaurant_bloc.dart';
 import 'package:jeebly_mobile/features/layout/views/screens/new_restaurants_screen.dart';
 import 'package:jeebly_mobile/features/home/home_tap/views/widgets/all_restaurants.dart';
 import 'package:jeebly_mobile/core/bloc/paginated_bloc/paginated_bloc.dart';
 import '../../features/auth/cubit/login_cubit/login_cubit.dart';
 import '../../features/auth/cubit/register_cubit/register_cubit.dart';
 import '../../features/auth/data/repo/register_data_source.dart';
+import '../../features/home/restaurants/models/restaurant_model.dart';
 
 part 'app_router.dart';
 

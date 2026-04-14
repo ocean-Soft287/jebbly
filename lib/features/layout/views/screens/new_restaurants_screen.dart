@@ -8,9 +8,10 @@ import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/theme/styles.dart';
 import 'package:jeebly_mobile/core/widgets/item_single_image.dart';
 import 'package:jeebly_mobile/core/widgets/pull_to_refresh.dart';
-import 'package:jeebly_mobile/features/home/restaurants/cubit/restaurant_bloc.dart';
-import 'package:jeebly_mobile/features/home/restaurants/data/models/restaurant_model.dart';
+import 'package:jeebly_mobile/features/home/restaurants/manager/restaurannt_bloc/restaurant_bloc.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
+
+import '../../../home/restaurants/models/restaurant_model.dart';
 
 class NewRestaurantsScreen extends StatelessWidget {
   const NewRestaurantsScreen({super.key});
@@ -25,6 +26,11 @@ class NewRestaurantsScreen extends StatelessWidget {
         title: Text(
           AppLocalizations.of(context)!.new_restaurant,
           style: Styles.textStyle15_600.copyWith(color: AppColors.black0),
+        ),
+        // adding back button with black color
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: AppColors.black0),
+          onPressed: () => Navigator.of(context).pop(),
         ),
         centerTitle: true,
       ),
