@@ -217,5 +217,8 @@
   "invalidNationalId": "Invalid national ID",
   "onlyEnglishDigits": "Only English digits are allowed",
   "theAccountHasBeenCreated":"The account has been created successfully",
-  "loginSuccess":"Login successful"
+  "loginSuccess":"Login successful",
+  "no_results_found": "No results found",
+  "min": "min",
+  "looking_for_a_specific_product": "Looking for a specific product?"
 }

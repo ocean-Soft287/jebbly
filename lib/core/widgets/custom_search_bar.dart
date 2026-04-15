@@ -4,8 +4,9 @@ import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/theme/styles.dart';
 
 class CustomSearchBar extends StatelessWidget {
-  const CustomSearchBar({super.key, required this.hint});
+  const CustomSearchBar({super.key, required this.hint, this.onTap});
   final String hint;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,7 @@ class CustomSearchBar extends StatelessWidget {
                 elevation: WidgetStatePropertyAll(0),
                 backgroundColor: WidgetStatePropertyAll(AppColors.white),
                 leading: Icon(Icons.search),
+                onTap: onTap,
                 hintText: hint,
                 hintStyle: WidgetStatePropertyAll(Styles.textStyle16_500))));
   }

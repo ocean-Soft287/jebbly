@@ -217,5 +217,8 @@
   "invalidNationalId": "رقم قومي غير صالح",
   "onlyEnglishDigits": "مسموح فقط بالأرقام الإنجليزية",
   "theAccountHasBeenCreated":"تم انشاء الحساب بنجاح",
-  "loginSuccess":"تم تسجيل الدخول بنجاح"
+  "loginSuccess":"تم تسجيل الدخول بنجاح",
+  "no_results_found": "لم يتم العثور على نتائج",
+  "min": "دقيقة",
+  "looking_for_a_specific_product": "هل تبحث عن منتج معين؟"
 }

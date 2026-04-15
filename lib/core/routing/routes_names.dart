@@ -24,6 +24,7 @@ class RoutesNames {
   static const String productDetails = '/productDetailsScreen';
   static const String storeDetails = '/storeDetailsScreen';
   static const String storeCategoryDetails = '/storeCategoryDetailsScreen';
+  static const String searchRestaurants = '/searchRestaurantsScreen';
 
   //======= Cart =======//
   static const String orderSummary = '/orderSummaryScreen';

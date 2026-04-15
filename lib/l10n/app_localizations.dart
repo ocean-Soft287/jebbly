@@ -1408,6 +1408,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Login successful'**
   String get loginSuccess;
+
+  /// No description provided for @no_results_found.
+  ///
+  /// In en, this message translates to:
+  /// **'No results found'**
+  String get no_results_found;
+
+  /// No description provided for @min.
+  ///
+  /// In en, this message translates to:
+  /// **'min'**
+  String get min;
+
+  /// No description provided for @looking_for_a_specific_product.
+  ///
+  /// In en, this message translates to:
+  /// **'Looking for a specific product?'**
+  String get looking_for_a_specific_product;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

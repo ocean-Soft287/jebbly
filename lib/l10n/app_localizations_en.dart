@@ -664,4 +664,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get loginSuccess => 'Login successful';
+
+  @override
+  String get no_results_found => 'No results found';
+
+  @override
+  String get min => 'min';
+
+  @override
+  String get looking_for_a_specific_product => 'Looking for a specific product?';
 }

@@ -7,7 +7,6 @@ import 'package:jeebly_mobile/core/extensions/context_extension.dart';
 import 'package:jeebly_mobile/core/helpers/logger.dart';
 import 'package:jeebly_mobile/core/http/api_consumer.dart';
 import 'package:jeebly_mobile/core/http/either.dart';
-import 'package:jeebly_mobile/core/http/endpoints.dart';
 import 'package:jeebly_mobile/core/http/failure.dart';
 import 'package:jeebly_mobile/core/local_storage/local_storage.dart';
 import 'package:jeebly_mobile/core/routing/routes_names.dart';
@@ -19,9 +18,9 @@ class ApiConsumerImpl implements ApiConsumer {
   final int maxRetries;
   final Duration retryDelay;
 
-  // Token refresh lock mechanism
-  static Future<bool>? _refreshFuture;
-  static bool _isRefreshing = false;
+  // Token refresh lock mechanism (Deprecated)
+  // static Future<bool>? _refreshFuture;
+  // static bool _isRefreshing = false;
 
   ApiConsumerImpl({
     required Dio dio,
@@ -46,11 +45,9 @@ class ApiConsumerImpl implements ApiConsumer {
       }
     } on DioException catch (e) {
       // Only attempt token refresh if skipAuthRefresh is false
-      if (e.response?.statusCode == 401 && !skipAuthRefresh) {
-        final refreshed = await _refreshTokenWithLock();
-        if (refreshed) {
-          return retryCall();
-        }
+      // Navigate to login if token is invalid (401)
+      if (e.response?.statusCode == 401) {
+        _navigateToLogin();
       }
       return Left(_handleDioError(e));
     } catch (e) {
@@ -71,10 +68,7 @@ class ApiConsumerImpl implements ApiConsumer {
       return Right(savePath);
     } on DioException catch (e) {
       if (e.response?.statusCode == 401) {
-        final refreshed = await _refreshTokenWithLock();
-        if (refreshed) {
-          return retryCall();
-        }
+        _navigateToLogin();
       }
       return Left(_handleDioError(e));
     } catch (e) {
@@ -85,60 +79,16 @@ class ApiConsumerImpl implements ApiConsumer {
     }
   }
 
-  /// Token refresh with lock mechanism to prevent multiple simultaneous refresh attempts
-  Future<bool> _refreshTokenWithLock() async {
-    // If already refreshing, wait for the existing refresh to complete
-    if (_isRefreshing && _refreshFuture != null) {
-      loggerInfo('Token refresh already in progress, waiting...');
-      return await _refreshFuture!;
-    }
+  // /// Deprecated: Token refresh no longer supported by backend
+  // Future<bool> _refreshTokenWithLock() async {
+  //   _navigateToLogin();
+  //   return false;
+  // }
 
-    // Start new refresh
-    _isRefreshing = true;
-    _refreshFuture = _refreshToken();
-
-    try {
-      final result = await _refreshFuture!;
-      return result;
-    } finally {
-      _isRefreshing = false;
-      _refreshFuture = null;
-    }
-  }
-
-  Future<bool> _refreshToken() async {
-    // final token = getIt<ITokenCache>().getAccessToken()?.refreshToken;
-    // if (token == null) {
-    //   loggerWarn('No refresh token available');
-    //   _navigateToLogin();
-    //   return false;
-    // }
-
-    try {
-      loggerInfo('Attempting to refresh token...');
-      final response = await _dio.post(Endpoints.refreshToken,
-          // data: {"refreshToken": token},
-          options: Options(headers: {"Authorization": null}));
-
-      if (response.data is Map<String, dynamic>) {
-        // final newToken = UserToken.fromJson(response.data);
-        // getIt<ITokenCache>().saveAccessToken(newToken);
-        // updateHeader({"Authorization": "Bearer ${newToken.accessToken}"});
-        loggerInfo('Token refreshed successfully');
-        return true;
-      }
-
-      // Refresh token is invalid or expired
-      loggerWarn('Invalid response from refresh endpoint');
-      _navigateToLogin();
-      return false;
-    } catch (e) {
-      // Refresh token failed
-      loggerError('Token refresh failed: $e');
-      _navigateToLogin();
-      return false;
-    }
-  }
+  // Future<bool> _refreshToken() async {
+  //   _navigateToLogin();
+  //   return false;
+  // }
 
   void _navigateToLogin() {
     // Clear stored tokens
@@ -216,7 +166,7 @@ class ApiConsumerImpl implements ApiConsumer {
           return ServerFailure(message: 'network failure ${error.message}');
         case 401:
           final msg = _extractErrorMessage(decoded, textMessage, 'غير مصرح لك');
-          return ValidationFailure(message: msg, errors: [msg]);
+          return UnauthorizedFailure(message: msg, statusCode: 401);
         case 413:
           navigatorKey.currentContext
               ?.showErrorMessage('File size is too large');
@@ -639,6 +589,7 @@ class ApiConsumerImpl implements ApiConsumer {
 
   @override
   Future<bool> refreshToken() async {
-    return await _refreshTokenWithLock();
+    _navigateToLogin();
+    return false;
   }
 }

@@ -664,4 +664,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get loginSuccess => 'تم تسجيل الدخول بنجاح';
+
+  @override
+  String get no_results_found => 'لم يتم العثور على نتائج';
+
+  @override
+  String get min => 'دقيقة';
+
+  @override
+  String get looking_for_a_specific_product => 'هل تبحث عن منتج معين؟';
 }

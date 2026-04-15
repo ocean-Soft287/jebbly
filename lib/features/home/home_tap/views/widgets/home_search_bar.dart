@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:jeebly_mobile/core/widgets/custom_search_bar.dart';
+import 'package:go_router/go_router.dart';
+import '../../../../../core/routing/routes_names.dart';
 
 class HomeSearchBar extends StatelessWidget {
   const HomeSearchBar({super.key, required this.index});
   final int index;
-
   @override
   Widget build(BuildContext context) {
-    return CustomSearchBar(hint: index == 2?
-    AppLocalizations.of(context)!.search_for_product_or_store:
-    AppLocalizations.of(context)!.search_for_restaurant_or_item);
+    return CustomSearchBar(
+      hint: index == 2
+          ? AppLocalizations.of(context)!.search_for_product_or_store
+          : AppLocalizations.of(context)!.search_for_restaurant_or_item,
+      onTap: () {
+        if (index == 0) {
+          context.push(RoutesNames.searchRestaurants);
+        }
+      },
+    );
   }
 }

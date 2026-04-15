@@ -16,7 +16,9 @@ class AppRouter {
     // print("Country >>><<<<< $country");
   }
 
-  static final routes = GoRouter(routes: [
+  static final routes = GoRouter(
+      navigatorKey: navigatorKey,
+      routes: [
     GoRoute(
         path: "/",
         pageBuilder: (context, state) {
@@ -181,6 +183,15 @@ class AppRouter {
         path: RoutesNames.storeDetails,
         pageBuilder: (_, state) {
           return _slidePageBuilder(const StoreDetailsScreen(), state);
+        }),
+    GoRoute(
+        path: RoutesNames.searchRestaurants,
+        pageBuilder: (_, state) {
+          return _slidePageBuilder(
+              BlocProvider(
+                  create: (_) => getIt.get<SearchRestaurantBloc>(),
+                  child: const SearchRestaurantsScreen()),
+              state);
         }),
     GoRoute(
         path: RoutesNames.storeCategoryDetails,

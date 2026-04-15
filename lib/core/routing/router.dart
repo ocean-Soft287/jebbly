@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jeebly_mobile/main.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jeebly_mobile/core/service_locator/setup_get.dart';
@@ -51,6 +52,8 @@ import '../../features/auth/cubit/login_cubit/login_cubit.dart';
 import '../../features/auth/cubit/register_cubit/register_cubit.dart';
 import '../../features/auth/data/repo/register_data_source.dart';
 import '../../features/home/restaurants/models/restaurant_model.dart';
+import '../../features/home/jeebly_eat/manager/search_restaurant_bloc/search_restaurant_bloc.dart';
+import '../../features/home/jeebly_eat/presentation/screens/search_restaurants_screen.dart';
 
 part 'app_router.dart';
 
