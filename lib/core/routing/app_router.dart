@@ -91,9 +91,16 @@ class AppRouter {
         pageBuilder: (_, state) {
           final index = state.extra as int;
           return _slidePageBuilder(
-              BlocProvider(
-                  create: (_) => getIt.get<LayoutCubit>()..setHomeIndex(index),
-                  child: const LayoutScreen()),
+              MultiBlocProvider(
+                providers: [
+                  BlocProvider(create: (_) => getIt.get<LayoutCubit>()..setHomeIndex(index)),
+                  BlocProvider.value(value: getIt.get<CategoryBloc>()),
+                  BlocProvider.value(value: getIt.get<RestaurantBloc>()),
+                  BlocProvider.value(value: getIt.get<SearchRestaurantBloc>()),
+                  BlocProvider.value(value: getIt.get<HighRatedRestaurantsBloc>()),
+                ],
+                child: const LayoutScreen(),
+              ),
               state);
         }),
     GoRoute(

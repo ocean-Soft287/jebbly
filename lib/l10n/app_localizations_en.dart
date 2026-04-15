@@ -189,7 +189,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get categories => 'Categories';
 
   @override
-  String get unique_restaurants_like_you => 'Unique restaurant like you';
+  String get high_rated_restaurants => 'High rated restaurants';
 
   @override
   String get pickup_is_available => 'Pickup is available';

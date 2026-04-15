@@ -30,7 +30,7 @@ import 'package:jeebly_mobile/features/drawer/map/views/screens/profile_map_scre
 import 'package:jeebly_mobile/features/drawer/wallet/cubit/wallet_cubit.dart';
 import 'package:jeebly_mobile/features/drawer/wallet/views/screens/my_wallet_screen.dart';
 import 'package:jeebly_mobile/features/home/categories/cubit/categories_cubit.dart';
-import 'package:jeebly_mobile/features/home/categories/views/screens/get_restaurants_screen.dart';
+import 'package:jeebly_mobile/features/home/jeebly_eat/presentation/screens/get_restaurants_screen.dart';
 import 'package:jeebly_mobile/features/home/categories/views/screens/category_details_screen.dart';
 import 'package:jeebly_mobile/features/home/restaurants/views/screens/restaurant_details_screen.dart';
 import 'package:jeebly_mobile/features/home/stores/views/screens/store_category_details_screen.dart';
@@ -54,6 +54,9 @@ import '../../features/auth/data/repo/register_data_source.dart';
 import '../../features/home/restaurants/models/restaurant_model.dart';
 import '../../features/home/jeebly_eat/manager/search_restaurant_bloc/search_restaurant_bloc.dart';
 import '../../features/home/jeebly_eat/presentation/screens/search_restaurants_screen.dart';
+
+import '../../features/home/jeebly_eat/manager/high_rated_restaurants_bloc/high_rated_restaurants_bloc.dart';
+import '../../features/home/jeebly_eat/jeebly_eat_imports.dart';
 
 part 'app_router.dart';
 

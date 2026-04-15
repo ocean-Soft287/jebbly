@@ -2,6 +2,7 @@ import 'package:get_it/get_it.dart';
 
 import '../../../features/home/jeebly_eat/datasource/search_restaurant_data_source.dart';
 import '../../../features/home/jeebly_eat/jeebly_eat_imports.dart';
+import '../../../features/home/jeebly_eat/manager/high_rated_restaurants_bloc/high_rated_restaurants_bloc.dart';
 import '../../../features/home/jeebly_eat/manager/search_restaurant_bloc/search_restaurant_bloc.dart';
 import '../../http/generic_data_source.dart';
 
@@ -18,11 +19,14 @@ class JeeblyEatServiceLocator {
     );
 
     // Bloc
-    getIt.registerFactory<CategoryBloc>(
+    getIt.registerLazySingleton<CategoryBloc>(
           () => CategoryBloc(getIt<CategoryDataSource>()),
     );
-    getIt.registerFactory<SearchRestaurantBloc>(
+    getIt.registerLazySingleton<SearchRestaurantBloc>(
           () => SearchRestaurantBloc(getIt<SearchRestaurantDataSource>()),
+    );
+    getIt.registerLazySingleton<HighRatedRestaurantsBloc>(
+          () => HighRatedRestaurantsBloc(dataSource:getIt<GenericDataSource>()),
     );
   }
 }

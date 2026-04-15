@@ -29,7 +29,7 @@ class _JeeblyEatState extends State<JeeblyEat> {
           children: [
             EatCategories(),
             Gap(12.h),
-            UniqueRestaurants(),
+            HighRatedRestaurants(),
             Gap(12.h),
             AllRestaurants()
           ],

@@ -35,8 +35,11 @@ class GenericDataSource {
           (right) {
         try {
           if (paginationParams != null) {
-            final items =
-            (right['data'] as List).map((e) => fromJson(e)).toList();
+            final dynamic data = right['data'];
+            final List itemsList = (data is Map && data.containsKey('data'))
+                ? data['data']
+                : (data is List ? data : []);
+            final items = itemsList.map((e) => fromJson(e)).toList();
 
             return Right(items);
           }

@@ -189,7 +189,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get categories => 'الأقسام';
 
   @override
-  String get unique_restaurants_like_you => 'مطاعم مميزة مثلك';
+  String get high_rated_restaurants => 'المطاعم الأعلى تقييماً';
 
   @override
   String get pickup_is_available => 'الاستلام متاح';

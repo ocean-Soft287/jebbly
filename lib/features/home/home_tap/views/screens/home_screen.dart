@@ -7,6 +7,7 @@ import 'package:jeebly_mobile/features/home/home_tap/views/widgets/jeebly_get.da
 import '../../../../../core/service_locator/service_locator.dart';
 import '../../../../../core/theme/app_colors.dart';
 import '../../../jeebly_eat/jeebly_eat_imports.dart';
+import '../../../jeebly_eat/manager/search_restaurant_bloc/search_restaurant_bloc.dart';
 import '../../../restaurants/manager/restaurannt_bloc/restaurant_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -23,16 +24,10 @@ class HomeScreen extends StatelessWidget {
             HomeSearchBar(index: index),
             // const CustomDivider(),
             index == 0
-                ? MultiBlocProvider(
-              providers: [
-                BlocProvider(create: (_) => getIt<CategoryBloc>()),
-                BlocProvider(create: (_) => getIt<RestaurantBloc>()),
-              ],
-
-                child: Expanded(child: const JeeblyEat()))
+                ? const Expanded(child: JeeblyEat())
                 : index == 1
-                ? const JeeblyGet()
-                : const JeeblyShop()
+                    ? const JeeblyGet()
+                    : const JeeblyShop()
           ]
         ));
   }

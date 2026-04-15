@@ -16,7 +16,7 @@ import '../../../core/http/failure.dart';
 import '../../../core/http/generic_data_source.dart';
 import '../../../core/routing/routes_names.dart';
 import '../home_tap/views/widgets/all_restaurants.dart';
-import '../home_tap/views/widgets/unique_restaurants.dart';
+import 'presentation/widgets/high_rated_restaurants.dart';
 
 part 'presentation/widgets/eat_categories.dart';
 part 'presentation/screens/jeebly_eat.dart';

@@ -1,14 +1,30 @@
 import 'package:equatable/equatable.dart';
+import 'package:hive_flutter/adapters.dart';
 
+part 'search_restaurant_model.g.dart';
+
+@HiveType(typeId: 20)
 class SearchRestaurantModel extends Equatable {
+  @HiveField(0)
   final int id;
+  @HiveField(1)
   final String nameAr;
+  @HiveField(2)
   final String nameEn;
+  @HiveField(3)
   final String logo;
+  @HiveField(4)
   final double? rating;
+  @HiveField(5)
   final int minDeliveryTime;
+  @HiveField(6)
   final int maxDeliveryTime;
+  @HiveField(7)
   final int averagePreparationTime;
+
+
+
+
 
   const SearchRestaurantModel({
     required this.id,
@@ -27,7 +43,7 @@ class SearchRestaurantModel extends Equatable {
       nameAr: json['nameAr'] ??'',
       nameEn: json['nameEn'] ??'',
       logo: json['logo'] ??'',
-      rating: json['rating'] ?? 0.0,
+      rating: (json['rating'] ?? 0.0).toDouble(),
       minDeliveryTime: json['minDeliveryTime'] ??0,
       maxDeliveryTime: json['maxDeliveryTime'] ??0,
       averagePreparationTime: json['averagePreparationTime'] ??0,

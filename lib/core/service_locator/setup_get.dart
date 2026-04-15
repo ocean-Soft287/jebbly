@@ -120,7 +120,7 @@ Future<void> setupLocator() async {
   getIt.registerLazySingleton<RestaurantDataSource>(
     () => RestaurantDataSourceImpl(getIt<GenericDataSource>()),
   );
-  getIt.registerFactory<RestaurantBloc>(
+  getIt.registerLazySingleton<RestaurantBloc>(
     () => RestaurantBloc(dataSource: getIt<RestaurantDataSource>()),
   );
   // getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt.get<AuthRepo>()));

@@ -455,11 +455,11 @@ abstract class AppLocalizations {
   /// **'Categories'**
   String get categories;
 
-  /// No description provided for @unique_restaurants_like_you.
+  /// No description provided for @high_rated_restaurants.
   ///
   /// In en, this message translates to:
-  /// **'Unique restaurant like you'**
-  String get unique_restaurants_like_you;
+  /// **'High rated restaurants'**
+  String get high_rated_restaurants;
 
   /// No description provided for @pickup_is_available.
   ///
