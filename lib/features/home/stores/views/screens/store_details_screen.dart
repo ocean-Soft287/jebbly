@@ -4,7 +4,6 @@ import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/theme/styles.dart';
 import 'package:jeebly_mobile/core/widgets/custom_search_bar.dart';
 import 'package:jeebly_mobile/core/widgets/custom_text.dart';
-import 'package:jeebly_mobile/features/home/categories/views/widgets/categories_grid.dart';
 import 'package:jeebly_mobile/features/home/stores/views/widgets/store_header.dart';
 import 'package:jeebly_mobile/features/home/stores/views/widgets/store_info.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
@@ -27,7 +26,7 @@ class StoreDetailsScreen extends StatelessWidget {
                   children: [
                 CustomText(AppLocalizations.of(context)!.browse_categories,
                     style: Styles.textStyle15_500),
-                const CategoriesGrid(store: true)
+              //  const CategoryRestaurantsGrid(store: true)
               ]))
         ]));
   }

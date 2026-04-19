@@ -52,8 +52,8 @@ class RestaurantModel extends Equatable {
     return RestaurantModel(
       id: json['id'] ??0,
       serviceId: json['serviceId'] ??0,
-      nameOfResturantAr: json['nameOfResturantAr'] ??"",
-      nameOfResturantEn: json['nameOfResturantEn'] ??"",
+      nameOfResturantAr: json['nameAr'] ??"",
+      nameOfResturantEn: json['nameEr'] ??"",
       descriptionAr: json['descriptionAr'] ??"",
       descriptionEn: json['descriptionEn'] ??"",
       logo: json['logo'] ??"",

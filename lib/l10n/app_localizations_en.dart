@@ -219,6 +219,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get browse_categories => 'Browse categories';
 
   @override
+  String get browse_restaurants => 'Browse Restaurants';
+
+  @override
   String get app_settings => 'App settings';
 
   @override

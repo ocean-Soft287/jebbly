@@ -515,6 +515,12 @@ abstract class AppLocalizations {
   /// **'Browse categories'**
   String get browse_categories;
 
+  /// No description provided for @browse_restaurants.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse Restaurants'**
+  String get browse_restaurants;
+
   /// No description provided for @app_settings.
   ///
   /// In en, this message translates to:

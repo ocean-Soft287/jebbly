@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/theme/styles.dart';
-import 'package:jeebly_mobile/features/home/categories/views/widgets/categories_grid.dart';
+import 'package:jeebly_mobile/features/home/jeebly_eat/presentation/widgets/category_restaurants_grid.dart';
 
 class JeeblyGet extends StatelessWidget {
   const JeeblyGet({super.key});
@@ -23,7 +23,7 @@ class JeeblyGet extends StatelessWidget {
                           AppLocalizations.of(context)!.browse_based_on_category,
                           style: Styles.textStyle15_600
                               .copyWith(color: AppColors.black0)),
-                      CategoriesGrid()
+                      CategoryRestaurantsGrid(restaurants: [],)
                     ]))));
   }
 }

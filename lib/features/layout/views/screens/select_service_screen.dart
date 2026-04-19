@@ -22,7 +22,7 @@ class SelectServiceScreen extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => getIt<AdsBloc>()),
-        BlocProvider(create: (_) => getIt<RestaurantBloc>()),
+        BlocProvider.value(value:  getIt<RestaurantBloc>()),
       ],
       child: Scaffold(
           backgroundColor: AppColors.white,
@@ -43,7 +43,6 @@ class SelectServiceScreen extends StatelessWidget {
                           const ProvidedServices(),
                           Gap(44.h),
                           const NewRestaurantsForSelectService(),
-
                         ])),
                     Gap(26.h)
                   ]))),

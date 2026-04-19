@@ -219,6 +219,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get browse_categories => 'تصفح الأقسام';
 
   @override
+  String get browse_restaurants => 'تصفح المطاعم';
+
+  @override
   String get app_settings => 'إعدادات التطبيق';
 
   @override

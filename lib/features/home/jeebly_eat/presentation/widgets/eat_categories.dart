@@ -103,7 +103,7 @@ class CategoryCard extends StatelessWidget {
     return InkWell(
       onTap: () {
 
-        context.push(RoutesNames.eatRestaurants,extra: item.serviceId);
+        context.push(RoutesNames.eatRestaurants,extra: item.id);
 
         // context.read<CategoryBloc>().add(const FetchRestaurants(serviceId: EatCategories._serviceId));
       },

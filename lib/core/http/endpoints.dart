@@ -1,5 +1,5 @@
 abstract interface class Endpoints {
-  static const String baseUrl = 'https://jeebly.runasp.net/';
+  static const String baseUrl = 'https://jebbly.runasp.net/';
 
   // ****************************** Auth ********************************
   static const String register = 'api/AuthClient/register';
@@ -20,7 +20,6 @@ abstract interface class Endpoints {
 
   // ***************************** Categories *******************************
   static String getCategories({required String id}) => 'api/Services/$id/Categories';
-  static String getRestaurants({required String categoryId}) => 'api/Services/$categoryId/restaurants';
   static String getRestaurantDetails({required String restaurantId}) => 'api/AddRestaurant/$restaurantId/RestaurantById';
 
   // ***************************** Ads *******************************
@@ -28,7 +27,9 @@ abstract interface class Endpoints {
 
 
   // ***************************** Restaurants *******************************
-  static const String getAllRestaurants = 'api/AddRestaurant/getAllResturant';
+  static const String getAllRestaurants = 'api/AddRestaurant/getAllResturant';//
+  static String getRestaurantsByCategory({required String categoryId}) => 'api/CategoriesClient/$categoryId/restaurants';
+
   static const String searchRestaurants = '/api/RestaurantClient/search';
   static const String highRatedRestaurants = 'api/AddRestaurant/HighRatedResturants';
 }

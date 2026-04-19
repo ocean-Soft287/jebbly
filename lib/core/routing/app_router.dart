@@ -115,7 +115,8 @@ class AppRouter {
     GoRoute(
         path: RoutesNames.eatRestaurants,
         pageBuilder: (_, state) {
-          return _slidePageBuilder(const EatRestaurantsScreen(), state);
+          final categoryId = state.extra as int;
+          return _slidePageBuilder(EatRestaurantsScreen(categoryId: categoryId.toString()), state);
         }),
     GoRoute(
         path: RoutesNames.account,

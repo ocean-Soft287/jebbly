@@ -12,6 +12,7 @@ class ItemSingleImage extends StatelessWidget {
   const ItemSingleImage(
       {super.key,
       required this.imageUrl,
+      this.categoryId,
       this.centerText,
       this.withFavIcon,
       this.available,
@@ -26,6 +27,7 @@ class ItemSingleImage extends StatelessWidget {
       this.fav,
       this.centered,
       this.type});
+  final int? categoryId;
   final String imageUrl;
   final String? centerText,
       title,
@@ -43,7 +45,7 @@ class ItemSingleImage extends StatelessWidget {
     bool isArabic = Localizations.localeOf(context).languageCode == 'ar';
     return InkWell(
         onTap: () => type == 'category'
-            ? context.push(RoutesNames.eatRestaurants)
+            ? context.push(RoutesNames.eatRestaurants, extra: categoryId)
             : type == 'restaurant'? context
             .push(RoutesNames.restaurantDetails):
         type == 'store'? context.push(RoutesNames.storeDetails):

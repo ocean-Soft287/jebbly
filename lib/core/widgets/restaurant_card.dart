@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jeebly_mobile/core/extensions/context_extension.dart';
 import 'package:jeebly_mobile/core/routing/routes_names.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/theme/styles.dart';
@@ -26,34 +27,28 @@ class RestaurantCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isArabic = Localizations.localeOf(context).languageCode == 'ar';
+    final isArabic = context.isArabic;
 
     // ── title: prefer name, fallback to owner ──────────────────────────────
-    final title = isArabic
-        ? ((model.nameOfResturantAr?.isNotEmpty == true)
-        ? model.nameOfResturantAr
-        : model.nameOfResturantOwner)
-        : ((model.nameOfResturantEn?.isNotEmpty == true)
-        ? model.nameOfResturantEn
-        : model.nameOfResturantOwner);
+    final title = isArabic ? model.nameOfResturantAr : model.nameOfResturantEn;
 
     // ── subtitle: prefer description, fallback to area ────────────────────
     final subtitle = isArabic
         ? ((model.descriptionAr?.isNotEmpty == true)
-        ? model.descriptionAr
-        : model.areaOfResturantAr)
+            ? model.descriptionAr
+            : model.areaOfResturantAr)
         : ((model.descriptionEn?.isNotEmpty == true)
-        ? model.descriptionEn
-        : model.areaOfResturantEn);
+            ? model.descriptionEn
+            : model.areaOfResturantEn);
 
     // ── image url ──────────────────────────────────────────────────────────
-    final imageUrl =
-    (model.logo?.isNotEmpty == true) ? '$_baseUrl${model.logo}' : '';
+    final imageUrl = '$_baseUrl${model.logo}';
 
     final isAvailable = model.status == 'Active';
 
     return InkWell(
-      onTap: () => context.push(RoutesNames.restaurantDetails, extra: model.id.toString()),
+      onTap: () => context.push(RoutesNames.restaurantDetails,
+          extra: model.id.toString()),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -66,11 +61,14 @@ class RestaurantCard extends StatelessWidget {
           ),
           ItemSingleImageFooter(
             title: title,
-            distance: '1.3',       // static — not in model yet
+            distance: '1.3',
+            // static — not in model yet
             subtitle: subtitle,
-            deliveryPrice: '7.5',  // static — not in model yet
+            deliveryPrice: '7.5',
+            // static — not in model yet
             totalRating: model.rate.toString(),
-            rateCount: '614',      // static — not in model yet
+            rateCount: '614',
+            // static — not in model yet
             width: imageWidth,
           ),
         ],
