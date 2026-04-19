@@ -21,6 +21,7 @@ abstract interface class Endpoints {
   // ***************************** Categories *******************************
   static String getCategories({required String id}) => 'api/Services/$id/Categories';
   static String getRestaurantDetails({required String restaurantId}) => 'api/AddRestaurant/$restaurantId/RestaurantById';
+  static String getRestaurantCategories({required String restaurantId}) => 'api/CategoriesClient/$restaurantId/Categories';
 
   // ***************************** Ads *******************************
   static const String ads = 'api/UploadImages/service';

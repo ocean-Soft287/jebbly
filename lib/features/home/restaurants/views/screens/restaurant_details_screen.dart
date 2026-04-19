@@ -63,7 +63,7 @@ class RestaurantDetailsScreen extends StatelessWidget {
                 RestaurantCover(coverUrl: restaurant.coverUrl),
                 RestaurantHeader(restaurant: restaurant),
                 const CustomDivider(),
-                const RestaurantSearch(),
+                RestaurantSearch(restaurantId: restaurantId),
                 const RestaurantProductsList(),
               ],
             ),
