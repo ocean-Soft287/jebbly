@@ -11,7 +11,7 @@ class AdCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => GoRouter.of(context).push(RoutesNames.restaurantDetails),
+      onTap: () => GoRouter.of(context).push(RoutesNames.restaurantDetails,),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 17.w, vertical: 19.h),
         child: CustomNetworkImage(url: url, height: 130.h, width: double.infinity, radius: 16.r),

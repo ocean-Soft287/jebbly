@@ -5,7 +5,7 @@ import 'package:jeebly_mobile/core/http/generic_data_source.dart';
 import '../../models/restaurant_category_model.dart';
 
 abstract class RestaurantCategoryDataSource {
-  Future<Either<Failure, List<RestaurantCategoryModel>>> getRestaurantCategories({required String restaurantId});
+  Future<Either<Failure, List<RestaurantCategoryModel>>> getRestaurantCategories({required int restaurantId});
 }
 
 class RestaurantCategoryDataSourceImpl implements RestaurantCategoryDataSource {
@@ -15,7 +15,7 @@ class RestaurantCategoryDataSourceImpl implements RestaurantCategoryDataSource {
 
   @override
   Future<Either<Failure, List<RestaurantCategoryModel>>> getRestaurantCategories({
-    required String restaurantId,
+    required int restaurantId,
   }) async {
     return await _genericDataSource.fetchData<RestaurantCategoryModel>(
       endpoint: Endpoints.getRestaurantCategories(restaurantId: restaurantId),

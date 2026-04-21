@@ -8,7 +8,7 @@ import '../../../models/restaurants_details_model.dart';
 
 abstract class RestaurantDetailsDataSource {
   Future<Either<Failure, RestaurantDetailsModel>> getRestaurantDetails({
-    required String restaurantId,
+    required int restaurantId,
   });
 }
 
@@ -19,7 +19,7 @@ class RestaurantDetailsDataSourceImpl implements RestaurantDetailsDataSource {
 
   @override
   Future<Either<Failure, RestaurantDetailsModel>> getRestaurantDetails({
-    required String restaurantId,
+    required int restaurantId,
   }) async {
     final result = await _genericDataSource.fetchResult(
      endpoint:  Endpoints.getRestaurantDetails(restaurantId: restaurantId),

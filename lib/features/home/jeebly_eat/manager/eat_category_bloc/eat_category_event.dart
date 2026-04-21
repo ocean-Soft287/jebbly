@@ -8,7 +8,7 @@ abstract class CategoryEvent extends Equatable {
 }
 
 class FetchCategories extends CategoryEvent {
-  final String serviceId;
+  final int serviceId;
 
   const FetchCategories({required this.serviceId});
 

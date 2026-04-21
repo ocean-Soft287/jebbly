@@ -8,7 +8,7 @@ abstract class RestaurantCategoryEvent extends Equatable {
 }
 
 class FetchRestaurantCategories extends RestaurantCategoryEvent {
-  final String restaurantId;
+  final int restaurantId;
 
   const FetchRestaurantCategories({required this.restaurantId});
 

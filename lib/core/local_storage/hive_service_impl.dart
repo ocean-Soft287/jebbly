@@ -38,12 +38,15 @@ class HiveServiceImpl implements IUserCache,ITokenCache,IThemeCache{
     }
     if (!Hive.isAdapterRegistered(20)) {
       Hive.registerAdapter(SearchRestaurantModelAdapter());
+    } if (!Hive.isAdapterRegistered(21)) {
+      Hive.registerAdapter(ProductModelAdapter());
     }
     // //open boxes
     _userBox = await Hive.openBox<UserModel>(userBoxName);
     _tokenBox = await Hive.openBox<UserToken>(tokenBoxName);
     _themeBox = await Hive.openBox<String>(themeBoxName);
   }
+
   // ---------------------- User ----------------------
 
 
@@ -66,6 +69,8 @@ class HiveServiceImpl implements IUserCache,ITokenCache,IThemeCache{
 //   }
 
   // ---------------------- Theme ----------------------
+
+
   @override
   Future<void> saveThemeMode(String themeMode) async {
     await _themeBox?.put(themeModeKey, themeMode);

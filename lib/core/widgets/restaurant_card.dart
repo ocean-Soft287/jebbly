@@ -48,7 +48,7 @@ class RestaurantCard extends StatelessWidget {
 
     return InkWell(
       onTap: () => context.push(RoutesNames.restaurantDetails,
-          extra: model.id.toString()),
+          extra: model.id),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

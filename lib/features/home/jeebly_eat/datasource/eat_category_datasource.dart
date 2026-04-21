@@ -1,7 +1,7 @@
 part of '../jeebly_eat_imports.dart';
 
 abstract class CategoryDataSource {
-  Future<Either<Failure, List<CategoryModel>>> getCategories({required String serviceId});
+  Future<Either<Failure, List<CategoryModel>>> getCategories({required int serviceId});
 }
 
 class CategoryDataSourceImpl implements CategoryDataSource {
@@ -11,7 +11,7 @@ class CategoryDataSourceImpl implements CategoryDataSource {
 
   @override
   Future<Either<Failure, List<CategoryModel>>> getCategories({
-    required String serviceId,
+    required int serviceId,
   }) async {
     return await _genericDataSource.fetchData<CategoryModel>(
       endpoint: Endpoints.getCategories(id: serviceId),

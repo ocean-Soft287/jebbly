@@ -20,4 +20,5 @@ class AppColors {
   static const ketchup2 = Color(0xFFFDCA8E);
   static const green0 = Color(0xFF06A306);
   static const green1 = Color(0xFF54BC64);
+  static const transparent = Colors.transparent;
 }

@@ -3,7 +3,7 @@ part of '../../jeebly_eat_imports.dart';
 class EatCategories extends StatefulWidget {
   const EatCategories({super.key});
 
-  static const String _serviceId = '1';
+  static const int _serviceId = 1;
 
   @override
   State<EatCategories> createState() => _EatCategoriesState();

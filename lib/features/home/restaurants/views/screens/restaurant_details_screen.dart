@@ -2,23 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/widgets/custom_divider.dart';
+import 'package:jeebly_mobile/features/home/restaurants/manager/restaurant_category_bloc/restaurant_category_event.dart';
 import 'package:jeebly_mobile/features/home/restaurants/views/widgets/cart_bottom_sheet.dart';
+import 'package:jeebly_mobile/features/home/restaurants/views/widgets/restaurant_categories_bar.dart';
 import 'package:jeebly_mobile/features/home/restaurants/views/widgets/restaurant_cover.dart';
 import 'package:jeebly_mobile/features/home/restaurants/views/widgets/restaurant_header.dart';
 import 'package:jeebly_mobile/features/home/restaurants/views/widgets/restaurant_products_list.dart';
 import 'package:jeebly_mobile/features/home/restaurants/views/widgets/restaurant_search.dart';
 
+import '../../../../../core/widgets/pull_to_refresh.dart';
+import '../../manager/product_bloc/product_bloc.dart';
+import '../../models/product_model.dart';
 import '../../../../../core/bloc/base_bloc.dart';
 import '../../../../../core/service_locator/service_locator.dart';
 import '../../manager/cubit/restaurant_cubit.dart';
+import '../../manager/restaurant_category_bloc/restaurant_category_bloc.dart';
 import '../../manager/restaurant_details_bloc/restaurant_details_bloc.dart';
 import '../../manager/restaurant_details_bloc/restaurants_details_event.dart';
 import '../../models/restaurants_details_model.dart';
+import '../../../../../core/bloc/paginated_bloc/paginated_bloc.dart';
 
-class RestaurantDetailsScreen extends StatelessWidget {
-  final String restaurantId;
+class RestaurantDetailsScreen extends StatefulWidget {
+  final int restaurantId;
 
   const RestaurantDetailsScreen({super.key, required this.restaurantId});
+
+  @override
+  State<RestaurantDetailsScreen> createState() => _RestaurantDetailsScreenState();
+}
+
+class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
+  int? currentCategoryId;
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +40,17 @@ class RestaurantDetailsScreen extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (_) => getIt<RestaurantDetailsBloc>()
-            ..add(FetchRestaurantDetails(restaurantId: restaurantId)),
+            ..add(FetchRestaurantDetails(restaurantId: widget.restaurantId)),
+        ),
+        BlocProvider(
+          create: (_) => getIt<RestaurantCategoryBloc>()
+            ..add(FetchRestaurantCategories(restaurantId: widget.restaurantId)),
         ),
         BlocProvider(
           create: (_) => getIt<RestaurantCubit>(),
+        ),
+        BlocProvider(
+          create: (_) => getIt<ProductBloc>(),
         ),
       ],
       child: BlocBuilder<RestaurantDetailsBloc, BaseState<RestaurantDetailsModel>>(
@@ -49,23 +70,63 @@ class RestaurantDetailsScreen extends StatelessWidget {
           }
 
           // ── Success ──
-          final restaurant =
-          state.items.isNotEmpty ? state.items.first : null;
+          final restaurant = state.items.isNotEmpty ? state.items.first : null;
 
           if (restaurant == null) return const SizedBox.shrink();
 
           return Scaffold(
             backgroundColor: AppColors.white,
-            body: ListView(
-              padding: EdgeInsets.zero,
-              physics: const BouncingScrollPhysics(),
-              children: [
-                RestaurantCover(coverUrl: restaurant.coverUrl),
-                RestaurantHeader(restaurant: restaurant),
-                const CustomDivider(),
-                RestaurantSearch(restaurantId: restaurantId),
-                const RestaurantProductsList(),
-              ],
+            body: BlocBuilder<ProductBloc, BaseState<ProductModel>>(
+              builder: (context, productState) {
+                return PullToRefresh(
+                  enableRefresh: true,
+                  enableLoadMore: !productState.hasReachedMax,
+                  onRefresh: () async {
+                    context.read<RestaurantDetailsBloc>().add(FetchRestaurantDetails(restaurantId: widget.restaurantId));
+                    context.read<RestaurantCategoryBloc>().add(FetchRestaurantCategories(restaurantId: widget.restaurantId));
+                    if (currentCategoryId != null) {
+                      context.read<ProductBloc>().add(LoadFirstPage(params: {
+                        'restaurantId': widget.restaurantId,
+                        'categoryId': currentCategoryId,
+                      }));
+                    }
+                  },
+                  onLoadMore: () async {
+                    context.read<ProductBloc>().add(LoadNextPage());
+                  },
+                  builder: (controller) {
+                    return ListView(
+                      controller: controller,
+                      padding: EdgeInsets.zero,
+                      physics: const BouncingScrollPhysics(),
+                      children: [
+                        RestaurantCover(coverUrl: restaurant.coverUrl),
+                        RestaurantHeader(restaurant: restaurant),
+                        const CustomDivider(),
+                        RestaurantSearch(restaurantId: widget.restaurantId),
+                        
+                        // Categories Bar
+                        RestaurantCategoriesBar(
+                          onCategorySelected: (categoryId) {
+                            currentCategoryId = categoryId;
+                            context.read<ProductBloc>().add(LoadFirstPage(params: {
+                              'restaurantId': widget.restaurantId,
+                              'categoryId': categoryId,
+                            }));
+                          },
+                        ),
+                        
+                        const CustomDivider(),
+                        
+                        RestaurantProductsList(
+                          restaurantId: widget.restaurantId,
+                          categoryId: currentCategoryId ?? 0,
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
             ),
             bottomSheet: const CartBottomSheet(),
           );

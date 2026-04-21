@@ -25,7 +25,7 @@ class SearchRestaurantItem extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        context.push(RoutesNames.restaurantDetails, extra: restaurant.id.toString());
+        context.push(RoutesNames.restaurantDetails, extra: restaurant.id);
       },
       child: Card(
 

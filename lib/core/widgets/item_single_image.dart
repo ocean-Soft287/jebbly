@@ -13,6 +13,7 @@ class ItemSingleImage extends StatelessWidget {
       {super.key,
       required this.imageUrl,
       this.categoryId,
+        this.restaurantId,
       this.centerText,
       this.withFavIcon,
       this.available,
@@ -28,6 +29,7 @@ class ItemSingleImage extends StatelessWidget {
       this.centered,
       this.type});
   final int? categoryId;
+  final int? restaurantId;
   final String imageUrl;
   final String? centerText,
       title,
@@ -47,7 +49,7 @@ class ItemSingleImage extends StatelessWidget {
         onTap: () => type == 'category'
             ? context.push(RoutesNames.eatRestaurants, extra: categoryId)
             : type == 'restaurant'? context
-            .push(RoutesNames.restaurantDetails):
+            .push(RoutesNames.restaurantDetails,extra: restaurantId):
         type == 'store'? context.push(RoutesNames.storeDetails):
         null,
         child: Column(
