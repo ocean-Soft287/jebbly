@@ -6,8 +6,10 @@ import 'package:jeebly_mobile/core/theme/styles.dart';
 import 'package:jeebly_mobile/core/widgets/custom_text.dart';
 
 class CounterBox extends StatefulWidget {
-  const CounterBox({super.key, this.initialCount});
+  const CounterBox({super.key, this.initialCount, this.onIncrement, this.onDecrement});
   final int? initialCount;
+  final VoidCallback? onIncrement;
+  final VoidCallback? onDecrement;
 
   @override
   State<CounterBox> createState() => _CounterBoxState();
@@ -26,6 +28,7 @@ class _CounterBoxState extends State<CounterBox> {
     setState(() {
       _counter++;
     });
+    widget.onIncrement?.call();
   }
 
   void _decrement() {
@@ -33,6 +36,7 @@ class _CounterBoxState extends State<CounterBox> {
       setState(() {
         _counter--;
       });
+      widget.onDecrement?.call();
     }
   }
 

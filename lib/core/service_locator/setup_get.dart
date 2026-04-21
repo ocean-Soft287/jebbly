@@ -32,6 +32,8 @@ import '../http/sync_manager.dart';
 import '../local_storage/local_storage.dart';
 import 'auth_service_locator/auth_service_locator.dart';
 import 'jeeply_eat_service_locator/jeebly_eat_service_locator.dart';
+import '../../features/cart/data/data_sources/cart_datasource.dart';
+import '../../features/cart/manager/cart_cubit.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -131,4 +133,11 @@ Future<void> setupLocator() async {
   await HiveServiceLocator.init(getIt: getIt);
   await JeeblyEatServiceLocator.init(getIt: getIt);
   await RestaurantServiceLocator.init(getIt: getIt);
+
+  getIt.registerLazySingleton<CartDataSource>(
+    () => CartDataSourceImpl(getIt<GenericDataSource>()),
+  );
+  getIt.registerFactory<CartCubit>(
+    () => CartCubit(getIt<CartDataSource>()),
+  );
 }

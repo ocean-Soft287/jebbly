@@ -21,6 +21,8 @@ import '../../manager/restaurant_details_bloc/restaurant_details_bloc.dart';
 import '../../manager/restaurant_details_bloc/restaurants_details_event.dart';
 import '../../models/restaurants_details_model.dart';
 import '../../../../../core/bloc/paginated_bloc/paginated_bloc.dart';
+import '../../../../cart/manager/cart_cubit.dart';
+import '../../../../../core/extensions/context_extension.dart';
 
 class RestaurantDetailsScreen extends StatefulWidget {
   final int restaurantId;
@@ -52,8 +54,27 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
         BlocProvider(
           create: (_) => getIt<ProductBloc>(),
         ),
+        BlocProvider(
+          create: (_) => getIt<CartCubit>(),
+        ),
       ],
-      child: BlocBuilder<RestaurantDetailsBloc, BaseState<RestaurantDetailsModel>>(
+      child: BlocListener<CartCubit, CartState>(
+        listener: (context, state) {
+          if (state is CartSuccess) {
+            context.showTopSnackBar(
+              message: state.message,
+              backgroundColor: Colors.green,
+              icon: Icons.check_circle,
+            );
+          } else if (state is CartFailure) {
+            context.showTopSnackBar(
+              message: state.message,
+              backgroundColor: Colors.red,
+              icon: Icons.error,
+            );
+          }
+        },
+        child: BlocBuilder<RestaurantDetailsBloc, BaseState<RestaurantDetailsModel>>(
         builder: (context, state) {
           // ── Loading ──
           if (state.status == Status.loading) {
@@ -132,6 +153,6 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
           );
         },
       ),
-    );
+    ));
   }
 }

@@ -34,4 +34,7 @@ abstract interface class Endpoints {
 
   static const String searchRestaurants = '/api/RestaurantClient/search';
   static const String highRatedRestaurants = 'api/AddRestaurant/HighRatedResturants';
+
+  // ***************************** Cart *******************************
+  static  String addToCart({required int productId}) => 'api/Cart/add/$productId';
 }
