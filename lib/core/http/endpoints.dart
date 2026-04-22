@@ -39,4 +39,27 @@ abstract interface class Endpoints {
   static  String addToCart({required int productId}) => 'api/Cart/add/$productId';
   static  String removeGeneralCart({required int restaurantId}) => 'api/Cart/remove/$restaurantId';
   static  String generalCart =  'api/Cart/GeneralCart';
+  static  String restaurantCart({required int restaurantId}) =>  'api/Cart/restaurant/$restaurantId';
+  static  String cartBill({required int restaurantId}) =>  '/api/cart/restaurant/$restaurantId/bill';
+  static  String cartRecommendations({required int restaurantId}) =>  'api/Cart/cartRecommendations/$restaurantId';
+  static  String updateCartItem({required int restaurantId}) =>  '/api/cart/restaurant/$restaurantId/items';
+  static  String removeCartItem({required int productId, required int restaurantId}) =>  '/api/cart/restaurant/$restaurantId/recommendations';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

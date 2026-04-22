@@ -709,4 +709,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cancel => 'Cancel';
+
+  @override
+  String get title => 'Cart';
+
+  @override
+  String get add_items => 'Add Items';
+
+  @override
+  String get store_note => 'Note to Store';
+
+  @override
+  String get note_hint => 'Write your note here...';
+
+  @override
+  String get recommended_for_you => 'Recommended for You';
+
+  @override
+  String get bill => 'Bill';
+
+  @override
+  String get items_price => 'Items Price';
+
+  @override
+  String get delivery_fee => 'Delivery Fee';
+
+  @override
+  String get service_fee => 'Service Fee';
 }

@@ -43,4 +43,5 @@ class RoutesNames {
   static const String termsAndConditions = '/termsAndConditionsScreen';
   static const String aboutUs = '/aboutUsScreen';
   static const String generalCart = '/generalCartScreen';
+  static const String restaurantCart = '/restaurantCartScreen';
 }

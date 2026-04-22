@@ -6,6 +6,8 @@ import 'package:jeebly_mobile/features/cart/presentation/widgets/product_thumbna
 
 import '../../../../../core/theme/app_text_theme.dart';
 import '../../../../../core/widgets/flexible_image.dart';
+import '../../../../core/routing/routes_names.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../manager/general_cart_bloc/general_cart_bloc.dart';
 import '../../manager/general_cart_bloc/general_cart_event.dart';
 import '../../models/general_cart_model.dart';
@@ -43,38 +45,32 @@ class CartRestaurantCard extends StatelessWidget {
           ViewCartButton(
             totalQuantity: restaurant.totalQuantity,
             totalPrice: restaurant.totalPrice,
-            onTap: () => _goToRestaurantCart(context),
+            onTap: () => context.push(RoutesNames.restaurantCart,extra: restaurant.restaurantId),
           ),
         ],
       ),
     );
   }
 
-  void _goToRestaurantCart(BuildContext context) {
-    // انتقال إلى سلة المطعم المحددة
-    context.pushNamed(
-      'restaurantCart',
-      pathParameters: {'restaurantId': restaurant.restaurantId.toString()},
-    );
-  }
+
 
   Future<void> _confirmDelete(BuildContext context) async {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (_) => AlertDialog(
-        title: Text('cart.delete_title'),
+        title: Text(AppLocalizations.of(context)!.delete_title),
         content: Text(
-          'cart.delete_message',
+          AppLocalizations.of(context)!.delete_message,
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: Text('common.cancel'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: Text('common.delete'),
+            child: Text(AppLocalizations.of(context)!.delete),
           ),
         ],
       ),
@@ -221,7 +217,7 @@ class _AddMoreTile extends StatelessWidget {
             Icon(Icons.add, size: 28.sp, color: Colors.grey.shade700),
             SizedBox(height: 4.h),
             Text(
-              'cart.add',
+              AppLocalizations.of(context)!.add,
               style: AppTextTheme.caption
                   .copyWith(color: Colors.grey.shade700, fontSize: 12.sp),
             ),

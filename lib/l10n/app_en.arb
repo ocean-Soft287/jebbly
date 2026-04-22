@@ -234,6 +234,19 @@
   "error": "An error occurred",
   "retry": "Retry",
   "cancel": "Cancel",
-  "delete": "Delete"
+  "delete": "Delete",
+  "title": "Cart",
+  "closed": "Closed",
+  "add_items": "Add Items",
+  "store_note": "Note to Store",
+  "note_hint": "Write your note here...",
+  "recommended_for_you": "Recommended for You",
+  "bill": "Bill",
+  "items_price": "Items Price",
+  "delivery_fee": "Delivery Fee",
+  "service_fee": "Service Fee",
+  "free": "Free",
+  "total": "Total"
+
 
 }

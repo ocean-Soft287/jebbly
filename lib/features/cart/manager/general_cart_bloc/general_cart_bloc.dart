@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/bloc/base_bloc.dart';
-import '../../datasource/data_sources/general_cart_datasource.dart';
+import '../../datasource/general_cart_datasource.dart';
 import '../../models/general_cart_model.dart';
 import 'general_cart_event.dart';
 

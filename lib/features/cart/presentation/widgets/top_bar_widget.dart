@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/theme/app_text_theme.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../l10n/app_localizations.dart';
 
 class CartTopBar extends StatelessWidget {
   const CartTopBar({super.key});
@@ -32,7 +33,7 @@ class CartTopBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                'cart.deliver_to',
+                AppLocalizations.of(context)!.deliver_to,
                 style: AppTextTheme.caption.copyWith(color: Colors.grey),
               ),
               SizedBox(height: 2.h),
@@ -44,7 +45,7 @@ class CartTopBar extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'cart.home',
+                      AppLocalizations.of(context)!.home,
                       style: AppTextTheme.body1.copyWith(
                         fontWeight: FontWeight.bold,
                         fontSize: 18.sp,

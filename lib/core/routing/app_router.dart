@@ -337,6 +337,19 @@ class AppRouter {
           ),
           state),
     ),
+    GoRoute(
+      path: RoutesNames.restaurantCart,
+      pageBuilder: (context, state) {
+        final int restaurantId = state.extra as int;
+
+        return _slidePageBuilder(
+            BlocProvider(
+              create: (_) => getIt<RestaurantCartBloc>(),
+              child: RestaurantCartScreen(restaurantId: restaurantId),
+            ),
+            state);
+      },
+    ),
   ]);
 
   //======= Navigation Animations Functions =======//

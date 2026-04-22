@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/theme/app_text_theme.dart';
+import '../../../../l10n/app_localizations.dart';
 
 class ViewCartButton extends StatelessWidget {
   final int totalQuantity;
@@ -42,7 +43,7 @@ class ViewCartButton extends StatelessWidget {
             const Spacer(),
             // نص عرض السلة (وسط)
             Text(
-              'cart.view_cart',
+              AppLocalizations.of(context)!.view_cart,
               style: AppTextTheme.body1.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -52,7 +53,7 @@ class ViewCartButton extends StatelessWidget {
             const Spacer(),
             // السعر (يمين في RTL)
             Text(
-              '${totalPrice.toStringAsFixed(2)} ${'cart.currency'}',
+              '${totalPrice.toStringAsFixed(2)} ${AppLocalizations.of(context)!.currency}',
               style: AppTextTheme.body1.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,

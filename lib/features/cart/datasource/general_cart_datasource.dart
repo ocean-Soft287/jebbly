@@ -1,9 +1,9 @@
 import 'package:jeebly_mobile/core/http/endpoints.dart';
 
-import '../../../../core/http/either.dart';
-import '../../../../core/http/failure.dart';
-import '../../../../core/http/generic_data_source.dart';
-import '../../models/general_cart_model.dart';
+import '../../../core/http/either.dart';
+import '../../../core/http/failure.dart';
+import '../../../core/http/generic_data_source.dart';
+import '../models/general_cart_model.dart';
 
 abstract class GeneralCartDataSource {
   Future<Either<Failure, List<GeneralCartModel>>> fetchGeneralCart();

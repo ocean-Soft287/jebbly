@@ -1498,6 +1498,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cancel'**
   String get cancel;
+
+  /// No description provided for @title.
+  ///
+  /// In en, this message translates to:
+  /// **'Cart'**
+  String get title;
+
+  /// No description provided for @add_items.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Items'**
+  String get add_items;
+
+  /// No description provided for @store_note.
+  ///
+  /// In en, this message translates to:
+  /// **'Note to Store'**
+  String get store_note;
+
+  /// No description provided for @note_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Write your note here...'**
+  String get note_hint;
+
+  /// No description provided for @recommended_for_you.
+  ///
+  /// In en, this message translates to:
+  /// **'Recommended for You'**
+  String get recommended_for_you;
+
+  /// No description provided for @bill.
+  ///
+  /// In en, this message translates to:
+  /// **'Bill'**
+  String get bill;
+
+  /// No description provided for @items_price.
+  ///
+  /// In en, this message translates to:
+  /// **'Items Price'**
+  String get items_price;
+
+  /// No description provided for @delivery_fee.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery Fee'**
+  String get delivery_fee;
+
+  /// No description provided for @service_fee.
+  ///
+  /// In en, this message translates to:
+  /// **'Service Fee'**
+  String get service_fee;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

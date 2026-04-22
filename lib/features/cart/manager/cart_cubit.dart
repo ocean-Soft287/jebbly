@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jeebly_mobile/features/cart/datasource/data_sources/cart_datasource.dart';
+import 'package:jeebly_mobile/features/cart/datasource/cart_datasource.dart';
 
 abstract class CartState {}
 

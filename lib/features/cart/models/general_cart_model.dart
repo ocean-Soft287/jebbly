@@ -88,8 +88,8 @@ class CartProductModel extends Equatable {
   });
 
   // اسم المنتج حسب اللغة الحالية مع fallback
-  String displayName(String localeCode) {
-    if (localeCode == 'ar') return nameAr ?? nameEn ?? '';
+  String displayName(bool localeCode) {
+    if (localeCode) return nameAr ?? nameEn ?? '';
     return nameEn ?? nameAr ?? '';
   }
 

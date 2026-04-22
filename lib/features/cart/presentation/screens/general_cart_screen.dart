@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/theme/app_text_theme.dart';
 import '../../../../core/bloc/base_bloc.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../manager/general_cart_bloc/general_cart_bloc.dart';
 import '../../manager/general_cart_bloc/general_cart_event.dart';
 import '../../models/general_cart_model.dart';
@@ -111,7 +112,7 @@ class _ErrorView extends StatelessWidget {
             Icon(Icons.error_outline, size: 56.sp, color: Colors.redAccent),
             SizedBox(height: 12.h),
             Text(
-              message.isEmpty ? 'common.error' : message,
+              message.isEmpty ? AppLocalizations.of(context)!.error : message,
               textAlign: TextAlign.center,
               style: AppTextTheme.body1,
             ),
@@ -121,7 +122,7 @@ class _ErrorView extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primary,
               ),
-              child: Text('common.retry'),
+              child: Text(AppLocalizations.of(context)!.retry),
             ),
           ],
         ),

@@ -235,6 +235,19 @@
   "error": "حدث خطأ",
   "retry": "إعادة المحاولة",
   "cancel": "إلغاء",
-  "delete": "حذف"
+  "delete": "حذف",
+  "title": "السلة",
+  "closed": "مغلق",
+  "add_items": "إضافة عناصر",
+  "store_note": "ملاحظة للمتجر",
+  "note_hint": "اكتب ملاحظتك هنا...",
+  "recommended_for_you": "توصيات مختارة خصيصًا لك",
+  "bill": "الفاتورة",
+  "items_price": "سعر العناصر",
+  "delivery_fee": "سعر التوصيل",
+  "service_fee": "رسوم الخدمة",
+  "free": "مجاني",
+  "total": "الإجمالي"
+
 
 }

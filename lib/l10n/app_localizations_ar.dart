@@ -709,4 +709,31 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get cancel => 'إلغاء';
+
+  @override
+  String get title => 'السلة';
+
+  @override
+  String get add_items => 'إضافة عناصر';
+
+  @override
+  String get store_note => 'ملاحظة للمتجر';
+
+  @override
+  String get note_hint => 'اكتب ملاحظتك هنا...';
+
+  @override
+  String get recommended_for_you => 'توصيات مختارة خصيصًا لك';
+
+  @override
+  String get bill => 'الفاتورة';
+
+  @override
+  String get items_price => 'سعر العناصر';
+
+  @override
+  String get delivery_fee => 'سعر التوصيل';
+
+  @override
+  String get service_fee => 'رسوم الخدمة';
 }
