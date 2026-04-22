@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:jeebly_mobile/core/routing/routes_names.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/widgets/custom_divider.dart';
 import 'package:jeebly_mobile/features/home/restaurants/manager/restaurant_category_bloc/restaurant_category_event.dart';
@@ -149,7 +151,12 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
                 );
               },
             ),
-            bottomSheet: const CartBottomSheet(),
+            bottomSheet: CartBottomSheet(
+
+              onPressed: (){
+                context.push(RoutesNames.restaurantCart, extra: widget.restaurantId);
+              },
+            ),
           );
         },
       ),

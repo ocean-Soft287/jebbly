@@ -8,7 +8,7 @@ import '../models/general_cart_model.dart';
 abstract class GeneralCartDataSource {
   Future<Either<Failure, List<GeneralCartModel>>> fetchGeneralCart();
 
-  Future<Either<Failure, bool>> removeRestaurantCart(int restaurantId);
+  Future<Either<Failure, void>> removeRestaurantCart(int restaurantId);
 }
 
 class GeneralCartDataSourceImpl implements GeneralCartDataSource {
@@ -25,8 +25,8 @@ class GeneralCartDataSourceImpl implements GeneralCartDataSource {
   }
 
   @override
-  Future<Either<Failure, bool>> removeRestaurantCart(int restaurantId) async {
-    return await _genericDataSource.deleteData<bool>(
+  Future<Either<Failure, void>> removeRestaurantCart(int restaurantId) async {
+    return await _genericDataSource.deleteData<void>(
       endpoint: Endpoints.removeGeneralCart(restaurantId: restaurantId),
     );
   }

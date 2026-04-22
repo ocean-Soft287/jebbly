@@ -21,7 +21,7 @@ abstract class RestaurantCartDataSource {
     required int quantity,
   });
 
-  Future<Either<Failure, bool>> removeItem({
+  Future<Either<Failure, void>> removeItem({
     required int restaurantId,
     required int productId,
   });
@@ -79,11 +79,11 @@ class RestaurantCartDataSourceImpl implements RestaurantCartDataSource {
   }
 
   @override
-  Future<Either<Failure, bool>> removeItem({
+  Future<Either<Failure, void>> removeItem({
     required int restaurantId,
     required int productId,
   }) async {
-    return await _genericDataSource.deleteData<bool>(
+    return await _genericDataSource.deleteData<void>(
       endpoint: Endpoints.removeCartItem(
         restaurantId: restaurantId,
         productId: productId,
