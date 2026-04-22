@@ -9,6 +9,10 @@ import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:jeebly_mobile/features/my_orders/views/screens/my_orders_tap.dart';
 import 'package:jeebly_mobile/features/offers/views/screens/offers_tap.dart';
 
+import '../../../../core/service_locator/service_locator.dart';
+import '../../../cart/manager/general_cart_bloc/general_cart_bloc.dart';
+import '../../../cart/presentation/screens/general_cart_screen.dart';
+
 class LayoutCubit extends Cubit<LayoutState> {
   LayoutCubit() : super(LayoutInitial());
 
@@ -21,6 +25,10 @@ class LayoutCubit extends Cubit<LayoutState> {
   List<Widget> get screens => [
         HomeScreen(index: homeIndex), // ✅ homeIndex is now properly handled
         FavTap(),
+        BlocProvider(
+          create: (_) => getIt<GeneralCartBloc>(),
+          child: const GeneralCartScreen(),
+        ),
         OffersTap(),
         MyOrdersTap()
       ];
@@ -56,12 +64,18 @@ class LayoutCubit extends Cubit<LayoutState> {
         BottomNavigationBarItem(
             icon: CustomSVG(
                 assetName: selectedIndex == 2
+                    ? AppAssets.activeCart
+                    : AppAssets.cart),
+            label: AppLocalizations.of(context)!.cart),
+        BottomNavigationBarItem(
+            icon: CustomSVG(
+                assetName: selectedIndex == 3
                     ? AppAssets.activeOffers
                     : AppAssets.inactiveOffers),
             label: AppLocalizations.of(context)!.offers),
         BottomNavigationBarItem(
             icon: CustomSVG(
-                assetName: selectedIndex == 3
+                assetName: selectedIndex == 4
                     ? AppAssets.cart
                     : AppAssets.inactiveOrders),
             label: AppLocalizations.of(context)!.my_orders)

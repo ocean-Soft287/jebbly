@@ -5,10 +5,11 @@ import 'package:jeebly_mobile/core/routing/routes_names.dart';
 import 'package:jeebly_mobile/core/widgets/custom_app_bar.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:jeebly_mobile/features/cart/order_flow/views/widgets/delivery_info.dart';
-import 'package:jeebly_mobile/features/cart/order_flow/views/widgets/order_summary_section.dart';
-import 'package:jeebly_mobile/features/cart/order_flow/views/widgets/payment_methods_list.dart';
 import 'package:jeebly_mobile/features/home/restaurants/views/widgets/cart_bottom_sheet.dart';
+
+import '../widgets/delivery_info.dart';
+import '../widgets/order_summary_section.dart';
+import '../widgets/payment_methods_list.dart';
 
 class OrderConfirmationScreen extends StatelessWidget {
   const OrderConfirmationScreen({super.key});

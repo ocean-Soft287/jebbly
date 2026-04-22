@@ -221,5 +221,19 @@
   "loginSuccess":"Login successful",
   "no_results_found": "No results found",
   "min": "min",
-  "looking_for_a_specific_product": "Looking for a specific product?"
+  "looking_for_a_specific_product": "Looking for a specific product?",
+  "deliver_to": "Deliver to",
+  "home": "Home",
+  "view_cart": "View cart",
+  "currency": "LYD",
+  "add": "Add",
+  "delete_title": "Delete cart",
+  "delete_message": "Do you want to delete the entire cart ?",
+  "empty_title": "Cart is empty",
+  "empty_subtitle": "You haven't added any products yet",
+  "error": "An error occurred",
+  "retry": "Retry",
+  "cancel": "Cancel",
+  "delete": "Delete"
+
 }

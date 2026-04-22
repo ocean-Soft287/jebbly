@@ -16,9 +16,7 @@ class AppRouter {
     // print("Country >>><<<<< $country");
   }
 
-  static final routes = GoRouter(
-      navigatorKey: navigatorKey,
-      routes: [
+  static final routes = GoRouter(navigatorKey: navigatorKey, routes: [
     GoRoute(
         path: "/",
         pageBuilder: (context, state) {
@@ -62,7 +60,7 @@ class AppRouter {
               MultiBlocProvider(providers: [
                 BlocProvider(create: (_) => getIt.get<AuthCubit>()),
                 BlocProvider(create: (_) => getIt.get<LoginCubit>()),
-              ], child:  LoginScreen()),
+              ], child: LoginScreen()),
               state);
         }),
     // Enter Phone
@@ -100,11 +98,14 @@ class AppRouter {
           return _slidePageBuilder(
               MultiBlocProvider(
                 providers: [
-                  BlocProvider(create: (_) => getIt.get<LayoutCubit>()..setHomeIndex(index)),
+                  BlocProvider(
+                      create: (_) =>
+                          getIt.get<LayoutCubit>()..setHomeIndex(index)),
                   BlocProvider.value(value: getIt.get<CategoryBloc>()),
                   BlocProvider.value(value: getIt.get<RestaurantBloc>()),
                   BlocProvider.value(value: getIt.get<SearchRestaurantBloc>()),
-                  BlocProvider.value(value: getIt.get<HighRatedRestaurantsBloc>()),
+                  BlocProvider.value(
+                      value: getIt.get<HighRatedRestaurantsBloc>()),
                 ],
                 child: const LayoutScreen(),
               ),
@@ -124,7 +125,8 @@ class AppRouter {
         path: RoutesNames.eatRestaurants,
         pageBuilder: (_, state) {
           final categoryId = state.extra as int;
-          return _slidePageBuilder(EatRestaurantsScreen(categoryId: categoryId.toString()), state);
+          return _slidePageBuilder(
+              EatRestaurantsScreen(categoryId: categoryId.toString()), state);
         }),
     // Account
     GoRoute(
@@ -170,7 +172,9 @@ class AppRouter {
           return _slidePageBuilder(
               BlocProvider(
                   create: (_) => getIt.get<RestaurantCubit>(),
-                  child:  RestaurantDetailsScreen( restaurantId: id,)),
+                  child: RestaurantDetailsScreen(
+                    restaurantId: id,
+                  )),
               state);
         }),
     // New Restaurants
@@ -267,8 +271,7 @@ class AppRouter {
         pageBuilder: (_, state) {
           final address = state.extra as AddressModel?;
           return _slidePageBuilder(
-              AddEditAddressScreen(address: address),
-              state);
+              AddEditAddressScreen(address: address), state);
         }),
     // Profile Map
     GoRoute(
@@ -318,10 +321,22 @@ class AppRouter {
     GoRoute(
         path: RoutesNames.aboutUs,
         pageBuilder: (_, state) {
-          return _slidePageBuilder(BlocProvider(
-              create: (_) => getIt.get<AccountCubit>(),
-              child: const AboutUsScreen()), state);
-        })
+          return _slidePageBuilder(
+              BlocProvider(
+                  create: (_) => getIt.get<AccountCubit>(),
+                  child: const AboutUsScreen()),
+              state);
+        }),
+    // Cart
+    GoRoute(
+      path: RoutesNames.generalCart,
+      pageBuilder: (context, state) => _slidePageBuilder(
+          BlocProvider(
+            create: (_) => getIt<GeneralCartBloc>(),
+            child: const GeneralCartScreen(),
+          ),
+          state),
+    ),
   ]);
 
   //======= Navigation Animations Functions =======//
@@ -343,8 +358,8 @@ class AppRouter {
         transitionDuration: duration ?? const Duration(milliseconds: 400),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           final slideAnimation =
-          Tween<Offset>(begin: const Offset(1.0, 0.0), end: Offset.zero)
-              .animate(animation);
+              Tween<Offset>(begin: const Offset(1.0, 0.0), end: Offset.zero)
+                  .animate(animation);
 
           return SlideTransition(position: slideAnimation, child: child);
         });

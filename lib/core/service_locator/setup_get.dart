@@ -4,7 +4,6 @@ import 'package:jeebly_mobile/core/helpers/localization/locale_cubit.dart';
 import 'package:jeebly_mobile/core/service_locator/hive_services_locator/hive_services_locator.dart';
 import 'package:jeebly_mobile/core/service_locator/restaurant_service_locator/restaurants_service_locator.dart';
 import 'package:jeebly_mobile/features/auth/cubit/auth_cubit.dart';
-import 'package:jeebly_mobile/features/cart/order_flow/cubit/order_flow_cubit.dart';
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/cubit/account_cubit.dart';
 import 'package:jeebly_mobile/features/drawer/addresses/bloc/addresses_bloc.dart';
 import 'package:jeebly_mobile/features/drawer/addresses/cubit/address_cubit.dart';
@@ -23,6 +22,7 @@ import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/cubit/change_pa
 import 'package:jeebly_mobile/features/drawer/acc%20&%20settings/datasource/change_password_datasource.dart';
 import 'package:jeebly_mobile/features/home/restaurants/manager/restaurannt_bloc/restaurant_bloc.dart';
 import 'package:jeebly_mobile/features/home/restaurants/data/data_sources/restaurant_data_source.dart';
+import '../../features/cart/manager/cubit/order_flow_cubit.dart';
 import '../http/api_consumer.dart';
 import '../http/base_api_consumer.dart';
 import '../http/connectivity_service.dart';
@@ -31,9 +31,8 @@ import '../http/generic_data_source.dart';
 import '../http/sync_manager.dart';
 import '../local_storage/local_storage.dart';
 import 'auth_service_locator/auth_service_locator.dart';
+import 'cart_service_locator/cart_service_locator.dart';
 import 'jeeply_eat_service_locator/jeebly_eat_service_locator.dart';
-import '../../features/cart/data/data_sources/cart_datasource.dart';
-import '../../features/cart/manager/cart_cubit.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -133,11 +132,7 @@ Future<void> setupLocator() async {
   await HiveServiceLocator.init(getIt: getIt);
   await JeeblyEatServiceLocator.init(getIt: getIt);
   await RestaurantServiceLocator.init(getIt: getIt);
+  await CartServiceLocator.init(getIt: getIt);
 
-  getIt.registerLazySingleton<CartDataSource>(
-    () => CartDataSourceImpl(getIt<GenericDataSource>()),
-  );
-  getIt.registerFactory<CartCubit>(
-    () => CartCubit(getIt<CartDataSource>()),
-  );
+
 }

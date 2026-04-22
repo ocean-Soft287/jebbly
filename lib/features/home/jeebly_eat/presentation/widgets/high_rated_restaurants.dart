@@ -47,6 +47,7 @@ class _HighRatedRestaurantsState extends State<HighRatedRestaurants> {
             final String title = context.isArabic ? restaurant.nameAr : restaurant.nameEn;
 
             return ItemSingleImage(
+              restaurantId: restaurant.id,
               type: 'restaurant',
               imageHeight: 105.h,
               imageUrl: imageUrl,

@@ -21,6 +21,7 @@ class AppAssets {
   static const String phone = '$iconsPath/phone.svg';
   static const String myLocation = '$iconsPath/my_location.svg';
   static const String cart = '$iconsPath/cart.svg';
+  static const String activeCart = '$iconsPath/active_cart.svg';
   static const String inactiveExplore = '$iconsPath/inactive_explore.svg';
   static const String activeExplore = '$iconsPath/active_explore.svg';
   static const String inactiveHeart = '$iconsPath/inactive_heart.svg';

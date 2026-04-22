@@ -676,4 +676,37 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get looking_for_a_specific_product => 'هل تبحث عن منتج معين؟';
+
+  @override
+  String get deliver_to => 'التوصيل إلى';
+
+  @override
+  String get view_cart => 'عرض السلة';
+
+  @override
+  String get currency => 'د.ل';
+
+  @override
+  String get add => 'إضافة';
+
+  @override
+  String get delete_title => 'حذف السلة';
+
+  @override
+  String get delete_message => 'هل تريد حذف سلة  بالكامل؟';
+
+  @override
+  String get empty_title => 'السلة فارغة';
+
+  @override
+  String get empty_subtitle => 'لم تقم بإضافة أي منتجات بعد';
+
+  @override
+  String get error => 'حدث خطأ';
+
+  @override
+  String get retry => 'إعادة المحاولة';
+
+  @override
+  String get cancel => 'إلغاء';
 }

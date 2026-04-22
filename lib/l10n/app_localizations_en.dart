@@ -676,4 +676,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get looking_for_a_specific_product => 'Looking for a specific product?';
+
+  @override
+  String get deliver_to => 'Deliver to';
+
+  @override
+  String get view_cart => 'View cart';
+
+  @override
+  String get currency => 'LYD';
+
+  @override
+  String get add => 'Add';
+
+  @override
+  String get delete_title => 'Delete cart';
+
+  @override
+  String get delete_message => 'Do you want to delete the entire cart ?';
+
+  @override
+  String get empty_title => 'Cart is empty';
+
+  @override
+  String get empty_subtitle => 'You haven\'t added any products yet';
+
+  @override
+  String get error => 'An error occurred';
+
+  @override
+  String get retry => 'Retry';
+
+  @override
+  String get cancel => 'Cancel';
 }

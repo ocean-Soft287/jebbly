@@ -42,4 +42,5 @@ class RoutesNames {
   static const String updatePasswordSuccess = '/updatePasswordSuccessScreen';
   static const String termsAndConditions = '/termsAndConditionsScreen';
   static const String aboutUs = '/aboutUsScreen';
+  static const String generalCart = '/generalCartScreen';
 }

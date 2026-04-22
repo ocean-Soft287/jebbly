@@ -1432,6 +1432,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Looking for a specific product?'**
   String get looking_for_a_specific_product;
+
+  /// No description provided for @deliver_to.
+  ///
+  /// In en, this message translates to:
+  /// **'Deliver to'**
+  String get deliver_to;
+
+  /// No description provided for @view_cart.
+  ///
+  /// In en, this message translates to:
+  /// **'View cart'**
+  String get view_cart;
+
+  /// No description provided for @currency.
+  ///
+  /// In en, this message translates to:
+  /// **'LYD'**
+  String get currency;
+
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
+  /// No description provided for @delete_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete cart'**
+  String get delete_title;
+
+  /// No description provided for @delete_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want to delete the entire cart ?'**
+  String get delete_message;
+
+  /// No description provided for @empty_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Cart is empty'**
+  String get empty_title;
+
+  /// No description provided for @empty_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You haven\'t added any products yet'**
+  String get empty_subtitle;
+
+  /// No description provided for @error.
+  ///
+  /// In en, this message translates to:
+  /// **'An error occurred'**
+  String get error;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -37,4 +37,6 @@ abstract interface class Endpoints {
 
   // ***************************** Cart *******************************
   static  String addToCart({required int productId}) => 'api/Cart/add/$productId';
+  static  String removeGeneralCart({required int restaurantId}) => 'api/Cart/remove/$restaurantId';
+  static  String generalCart =  'api/Cart/GeneralCart';
 }

@@ -3,11 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jeebly_mobile/core/helpers/app_assets.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/core/widgets/custom_button.dart';
-import 'package:jeebly_mobile/features/cart/order_flow/views/widgets/payment_method.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jeebly_mobile/features/drawer/wallet/cubit/wallet_cubit.dart';
 import 'package:jeebly_mobile/features/drawer/wallet/cubit/wallet_state.dart';
+
+import '../../../../cart/presentation/widgets/payment_method.dart';
 
 class WalletsBottomSheet extends StatelessWidget {
   const WalletsBottomSheet({super.key});

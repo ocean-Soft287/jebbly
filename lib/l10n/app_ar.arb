@@ -222,5 +222,19 @@
   "loginSuccess":"تم تسجيل الدخول بنجاح",
   "no_results_found": "لم يتم العثور على نتائج",
   "min": "دقيقة",
-  "looking_for_a_specific_product": "هل تبحث عن منتج معين؟"
+  "looking_for_a_specific_product": "هل تبحث عن منتج معين؟",
+  "deliver_to": "التوصيل إلى",
+  "home": "البيت",
+  "view_cart": "عرض السلة",
+  "currency": "د.ل",
+  "add": "إضافة",
+  "delete_title": "حذف السلة",
+  "delete_message": "هل تريد حذف سلة  بالكامل؟",
+  "empty_title": "السلة فارغة",
+  "empty_subtitle": "لم تقم بإضافة أي منتجات بعد",
+  "error": "حدث خطأ",
+  "retry": "إعادة المحاولة",
+  "cancel": "إلغاء",
+  "delete": "حذف"
+
 }

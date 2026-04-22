@@ -10,9 +10,10 @@ import 'package:jeebly_mobile/core/widgets/custom_network_image.dart';
 import 'package:jeebly_mobile/core/widgets/custom_svg.dart';
 import 'package:jeebly_mobile/core/widgets/custom_text.dart';
 import 'package:jeebly_mobile/core/widgets/product/delivery_toggle_button.dart';
-import 'package:jeebly_mobile/features/cart/order_flow/cubit/order_flow_cubit.dart';
-import 'package:jeebly_mobile/features/cart/order_flow/cubit/order_flow_state.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
+
+import '../../manager/cubit/order_flow_cubit.dart';
+import '../../manager/cubit/order_flow_state.dart';
 
 class OrderDetails extends StatelessWidget {
   const OrderDetails({super.key});

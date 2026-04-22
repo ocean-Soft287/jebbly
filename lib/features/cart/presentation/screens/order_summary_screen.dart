@@ -5,10 +5,11 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jeebly_mobile/core/routing/routes_names.dart';
 import 'package:jeebly_mobile/core/widgets/custom_app_bar.dart';
-import 'package:jeebly_mobile/features/cart/order_flow/views/widgets/order_details.dart';
-import 'package:jeebly_mobile/features/cart/order_flow/views/widgets/order_summary_list.dart';
-import 'package:jeebly_mobile/features/cart/order_flow/views/widgets/store_name.dart';
 import 'package:jeebly_mobile/features/home/restaurants/views/widgets/cart_bottom_sheet.dart';
+
+import '../widgets/order_details.dart';
+import '../widgets/order_summary_list.dart';
+import '../widgets/store_name.dart';
 
 class OrderSummaryScreen extends StatelessWidget {
   const OrderSummaryScreen({super.key});

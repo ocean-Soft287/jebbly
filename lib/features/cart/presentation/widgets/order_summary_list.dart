@@ -3,11 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:jeebly_mobile/core/helpers/functions/items_count.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
+import 'package:jeebly_mobile/features/cart/presentation/widgets/price_row.dart';
 import 'package:jeebly_mobile/l10n/app_localizations.dart';
 import 'package:jeebly_mobile/core/theme/styles.dart';
 import 'package:jeebly_mobile/core/widgets/custom_divider.dart';
 import 'package:jeebly_mobile/core/widgets/custom_text.dart';
-import 'package:jeebly_mobile/features/cart/order_flow/views/widgets/price_row.dart';
 
 class OrderSummaryList extends StatelessWidget {
   const OrderSummaryList({super.key});
