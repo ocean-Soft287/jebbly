@@ -10,16 +10,16 @@ import 'qty_selector.dart';
 
 class CartProductTile extends StatelessWidget {
   final CartProductModel product;
-  final VoidCallback onIncrement;
-  final VoidCallback onDecrement;
+  final int restaurantId;
   final VoidCallback onRemove;
+  final ValueChanged<int>? onQuantityChanged;
 
   const CartProductTile({
     super.key,
     required this.product,
-    required this.onIncrement,
-    required this.onDecrement,
+    required this.restaurantId,
     required this.onRemove,
+    this.onQuantityChanged,
   });
 
   @override
@@ -58,8 +58,9 @@ class CartProductTile extends StatelessWidget {
                 SizedBox(height: 10.h),
                 QtySelector(
                   quantity: product.quantity,
-                  onIncrement: onIncrement,
-                  onDecrement: onDecrement,
+                  productId: product.productId,
+                  restaurantId: restaurantId,
+                  onChanged: onQuantityChanged,
                 ),
               ],
             ),

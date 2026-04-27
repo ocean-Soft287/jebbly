@@ -9,9 +9,7 @@ import 'package:jeebly_mobile/core/widgets/counter_box.dart';
 import 'package:jeebly_mobile/core/widgets/custom_network_image.dart';
 import 'package:jeebly_mobile/core/widgets/custom_text.dart';
 import 'package:jeebly_mobile/features/home/restaurants/models/product_model.dart';
-import '../../../../cart/manager/cart_cubit.dart';
 import '../../../../../core/http/endpoints.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RestaurantProduct extends StatelessWidget {
   final ProductModel product;
@@ -51,12 +49,8 @@ class RestaurantProduct extends StatelessWidget {
                 bottom: 0,
                 right: 0,
                 child: CounterBox(
-                  onIncrement: () {
-                    context.read<CartCubit>().addToCart(
-                          productId: product.id,
-                          quantity: 1,
-                        );
-                  },
+                  productId: product.id,
+                  restaurantId: product.restaurantId,
                 ),
               )
             ])

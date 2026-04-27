@@ -9,18 +9,18 @@ import 'cart_product_tile.dart';
 
 class CartProductsCard extends StatelessWidget {
   final List<CartProductModel> products;
-  final void Function(int productId) onIncrement;
-  final void Function(int productId) onDecrement;
+  final int restaurantId;
   final void Function(int productId) onRemove;
   final VoidCallback onAddMore;
+  final ValueChanged<int>? onQuantityChanged;
 
   const CartProductsCard({
     super.key,
     required this.products,
-    required this.onIncrement,
-    required this.onDecrement,
+    required this.restaurantId,
     required this.onRemove,
     required this.onAddMore,
+    this.onQuantityChanged,
   });
 
   @override
@@ -47,9 +47,9 @@ class CartProductsCard extends StatelessWidget {
               children: [
                 CartProductTile(
                   product: p,
-                  onIncrement: () => onIncrement(p.productId),
-                  onDecrement: () => onDecrement(p.productId),
+                  restaurantId: restaurantId,
                   onRemove: () => onRemove(p.productId),
+                  onQuantityChanged: onQuantityChanged,
                 ),
                 if (i < products.length - 1)
                   Divider(height: 1, color: Colors.grey.shade200),

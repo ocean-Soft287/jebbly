@@ -103,15 +103,13 @@ class _RestaurantCartScreenState extends State<RestaurantCartScreen> {
                           SizedBox(height: 16.h),
                           CartProductsCard(
                             products: restaurant.products,
-                            onIncrement: (id) => context
-                                .read<RestaurantCartBloc>()
-                                .add(IncrementProductQty(id)),
-                            onDecrement: (id) => context
-                                .read<RestaurantCartBloc>()
-                                .add(DecrementProductQty(id)),
+                            restaurantId: restaurant.restaurantId,
                             onRemove: (id) => context
                                 .read<RestaurantCartBloc>()
                                 .add(RemoveProductFromCart(id)),
+                            onQuantityChanged: (_) => context
+                                .read<RestaurantCartBloc>()
+                                .add(const RefreshRestaurantCart()),
                             onAddMore: () {
                               // الانتقال لقائمة منتجات المطعم
                               Navigator.pop(context);
