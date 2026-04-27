@@ -18,6 +18,7 @@ class CounterBox extends StatefulWidget {
     this.restaurantId,
     this.onIncrement,
     this.onDecrement,
+    this.onChanged,
   });
 
   final int? initialCount;
@@ -25,6 +26,7 @@ class CounterBox extends StatefulWidget {
   final int? restaurantId;
   final VoidCallback? onIncrement;
   final VoidCallback? onDecrement;
+  final ValueChanged<int>? onChanged;
 
   @override
   State<CounterBox> createState() => _CounterBoxState();
@@ -37,6 +39,16 @@ class _CounterBoxState extends State<CounterBox> {
   void initState() {
     super.initState();
     _counter = widget.initialCount ?? 0;
+  }
+
+  @override
+  void didUpdateWidget(covariant CounterBox oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.initialCount != null &&
+        widget.initialCount != oldWidget.initialCount &&
+        widget.initialCount != _counter) {
+      _counter = widget.initialCount!;
+    }
   }
 
   bool get _hasApi => widget.productId != null && widget.restaurantId != null;
@@ -65,6 +77,7 @@ class _CounterBoxState extends State<CounterBox> {
               if (state is CartSuccess) {
                 setState(() => _counter = 1);
                 widget.onIncrement?.call();
+                widget.onChanged?.call(1);
               }
             },
           ),
@@ -79,6 +92,7 @@ class _CounterBoxState extends State<CounterBox> {
                 } else {
                   widget.onDecrement?.call();
                 }
+                widget.onChanged?.call(newQty);
               }
             },
           ),

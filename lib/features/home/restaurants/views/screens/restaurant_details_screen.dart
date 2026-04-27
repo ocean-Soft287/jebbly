@@ -24,6 +24,8 @@ import '../../manager/restaurant_details_bloc/restaurants_details_event.dart';
 import '../../models/restaurants_details_model.dart';
 import '../../../../../core/bloc/paginated_bloc/paginated_bloc.dart';
 import '../../../../cart/manager/cart_cubit.dart';
+import '../../../../cart/manager/restaurant_cart_bloc/restaurant_cart_bloc.dart';
+import '../../../../cart/manager/restaurant_cart_bloc/restaurant_cart_event.dart';
 import '../../../../../core/extensions/context_extension.dart';
 
 class RestaurantDetailsScreen extends StatefulWidget {
@@ -58,6 +60,10 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
         ),
         BlocProvider(
           create: (_) => getIt<CartCubit>(),
+        ),
+        BlocProvider(
+          create: (_) => getIt<RestaurantCartBloc>()
+            ..add(FetchRestaurantCart(widget.restaurantId)),
         ),
       ],
       child: BlocListener<CartCubit, CartState>(

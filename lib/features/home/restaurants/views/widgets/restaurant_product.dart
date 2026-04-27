@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
@@ -10,6 +11,9 @@ import 'package:jeebly_mobile/core/widgets/custom_network_image.dart';
 import 'package:jeebly_mobile/core/widgets/custom_text.dart';
 import 'package:jeebly_mobile/features/home/restaurants/models/product_model.dart';
 import '../../../../../core/http/endpoints.dart';
+import '../../../../cart/manager/restaurant_cart_bloc/restaurant_cart_bloc.dart';
+import '../../../../cart/manager/restaurant_cart_bloc/restaurant_cart_event.dart';
+import '../../../../cart/manager/restaurant_cart_bloc/restaurant_cart_state.dart';
 
 class RestaurantProduct extends StatelessWidget {
   final ProductModel product;
@@ -26,7 +30,7 @@ class RestaurantProduct extends StatelessWidget {
             Expanded(
               child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                
+
                 CustomText(product.nameAr, style: Styles.textStyle16_600, maxLines: 1, overflow: TextOverflow.ellipsis),
                 Gap(4.h),
                 CustomText(product.descriptionAr, style: Styles.textStyle12_400.copyWith(color: Colors.grey), maxLines: 2, overflow: TextOverflow.ellipsis),
@@ -48,9 +52,25 @@ class RestaurantProduct extends StatelessWidget {
               Positioned(
                 bottom: 0,
                 right: 0,
-                child: CounterBox(
-                  productId: product.id,
-                  restaurantId: product.restaurantId,
+                child: BlocSelector<RestaurantCartBloc, RestaurantCartState, int>(
+                  selector: (state) {
+                    final products = state.restaurant?.products ?? const [];
+                    for (final p in products) {
+                      if (p.productId == product.id) return p.quantity;
+                    }
+                    return 0;
+                  },
+                  builder: (context, cartQty) {
+                    return CounterBox(
+                      key: ValueKey('counter_${product.id}'),
+                      productId: product.id,
+                      restaurantId: product.restaurantId,
+                      initialCount: cartQty,
+                      onChanged: (_) => context
+                          .read<RestaurantCartBloc>()
+                          .add(const RefreshRestaurantCart()),
+                    );
+                  },
                 ),
               )
             ])
