@@ -83,24 +83,3 @@ class _AllRestaurantsState extends State<AllRestaurants> {
     );
   }
 }
-
-//
-// ItemSingleImage(
-// type: 'restaurant',
-// imageUrl: item.logo != "" ? 'https://jeebly.runasp.net${item.logo}' : '',
-// imageWidth: width - 20.w,
-// imageHeight: 120.h,
-// withFavIcon: true,
-// available: item.status == 'Active',
-// centered: true,
-// title: Localizations.localeOf(context).languageCode == 'ar'
-// ? (item.nameOfResturantAr != "" ? item.nameOfResturantAr : item.nameOfResturantOwner)
-//     : (item.nameOfResturantEn != "" ? item.nameOfResturantEn : item.nameOfResturantOwner),
-// distance: '1.3', // Static for now as not in response
-// subtitle: Localizations.localeOf(context).languageCode == 'ar'
-// ? (item.descriptionAr != "" ? item.descriptionAr : item.areaOfResturantAr)
-//     : (item.descriptionEn != "" ? item.descriptionEn : item.areaOfResturantEn),
-// deliveryPrice: '7.5', // Static for now as not in response
-// totalRating: item.rate.toString(),
-// rateCount: '614' // Static for now as not in response
-// )

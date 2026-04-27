@@ -1,7 +1,8 @@
 part of '../../jeebly_eat_imports.dart';
 
 class JeeblyEat extends StatefulWidget {
-  const JeeblyEat({super.key});
+ final  int serviceId ;
+  const JeeblyEat({super.key, required this.serviceId});
 
   @override
   State<JeeblyEat> createState() => _JeeblyEatState();
@@ -27,7 +28,7 @@ class _JeeblyEatState extends State<JeeblyEat> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            EatCategories(),
+            EatCategories(serviceId: widget.serviceId,),
             Gap(12.h),
             HighRatedRestaurants(),
             Gap(12.h),

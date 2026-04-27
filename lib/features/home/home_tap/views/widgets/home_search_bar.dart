@@ -6,7 +6,9 @@ import '../../../../../core/routing/routes_names.dart';
 
 class HomeSearchBar extends StatelessWidget {
   const HomeSearchBar({super.key, required this.index});
+
   final int index;
+
   @override
   Widget build(BuildContext context) {
     return CustomSearchBar(
@@ -14,9 +16,7 @@ class HomeSearchBar extends StatelessWidget {
           ? AppLocalizations.of(context)!.search_for_product_or_store
           : AppLocalizations.of(context)!.search_for_restaurant_or_item,
       onTap: () {
-        if (index == 0) {
-          context.push(RoutesNames.searchRestaurants);
-        }
+        context.push(RoutesNames.searchRestaurants);
       },
     );
   }

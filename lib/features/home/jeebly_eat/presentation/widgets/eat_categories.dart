@@ -1,9 +1,10 @@
 part of '../../jeebly_eat_imports.dart';
 
 class EatCategories extends StatefulWidget {
-  const EatCategories({super.key});
 
-  static const int _serviceId = 1;
+ const  EatCategories({super.key,required this.serviceId});
+
+ final  int serviceId ;
 
   @override
   State<EatCategories> createState() => _EatCategoriesState();
@@ -13,7 +14,7 @@ class _EatCategoriesState extends State<EatCategories> {
   @override
   void initState() {
     super.initState();
-    context.read<CategoryBloc>().add(const FetchCategories(serviceId: EatCategories._serviceId));
+    context.read<CategoryBloc>().add( FetchCategories(serviceId: widget.serviceId));
   }
 
   @override
