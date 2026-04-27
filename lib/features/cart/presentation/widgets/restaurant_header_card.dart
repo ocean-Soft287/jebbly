@@ -33,32 +33,16 @@ class RestaurantHeaderCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // سهم الدخول إلى صفحة المطعم (يسار)
-          Icon(
-            Icons.arrow_back_ios,
-            size: 18.sp,
-            color: Colors.grey.shade500,
-          ),
-          SizedBox(width: 8.w),
-          // badge "مغلق" — اختياري
-          if (isClosed)
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
-              decoration: BoxDecoration(
-                color: const Color(0xFFFFE5E5),
-                borderRadius: BorderRadius.circular(8.r),
-              ),
-              child: Text(
-                AppLocalizations.of(context)!.closed,
-                style: AppTextTheme.caption.copyWith(
-                  color: Colors.red.shade400,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 12.sp,
-                ),
-              ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(50.r),
+            child: FlexibleImage(
+              source: restaurant.logo,
+              width: 60.w,
+              height: 60.w,
+              fit: BoxFit.cover,
             ),
-          const Spacer(),
-          // اسم المطعم + التقييم (يمين)
+          ),
+          SizedBox(width: 10.w),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -96,17 +80,35 @@ class RestaurantHeaderCard extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(width: 10.w),
-          // شعار المطعم
-          ClipRRect(
-            borderRadius: BorderRadius.circular(50.r),
-            child: FlexibleImage(
-              source: restaurant.logo,
-              width: 60.w,
-              height: 60.w,
-              fit: BoxFit.cover,
+          // سهم الدخول إلى صفحة المطعم (يسار)
+
+          const Spacer(),
+          // badge "مغلق" — اختياري
+          if (isClosed)
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
+              decoration: BoxDecoration(
+                color: const Color(0xFFFFE5E5),
+                borderRadius: BorderRadius.circular(8.r),
+              ),
+              child: Text(
+                AppLocalizations.of(context)!.closed,
+                style: AppTextTheme.caption.copyWith(
+                  color: Colors.red.shade400,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12.sp,
+                ),
+              ),
             ),
+
+          // اسم المطعم + التقييم (يمين)
+          SizedBox(width: 8.w),
+          Icon(
+            Icons.arrow_forward_ios,
+            size: 18.sp,
+            color: Colors.grey.shade500,
           ),
+          // شعار المطعم
         ],
       ),
     );

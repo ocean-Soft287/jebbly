@@ -35,7 +35,7 @@ class _HighRatedRestaurantsState extends State<HighRatedRestaurants> {
           return const SizedBox.shrink();
         }
 
-        const String baseUrl = 'https://jeebly.runasp.net';
+        const String baseUrl = 'https://jebbly.runasp.net';
 
         return Item(
           withFooter: true,

@@ -3,7 +3,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jeebly_mobile/core/bloc/base_bloc.dart';
-import 'package:jeebly_mobile/core/http/endpoints.dart';
 import 'package:jeebly_mobile/core/theme/app_colors.dart';
 import 'package:jeebly_mobile/features/home/bloc/ads_bloc.dart';
 import 'package:jeebly_mobile/features/home/data/models/ad_model.dart';
@@ -49,7 +48,7 @@ class _AdsSliderState extends State<AdsSlider> {
                       });
                     }),
                 items: state.items.map((ad) {
-                  return AdCard(url: '${Endpoints.baseUrl}${ad.coverUrl}');
+                  return AdCard(url: ad.coverUrl);
                 }).toList()),
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -30,7 +30,41 @@ class CartProductTile extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
       child: Row(
         children: [
-          // أيقونة الحذف + السعر (يسار)
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12.r),
+            child: FlexibleImage(
+              source: product.imageUrl ?? '',
+              width: 70.w,
+              height: 70.w,
+              fit: BoxFit.cover,
+            ),
+          ),
+          SizedBox(width: 10.w),
+          Expanded(
+            flex: 3,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  product.displayName(locale),
+                  style: AppTextTheme.body1.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.sp,
+                  ),
+                  textAlign: TextAlign.end,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                SizedBox(height: 10.h),
+                QtySelector(
+                  quantity: product.quantity,
+                  onIncrement: onIncrement,
+                  onDecrement: onDecrement,
+                ),
+              ],
+            ),
+          ),
+          const Spacer(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -55,43 +89,6 @@ class CartProductTile extends StatelessWidget {
                 ),
               ),
             ],
-          ),
-          const Spacer(),
-          // الاسم + منتقي الكمية (وسط-يمين)
-          Expanded(
-            flex: 3,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  product.displayName(locale),
-                  style: AppTextTheme.body1.copyWith(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15.sp,
-                  ),
-                  textAlign: TextAlign.end,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                SizedBox(height: 10.h),
-                QtySelector(
-                  quantity: product.quantity,
-                  onIncrement: onIncrement,
-                  onDecrement: onDecrement,
-                ),
-              ],
-            ),
-          ),
-          SizedBox(width: 10.w),
-          // صورة المنتج (يمين)
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12.r),
-            child: FlexibleImage(
-              source: product.imageUrl ?? '',
-              width: 70.w,
-              height: 70.w,
-              fit: BoxFit.cover,
-            ),
           ),
         ],
       ),

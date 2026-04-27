@@ -54,7 +54,12 @@ class _StoreNoteSectionState extends State<StoreNoteSection> {
             ),
             child: Row(
               children: [
-                const Spacer(),
+                Icon(
+                  Icons.edit_note,
+                  color: AppColors.ketchup1,
+                  size: 22.sp,
+                ),
+                SizedBox(width: 6.w),
                 Text(
                   AppLocalizations.of(context)!.store_note,
                   style: AppTextTheme.body1.copyWith(
@@ -62,16 +67,9 @@ class _StoreNoteSectionState extends State<StoreNoteSection> {
                     fontSize: 15.sp,
                   ),
                 ),
-                SizedBox(width: 6.w),
-                Icon(
-                  Icons.edit_note,
-                  color: AppColors.ketchup1,
-                  size: 22.sp,
-                ),
               ],
             ),
           ),
-          // حقل الإدخال
           Padding(
             padding: EdgeInsets.all(12.w),
             child: TextField(
@@ -84,7 +82,7 @@ class _StoreNoteSectionState extends State<StoreNoteSection> {
                 hintStyle: AppTextTheme.body1
                     .copyWith(color: Colors.grey.shade500, fontSize: 14.sp),
                 contentPadding:
-                EdgeInsets.symmetric(horizontal: 14.w, vertical: 10.h),
+                    EdgeInsets.symmetric(horizontal: 14.w, vertical: 10.h),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30.r),
                   borderSide: BorderSide(color: Colors.grey.shade300),

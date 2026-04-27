@@ -12,7 +12,7 @@ class BillSummaryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           AppLocalizations.of(context)!.bill,
@@ -110,11 +110,10 @@ class _BillRow extends StatelessWidget {
 
     return Row(
       children: [
-        // القيمة على اليسار
-        valueWidget ?? Text(value ?? '', style: style),
-        const Spacer(),
-        // التسمية على اليمين
         Text(label, style: style),
+
+        const Spacer(),
+        valueWidget ?? Text(value ?? '', style: style),
       ],
     );
   }

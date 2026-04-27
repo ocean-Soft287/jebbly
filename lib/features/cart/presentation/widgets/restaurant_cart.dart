@@ -93,21 +93,16 @@ class _CardHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        // أيقونة الحذف على اليسار
-        InkWell(
-          onTap: onDelete,
-          borderRadius: BorderRadius.circular(8.r),
-          child: Padding(
-            padding: EdgeInsets.all(6.w),
-            child: Icon(
-              Icons.delete_outline,
-              color: Colors.grey.shade700,
-              size: 22.sp,
-            ),
-          ),
+        ClipRRect(
+        borderRadius: BorderRadius.circular(50.r),
+        child: FlexibleImage(
+          source: restaurant.logo,
+          width: 60.w,
+          height: 60.w,
+          fit: BoxFit.cover,
         ),
-        const Spacer(),
-        // اسم المطعم + التقييم (يمين في RTL)
+      ),
+        SizedBox(width: 10.w),
         Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
@@ -142,17 +137,25 @@ class _CardHeader extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(width: 10.w),
-        // شعار المطعم
-        ClipRRect(
-          borderRadius: BorderRadius.circular(50.r),
-          child: FlexibleImage(
-            source: restaurant.logo,
-            width: 60.w,
-            height: 60.w,
-            fit: BoxFit.cover,
+        const Spacer(), // أيقونة الحذف على اليسار
+        InkWell(
+          onTap: onDelete,
+          borderRadius: BorderRadius.circular(8.r),
+          child: Padding(
+            padding: EdgeInsets.all(6.w),
+            child: Icon(
+              Icons.delete_outline,
+              color: Colors.grey.shade700,
+              size: 22.sp,
+            ),
           ),
         ),
+
+        // اسم المطعم + التقييم (يمين في RTL)
+
+
+        // شعار المطعم
+
       ],
     );
   }

@@ -11,7 +11,7 @@ class AdModel extends Equatable {
 
   factory AdModel.fromJson(Map<String, dynamic> json) {
     return AdModel(
-      id: json['id'] as int,
+      id: json['resturantid'] as int,
       coverUrl: json['coverUrl'] as String,
     );
   }

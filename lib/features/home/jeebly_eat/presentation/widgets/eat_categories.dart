@@ -129,7 +129,7 @@ class CategoryCard extends StatelessWidget {
               ),
               //. blur widget
               BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
 
                 child: ColoredBox(color: Colors.black12),
               ),
