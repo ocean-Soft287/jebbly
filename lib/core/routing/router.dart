@@ -47,6 +47,7 @@ import 'package:jeebly_mobile/core/bloc/paginated_bloc/paginated_bloc.dart';
 import '../../features/auth/cubit/login_cubit/login_cubit.dart';
 import '../../features/auth/cubit/register_cubit/register_cubit.dart';
 import '../../features/auth/data/repo/register_data_source.dart';
+import '../../features/cart/manager/cart_cubit.dart';
 import '../../features/cart/manager/cubit/order_flow_cubit.dart';
 import '../../features/cart/manager/general_cart_bloc/general_cart_bloc.dart';
 import '../../features/cart/manager/restaurant_cart_bloc/restaurant_cart_bloc.dart';
@@ -55,6 +56,9 @@ import '../../features/cart/presentation/screens/order_confirmation_screen.dart'
 import '../../features/cart/presentation/screens/order_status_screen.dart';
 import '../../features/cart/presentation/screens/order_summary_screen.dart';
 import '../../features/cart/presentation/screens/restaurant_cart_screen.dart';
+import '../../features/home/restaurants/manager/product_bloc/product_bloc.dart';
+import '../../features/home/restaurants/manager/restaurant_category_bloc/restaurant_category_bloc.dart';
+import '../../features/home/restaurants/manager/restaurant_details_bloc/restaurant_details_bloc.dart';
 import '../../features/home/restaurants/models/restaurant_model.dart';
 import '../../features/home/jeebly_eat/manager/search_restaurant_bloc/search_restaurant_bloc.dart';
 import '../../features/home/jeebly_eat/presentation/screens/search_restaurants_screen.dart';

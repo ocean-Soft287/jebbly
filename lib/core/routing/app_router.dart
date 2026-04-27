@@ -170,11 +170,34 @@ class AppRouter {
         pageBuilder: (_, state) {
           final id = state.extra as int;
           return _slidePageBuilder(
-              BlocProvider(
-                  create: (_) => getIt.get<RestaurantCubit>(),
-                  child: RestaurantDetailsScreen(
-                    restaurantId: id,
-                  )),
+              MultiBlocProvider(
+                providers: [
+                  BlocProvider(
+                    create: (_) => getIt<RestaurantDetailsBloc>(),
+                  ),
+                  BlocProvider(
+                    create: (_) => getIt<RestaurantCategoryBloc>(),
+                  ),
+                  BlocProvider(
+                    create: (_) => getIt<RestaurantCubit>(),
+                  ),
+                  BlocProvider(
+                    create: (_) => getIt<ProductBloc>(),
+                  ),
+                  BlocProvider(
+                    create: (_) => getIt<CartCubit>(),
+                  ),
+                  BlocProvider(
+                    create: (_) => getIt<RestaurantCubit>(),
+                  ),
+                  BlocProvider(
+                    create: (_) => getIt<RestaurantCartBloc>(),
+                  ),
+                ],
+                child: RestaurantDetailsScreen(
+                  restaurantId: id,
+                ),
+              ),
               state);
         }),
     // New Restaurants
